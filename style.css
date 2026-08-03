@@ -1,0 +1,362 @@
+:root {
+  --cream: #f2ead9;
+  --cream-dim: #e8ddc4;
+  --stone: #d8cba9;
+  --ink: #2b211a;
+  --ink-soft: #5a4d3f;
+  --red: #8c2f1b;
+  --red-dark: #6d2313;
+  --gold: #b8912a;
+  --teal: #3e5c4e;
+  --terracotta: #a85a2a;
+  --olive: #6b7a3a;
+  --sky: #4a6b7a;
+
+  --cat-monumento: var(--red);
+  --cat-museo: var(--gold);
+  --cat-plaza: var(--teal);
+  --cat-barrio: var(--terracotta);
+  --cat-mercado: var(--olive);
+  --cat-mirador: var(--sky);
+  --cat-parque: #4f7a4a;
+  --cat-freetour: var(--gold);
+
+  --radius: 4px;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+button { font-family: inherit; }
+
+/* ---------- HEADER ---------- */
+.site-header {
+  background: var(--red);
+  background-image:
+    repeating-linear-gradient(135deg, rgba(0,0,0,0.06) 0 2px, transparent 2px 14px);
+  color: var(--cream);
+  padding: 22px 16px 18px;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.header-inner .eyebrow {
+  margin: 0 0 4px;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+.header-inner h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 2.6rem;
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.header-inner .dates {
+  margin: 4px 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--cream-dim);
+}
+
+/* ---------- VIEW SWITCH ---------- */
+.view-switch {
+  display: flex;
+  background: var(--stone);
+  border-bottom: 1px solid var(--ink-soft);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.view-btn {
+  flex: 1;
+  padding: 12px 8px;
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+}
+.view-btn.is-active {
+  color: var(--red);
+  font-weight: 700;
+  border-bottom-color: var(--red);
+}
+
+/* ---------- VIEWS ---------- */
+.view { display: none; padding-bottom: 40px; }
+.view.is-active { display: block; }
+
+/* ---------- DAY TABS ---------- */
+.day-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 14px 12px 4px;
+  overflow-x: auto;
+}
+.day-tab {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--ink-soft);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.day-tab.is-active {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--cream);
+}
+
+/* ---------- MILESTONE TIMELINE (signature element) ---------- */
+.milestone-track {
+  position: relative;
+  padding: 24px 16px 8px 28px;
+}
+.milestone-day-title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: var(--red-dark);
+  margin: 0 0 18px 2px;
+}
+.milestone-list {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.milestone-list::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background: repeating-linear-gradient(
+    to bottom, var(--stone) 0 10px, var(--ink-soft) 10px 12px
+  );
+  border-radius: 2px;
+}
+.milestone-item {
+  position: relative;
+  padding: 0 0 22px 30px;
+}
+.milestone-marker {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  border: 2px solid var(--ink);
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.milestone-marker::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cat-color, var(--red));
+}
+.milestone-time {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.03em;
+}
+.milestone-card {
+  margin-top: 3px;
+  background: #fff;
+  border: 1px solid var(--stone);
+  border-left: 4px solid var(--cat-color, var(--red));
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.milestone-card h3 {
+  margin: 0 0 2px;
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  color: var(--ink);
+}
+.milestone-card p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  line-height: 1.35;
+}
+.milestone-plain {
+  padding: 4px 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---------- FILTER ROW ---------- */
+.filter-row {
+  display: flex;
+  gap: 6px;
+  padding: 12px;
+  overflow-x: auto;
+}
+.filter-chip {
+  flex: 0 0 auto;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--cat-color, var(--ink-soft));
+  background: #fff;
+  color: var(--cat-color, var(--ink));
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+.filter-chip.is-active {
+  background: var(--cat-color, var(--ink-soft));
+  color: #fff;
+}
+
+/* ---------- MAP ---------- */
+#map {
+  height: calc(100vh - 220px);
+  min-height: 420px;
+  border-top: 1px solid var(--stone);
+}
+.leaflet-popup-content h3 { margin: 0 0 4px; font-family: var(--serif); }
+.leaflet-popup-content p { margin: 0; font-size: 0.82rem; }
+
+/* ---------- PLACES GRID ---------- */
+.places-grid {
+  padding: 4px 12px 24px;
+  display: grid;
+  gap: 10px;
+}
+.place-card {
+  background: #fff;
+  border: 1px solid var(--stone);
+  border-left: 4px solid var(--cat-color, var(--red));
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  cursor: pointer;
+}
+.place-card .cat-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cat-color, var(--ink-soft));
+  font-weight: 700;
+}
+.place-card h3 {
+  margin: 2px 0 4px;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+}
+.place-card p {
+  margin: 0;
+  font-size: 0.83rem;
+  color: var(--ink-soft);
+  line-height: 1.35;
+}
+
+/* ---------- BOTTOM SHEET ---------- */
+.sheet-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(43,33,26,0.5);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 40;
+}
+.sheet-backdrop.is-open { opacity: 1; pointer-events: auto; }
+
+.sheet {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  max-height: 82vh;
+  background: var(--cream);
+  border-top: 3px solid var(--gold);
+  border-radius: 14px 14px 0 0;
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+  z-index: 50;
+  overflow-y: auto;
+  padding-bottom: 24px;
+}
+.sheet.is-open { transform: translateY(0); }
+.sheet-handle {
+  width: 40px; height: 4px;
+  background: var(--stone);
+  border-radius: 2px;
+  margin: 10px auto 4px;
+}
+.sheet-content { padding: 8px 18px 10px; }
+.sheet-content .cat-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 700;
+  color: var(--cat-color, var(--red));
+}
+.sheet-content h2 {
+  margin: 4px 0 10px;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+.sheet-content .sheet-section {
+  margin-top: 16px;
+}
+.sheet-content .sheet-section h4 {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--stone);
+  padding-bottom: 4px;
+}
+.sheet-content p { margin: 0 0 8px; font-size: 0.9rem; line-height: 1.45; }
+.sheet-content .fact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+  font-size: 0.82rem;
+}
+.sheet-content .fact-grid dt { color: var(--ink-soft); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.sheet-content .fact-grid dd { margin: 0; font-weight: 600; }
+.eat-item, .photo-item {
+  border-left: 3px solid var(--stone);
+  padding: 4px 0 4px 10px;
+  margin-bottom: 8px;
+}
+.eat-item strong, .photo-item strong { font-size: 0.9rem; }
+.eat-item span, .photo-item span { display: block; font-size: 0.78rem; color: var(--ink-soft); }
+
+@media (min-width: 700px) {
+  .places-grid { grid-template-columns: 1fr 1fr; }
+  .sheet { max-width: 480px; left: auto; right: 24px; bottom: 24px; border-radius: 14px; max-height: 80vh; }
+  .sheet-backdrop.is-open ~ .sheet { transform: translateY(0); }
+}
