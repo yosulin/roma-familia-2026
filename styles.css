@@ -141,9 +141,23 @@ button { font-family: inherit; }
 .sheet-content .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; font-size: 0.82rem; background: var(--bg); border-radius: var(--radius-sm); padding: 12px; }
 .sheet-content .fact-grid dt { color: var(--ink-faint); font-size: 0.7rem; font-weight: 600; }
 .sheet-content .fact-grid dd { margin: 0; font-weight: 700; }
-.eat-item, .photo-item { border-left: 3px solid var(--border); padding: 4px 0 4px 10px; margin-bottom: 8px; }
+.eat-item, .photo-item {
+  display: block;
+  border-left: 3px solid var(--border);
+  padding: 4px 0 4px 10px; margin-bottom: 8px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 0 6px 6px 0;
+  transition: background 0.15s;
+}
+.eat-item:hover, .photo-item:hover,
+.eat-item:active, .photo-item:active {
+  background: var(--bg);
+  border-left-color: var(--accent);
+}
 .eat-item strong, .photo-item strong { font-size: 0.9rem; }
 .eat-item span, .photo-item span { display: block; font-size: 0.78rem; color: var(--ink-soft); }
+.pin-hint { font-size: 0.8em; opacity: 0.7; }
 
 @media (min-width: 700px) {
   .places-grid { grid-template-columns: 1fr 1fr; }

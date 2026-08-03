@@ -4,7 +4,7 @@
 //
 // REGLA: cada vez que cambies cualquier archivo listado en ASSETS,
 // sube VERSION. scripts/sw-lint.py falla el commit si te olvidas.
-const VERSION = 'roma-2026.08.03-2';
+const VERSION = 'roma-2026.08.03-3';
 const CACHE_NAME = `app-cache-${VERSION}`;
 const TILE_CACHE = `map-tiles-${VERSION}`;
 const TILE_HOST_PATTERN = /tile\.openstreetmap\.org/;

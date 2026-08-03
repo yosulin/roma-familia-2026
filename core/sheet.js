@@ -4,7 +4,7 @@
 // nombre/categoria/coordenadas.
 
 import { catVar } from './categoryColors.js';
-import { mapsUrl, directionsUrl } from './maps.js';
+import { mapsUrl, directionsUrl, searchTextUrl } from './maps.js';
 import { toggleAudioguide } from './audioguide.js';
 import { isVisited, toggleVisited } from './visited.js';
 
@@ -20,21 +20,29 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
   const content = document.getElementById('sheetContent');
   const catColor = catVar(categoryColorMap, lugar.categoria);
 
-  const eats = (lugar.sitios_para_comer || []).map((r) => `
-    <div class="eat-item">
-      <strong>${r.nombre}</strong>
+  const eats = (lugar.sitios_para_comer || []).map((r) => {
+    const url = r.coordenadas
+      ? mapsUrl(r)
+      : searchTextUrl(`${r.nombre} ${lugar.zona || lugar.nombre}`);
+    return `
+    <a class="eat-item" href="${url}" target="_blank" rel="noopener">
+      <strong>${r.nombre} <span class="pin-hint">📍</span></strong>
       <span>${r.especialidad || r.tipo || ''} · ${r.precio_aprox_persona || ''} · ${r.puntuacion || ''}</span>
       <span>${r.distancia_aprox || ''}${r.necesita_reserva !== undefined ? ' · reserva: ' + r.necesita_reserva : ''}</span>
-    </div>
-  `).join('') || '';
+    </a>
+  `;
+  }).join('');
 
-  const photos = (lugar.spots_fotografia || []).map((p) => `
-    <div class="photo-item">
-      <strong>${p.nombre}</strong>
+  const photos = (lugar.spots_fotografia || []).map((p) => {
+    const url = p.coordenadas ? mapsUrl(p) : searchTextUrl(`${p.nombre} ${lugar.zona || lugar.nombre}`);
+    return `
+    <a class="photo-item" href="${url}" target="_blank" rel="noopener">
+      <strong>${p.nombre} <span class="pin-hint">📍</span></strong>
       <span>${p.mejor_hora || ''} · ${p.duracion_recomendada || ''}</span>
       <span>${p.por_que || ''}</span>
-    </div>
-  `).join('');
+    </a>
+  `;
+  }).join('');
 
   const priorityTag = lugar.prioridad
     ? `<span class="priority-tag priority-${lugar.prioridad}">${lugar.prioridad === 'imprescindible' ? '★ ' : ''}${PRIO_LABELS[lugar.prioridad] || lugar.prioridad}</span>`
