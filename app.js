@@ -210,12 +210,14 @@ function buildFilterRows() {
 
   const hasPriority = DATA.lugares.some((l) => l.prioridad);
   if (hasPriority) {
-    buildChips('prioridadFilters', [
-      { value: 'todas', label: 'Todos los niveles' },
-      { value: 'imprescindible', label: '★ Imprescindibles' },
-      { value: 'recomendado', label: 'Recomendado' },
-      { value: 'opcional', label: 'Opcional' }
-    ], { onSelect: (v) => { activePrioFilter = v; renderLugares(); } });
+    const starBtn = document.getElementById('starToggle');
+    starBtn.addEventListener('click', () => {
+      activePrioFilter = activePrioFilter === 'imprescindible' ? 'todas' : 'imprescindible';
+      starBtn.classList.toggle('is-active', activePrioFilter === 'imprescindible');
+      renderLugares();
+    });
+  } else {
+    document.getElementById('starToggle')?.remove();
   }
 
   setupSearchInput('searchInput', (value) => { searchQuery = value; renderLugares(); });
