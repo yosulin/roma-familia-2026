@@ -33,6 +33,14 @@ async function searchPhoto(query) {
   return (data.results && data.results[0]) || null;
 }
 
+function cleanQuery(nombre) {
+  return nombre
+    .replace(/\([^)]*\)/g, '')       // quita paréntesis: "Giardino (Parco Savello)" -> "Giardino"
+    .split(/\s+y\s+/i)[0]            // "Foro Romano y Palatino" -> "Foro Romano"
+    .replace(/^Free Tour\s*/i, '')   // "Free Tour Centro Histórico" -> "Centro Histórico"
+    .trim();
+}
+
 async function main() {
   const raw = readFileSync(jsonPath, 'utf-8');
   const data = JSON.parse(raw);
@@ -41,9 +49,17 @@ async function main() {
   for (const lugar of data.lugares) {
     if (lugar.imagen) continue; // ya tiene foto (manual o resuelta antes): no la tocamos
 
-    const query = `${lugar.nombre} ${querySuffix}`.trim();
+    const cleaned = cleanQuery(lugar.nombre);
+    let query = `${cleaned} ${querySuffix}`.trim();
     process.stdout.write(`Resolviendo "${query}"... `);
-    const photo = await searchPhoto(query);
+    let photo = await searchPhoto(query);
+
+    if (!photo && cleaned !== lugar.nombre) {
+      await sleep(1100);
+      query = `${lugar.nombre.replace(/[()]/g, '')} ${querySuffix}`.trim();
+      process.stdout.write(`reintentando "${query}"... `);
+      photo = await searchPhoto(query);
+    }
 
     if (!photo) {
       console.log('sin resultado');
