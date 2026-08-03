@@ -251,10 +251,11 @@ function renderLugares() {
     const visited = isVisited(l.id);
 
     card.innerHTML = `
-      <div class="place-card-header" data-action="info">
+      <div class="place-card-header" data-action="info" ${l.imagen ? `style="background-image:url('${l.imagen}')"` : ''}>
+        ${l.imagen ? '<span class="place-card-header-scrim"></span>' : ''}
         ${l.prioridad === 'imprescindible' ? '<span class="place-card-priority">★ Imprescindible</span>' : ''}
         ${visited ? '<span class="place-card-visited-flag">✓</span>' : ''}
-        <span class="place-card-watermark">${categoryIcon(l.categoria)}</span>
+        ${l.imagen ? '' : `<span class="place-card-watermark">${categoryIcon(l.categoria)}</span>`}
       </div>
       <div class="place-card-body" data-action="info">
         <div class="cat-label"><span class="cat-dot"></span>${CONFIG.catLabels[l.categoria] || l.categoria}</div>

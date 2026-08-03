@@ -4,9 +4,10 @@
 //
 // REGLA: cada vez que cambies cualquier archivo listado en ASSETS,
 // sube VERSION. scripts/sw-lint.py falla el commit si te olvidas.
-const VERSION = 'roma-2026.08.03-4';
+const VERSION = 'roma-2026.08.03-5';
 const CACHE_NAME = `app-cache-${VERSION}`;
 const TILE_CACHE = `map-tiles-${VERSION}`;
+const IMAGE_CACHE = `place-images-${VERSION}`;
 const TILE_HOST_PATTERN = /tile\.openstreetmap\.org/;
 
 // Lista de archivos a precachear. Personaliza por proyecto.
@@ -49,7 +50,7 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
       .then((keys) => Promise.all(
-        keys.filter((k) => k !== CACHE_NAME && k !== TILE_CACHE).map((k) => caches.delete(k))
+        keys.filter((k) => k !== CACHE_NAME && k !== TILE_CACHE && k !== IMAGE_CACHE).map((k) => caches.delete(k))
       ))
       .then(() => self.clients.claim())
   );
@@ -64,6 +65,23 @@ self.addEventListener('fetch', (event) => {
   if (TILE_HOST_PATTERN.test(url)) {
     event.respondWith(
       caches.open(TILE_CACHE).then((cache) =>
+        cache.match(event.request).then((cached) => {
+          if (cached) return cached;
+          return fetch(event.request).then((response) => {
+            cache.put(event.request, response.clone());
+            return response;
+          }).catch(() => cached);
+        })
+      )
+    );
+    return;
+  }
+
+  // Fotos reales de lugares (data/lugares.json -> campo "imagen"): cache-first
+  // igual que las teselas, para que también funcionen offline.
+  if (event.request.destination === 'image' && !TILE_HOST_PATTERN.test(url)) {
+    event.respondWith(
+      caches.open(IMAGE_CACHE).then((cache) =>
         cache.match(event.request).then((cached) => {
           if (cached) return cached;
           return fetch(event.request).then((response) => {
