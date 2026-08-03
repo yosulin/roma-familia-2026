@@ -3,28 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#2f5eff">
-<title>Roma en Familia · 9-12 oct 2026</title>
+<meta name="theme-color" content="#2f5eff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101216" media="(prefers-color-scheme: dark)">
+
+<title>Roma en Familia</title>
+<meta name="description" content="Itinerario familiar de Roma: mapa, plan dia a dia, gastronomia y audioguia">
+
+<!-- Open Graph / tarjeta al compartir -->
+<meta property="og:title" content="Roma en Familia">
+<meta property="og:description" content="Itinerario familiar de Roma: mapa, plan dia a dia, gastronomia y audioguia">
+<meta property="og:image" content="https://yosulin.github.io/roma-familia-2026/assets/og.png">
+<meta property="og:url" content="https://yosulin.github.io/roma-familia-2026">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="icons/icon-192.png">
+<link rel="icon" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <p class="eyebrow">S.P.Q.R. · Itinerarium Familiare</p>
-    <h1>ROMA</h1>
-    <p class="dates">9 — 12 OCT 2026</p>
-  </div>
-</header>
+<div class="update-toast" id="updateToast">
+  <span>Hay una versión nueva disponible.</span>
+  <button id="updateBtn">Actualizar</button>
+</div>
 
 <div class="install-banner" id="installBanner">
-  <p id="installText">Instala esta app en tu móvil para acceder sin conexión.</p>
+  <p id="installText">Instala Roma en Familia en tu móvil para acceder sin conexión.</p>
   <button id="installBtn">Instalar</button>
   <button class="install-dismiss" id="installDismiss">Ahora no</button>
 </div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <p class="eyebrow">Familia . Itinerario</p>
+    <h1>ROMA</h1>
+    <p class="dates">9 - 12 OCT 2026</p>
+  </div>
+</header>
 
 <nav class="view-switch" id="viewSwitch">
   <button class="view-btn is-active" data-view="itinerario">Itinerario</button>
@@ -34,19 +55,16 @@
 
 <main id="app">
 
-  <!-- ITINERARIO -->
   <section id="view-itinerario" class="view is-active">
     <div class="day-tabs" id="dayTabs"></div>
     <div class="milestone-track" id="itinerarioContent"></div>
   </section>
 
-  <!-- MAPA -->
   <section id="view-mapa" class="view">
     <div class="filter-row" id="mapFilters"></div>
     <div id="map"></div>
   </section>
 
-  <!-- TODOS LOS LUGARES -->
   <section id="view-lugares" class="view">
     <div class="filter-row" id="prioridadFilters"></div>
     <div class="filter-row" id="lugaresFilters"></div>
@@ -62,6 +80,7 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="app.js"></script>
+<script src="core/pullToRefresh.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>

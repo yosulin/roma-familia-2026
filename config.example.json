@@ -1,0 +1,25 @@
+{
+  "_comment": "Copia estos valores dentro de la CONFIG en app.js al arrancar un proyecto nuevo.",
+  "appName": "Roma en Familia",
+  "appShortName": "Roma",
+  "appDescription": "Itinerario familiar: mapa, plan día a día, gastronomía y audioguía",
+  "eyebrow": "Familia · Itinerario",
+  "appTitle": "ROMA",
+  "subtitle": "9 — 12 OCT 2026",
+  "themeColor": "#2f5eff",
+  "themeColorDark": "#101216",
+  "accent": "#2f5eff",
+  "mapCenter": [41.8969, 12.4784],
+  "mapZoom": 14,
+  "dataFile": "data/lugares.json",
+  "catLabels": {
+    "monumento": "Monumento",
+    "museo": "Museo",
+    "plaza": "Plaza",
+    "barrio": "Barrio",
+    "mercado": "Mercado",
+    "mirador": "Mirador",
+    "parque": "Parque",
+    "freetour": "Free Tour"
+  }
+}

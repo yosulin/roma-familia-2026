@@ -1,33 +1,33 @@
 # Roma en Familia
 
-PWA estática para el viaje familiar a Roma (9–12 octubre 2026): mapa interactivo,
-itinerario día a día, spots fotográficos y recomendaciones gastronómicas por lugar.
+PWA para el viaje familiar a Roma (9–12 octubre 2026): mapa, itinerario día a
+día, gastronomía, spots fotográficos y audioguía por lugar.
 
-- Sin backend: todos los datos viven en `data/lugares.json`.
-- Mapa con [Leaflet](https://leafletjs.com/) + OpenStreetMap.
-- Instalable como app (manifest + service worker, funciona offline tras la primera carga).
+Construida sobre [yosulin/pwa-template](https://github.com/yosulin/pwa-template)
+(la base común para mis proyectos de este tipo — a su vez con carcasa basada en
+[jsundram/pwa-starter](https://github.com/jsundram/pwa-starter)).
 
 ## Desarrollo local
 
-Cualquier servidor estático sirve, por ejemplo:
-
 ```
-npx serve .
+python3 -m http.server 8000
 ```
 
 ## Estructura
 
-```
-index.html       Estructura y vistas (Itinerario / Mapa / Todos)
-style.css        Tema visual (miliario romano / inscripción)
-app.js           Lógica: carga de datos, render, mapa, ficha de detalle
-data/lugares.json  Datos de lugares, itinerario y recomendaciones
-manifest.json     Manifest PWA
-sw.js             Service worker (cache offline)
-```
+Ver [pwa-template](https://github.com/yosulin/pwa-template) para la
+documentación de `core/` y `data/SCHEMA.md`. Lo específico de este proyecto:
+
+- `data/lugares.json` — 19 lugares (Roma antigua, Vaticano, centro histórico,
+  miradores, free tours), cada uno con audioguía, prioridad y recomendaciones
+  gastronómicas
+- `app.js` → `CONFIG` con el centro del mapa (Roma), etiquetas de categoría en
+  español, y `DAY_LABELS` (Vie 9 / Sáb 10 / Dom 11 / Lun 12)
+- `assets/icon.svg` / `og.svg` — personalizados con la R y el azul del proyecto
 
 ## Actualizar datos
 
-Edita `data/lugares.json` siguiendo la misma estructura por lugar
-(`spots_fotografia`, `sitios_para_comer`, `hora_visita_recomendada`, etc.)
-y el itinerario en `itinerario_familiar_recomendado`.
+Edita `data/lugares.json` siguiendo el esquema de `pwa-template/data/SCHEMA.md`.
+Si cambias algún archivo cacheado (`app.js`, `core/*.js`, `styles.css`,
+`data/lugares.json`...), sube `VERSION` en `sw.js` — hay un pre-commit hook
+que te avisa si se te olvida (`git config core.hooksPath .githooks`).

@@ -1,15 +1,16 @@
 {
   "name": "Roma en Familia",
   "short_name": "Roma",
-  "description": "Itinerario familiar de Roma: mapa, plan día a día, gastronomía y spots fotográficos",
+  "description": "Itinerario familiar de Roma: mapa, plan dia a dia, gastronomia y audioguia",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f6f6f8",
+  "background_color": "#101216",
   "theme_color": "#2f5eff",
   "orientation": "portrait-primary",
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }

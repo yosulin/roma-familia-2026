@@ -1,0 +1,3 @@
+#!/bin/sh
+# Activar con: git config core.hooksPath .githooks
+python3 scripts/sw-lint.py || exit 1
