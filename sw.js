@@ -4,13 +4,15 @@
 //
 // REGLA: cada vez que cambies cualquier archivo listado en ASSETS,
 // sube VERSION. scripts/sw-lint.py falla el commit si te olvidas.
-const VERSION = 'roma-2026.08.03-8';
+const VERSION = 'roma-2026.08.03-9';
 const CACHE_NAME = `app-cache-${VERSION}`;
 const TILE_CACHE = `map-tiles-${VERSION}`;
 const IMAGE_CACHE = `place-images-${VERSION}`;
 const TILE_HOST_PATTERN = /tile\.openstreetmap\.org/;
 
-// Lista de archivos a precachear. Personaliza por proyecto.
+// Lista de archivos a precachear. Los datos de cada viaje (data/trips/<id>/*)
+// se cachean solos al visitarlos, vía la estrategia stale-while-revalidate
+// de más abajo — no hace falta listarlos aquí uno a uno.
 const ASSETS = [
   './',
   './index.html',
@@ -31,8 +33,8 @@ const ASSETS = [
   './core/visited.js',
   './core/search.js',
   './core/info.js',
-  './data/lugares.json',
-  './data/trip.json'
+  './core/trips.js',
+  './data/trips.json'
 ];
 
 self.addEventListener('install', (event) => {

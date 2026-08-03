@@ -1,0 +1,13 @@
+{
+  "viajes": [
+    {
+      "id": "example-trip",
+      "nombre": "Nombre del viaje",
+      "destino": "Ciudad, País",
+      "fecha_inicio": "YYYY-MM-DD",
+      "fecha_fin": "YYYY-MM-DD",
+      "portada": "https://.../foto-portada.jpg",
+      "carpeta": "data/trips/example-trip"
+    }
+  ]
+}

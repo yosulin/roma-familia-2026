@@ -45,3 +45,11 @@ export function renderMarkers(lugares, { categoryColorMap, onClick }) {
 export function invalidateMapSize() {
   if (leafletMap) setTimeout(() => leafletMap.invalidateSize(), 50);
 }
+
+export function resetMap() {
+  if (leafletMap) {
+    leafletMap.remove();
+    leafletMap = null;
+    markers = [];
+  }
+}

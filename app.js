@@ -1,8 +1,12 @@
-// app.js — Orquestador de la app.
+// app.js — Orquestador de la app multi-viaje.
+// "Mis Viajes" es la landing (core/trips.js); al elegir uno se cargan
+// data/trips/<id>/lugares.json y trip.json y se muestran las vistas
+// Todos/Itinerario/Mapa/Info ya conocidas, ahora con tripId como
+// namespace para el estado de "visitado".
 
 import { buildCategoryColorMap, catVar } from './core/categoryColors.js';
 import { openSheet, setupSheetDismiss } from './core/sheet.js';
-import { initMap, renderMarkers, invalidateMapSize } from './core/map.js';
+import { initMap, renderMarkers, invalidateMapSize, resetMap } from './core/map.js';
 import { buildChips } from './core/filters.js';
 import { setupInstallPrompt } from './core/install.js';
 import { registerServiceWorker } from './core/update.js';
@@ -12,14 +16,12 @@ import { filterByQuery, setupSearchInput } from './core/search.js';
 import { renderTripInfo } from './core/info.js';
 import { categoryIcon } from './core/categoryIcons.js';
 import { toggleAudioguide } from './core/audioguide.js';
+import { loadTripsIndex, renderTripsList, tripStatus } from './core/trips.js';
 
-// ---------- CONFIG DEL PROYECTO ----------
+// ---------- CONFIG DEL PROYECTO (compartida entre todos los viajes) ----------
 const CONFIG = {
-  dataFile: 'data/lugares.json',
-  tripFile: 'data/trip.json',
-  mapCenter: [41.8969, 12.4784],
-  mapZoom: 14,
-  appName: 'Roma en Familia',
+  tripsIndexFile: 'data/trips.json',
+  appName: 'Mis Viajes',
   catLabels: {
     monumento: 'Monumento',
     museo: 'Museo',
@@ -33,8 +35,10 @@ const CONFIG = {
 };
 
 // ---------- ESTADO ----------
+let ALL_TRIPS = [];
+let CURRENT_TRIP = null; // objeto del índice: {id, nombre, destino, fecha_inicio, fecha_fin, carpeta, ...}
 let DATA = null;
-let TRIP = null;
+let TRIP = null; // contenido de data/trips/<id>/trip.json
 let categoryColorMap = {};
 let activeDay = null;
 let activeMapFilter = 'todas';
@@ -42,20 +46,107 @@ let activeCatFilter = 'todas';
 let activePrioFilter = 'todas';
 let searchQuery = '';
 
-const DAY_LABELS = {
-  viernes: 'Vie 9',
-  sábado: 'Sáb 10',
-  domingo: 'Dom 11',
-  lunes: 'Lun 12'
-};
+function dayLabel(dayKey) {
+  const iso = TRIP && TRIP.fechas && TRIP.fechas[dayKey];
+  if (!iso) return dayKey;
+  const d = new Date(iso + 'T00:00:00');
+  const label = d.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric' });
+  return label.charAt(0).toUpperCase() + label.slice(1).replace('.', '');
+}
 
-async function loadData() {
-  const res = await fetch(CONFIG.dataFile);
+// ---------- MIS VIAJES (landing) ----------
+async function loadTripsScreen() {
+  ALL_TRIPS = await loadTripsIndex(CONFIG.tripsIndexFile);
+  renderTripsList('tripsGrid', ALL_TRIPS, {
+    onSelect: (trip) => selectTrip(trip),
+    onCreateHint: () => {
+      alert('Esta app es estática (GitHub Pages, sin servidor): no puede crear viajes por sí sola.\n\nPide el viaje nuevo en el chat con Claude — se añade a data/trips.json y aparecerá aquí.');
+    }
+  });
+
+  const params = new URLSearchParams(location.search);
+  const tripId = params.get('trip');
+  if (tripId) {
+    const trip = ALL_TRIPS.find((t) => t.id === tripId);
+    if (trip) selectTrip(trip, { pushState: false });
+  }
+}
+
+async function selectTrip(trip, { pushState = true } = {}) {
+  CURRENT_TRIP = trip;
+  resetTripState();
+  resetMap();
+
+  document.getElementById('view-trips').classList.remove('is-active');
+  document.getElementById('tripDetail').hidden = false;
+  document.getElementById('backToTrips').hidden = false;
+
+  document.getElementById('headerEyebrow').textContent = trip.destino || 'Viaje';
+  document.getElementById('headerTitle').textContent = trip.nombre.toUpperCase();
+  document.getElementById('headerSubtitle').textContent = formatTripDates(trip);
+
+  if (pushState) {
+    const url = new URL(location.href);
+    url.searchParams.set('trip', trip.id);
+    history.pushState({ tripId: trip.id }, '', url);
+  }
+
+  await loadTripData(trip);
+}
+
+function backToTrips() {
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  CURRENT_TRIP = null;
+  document.getElementById('tripDetail').hidden = true;
+  document.getElementById('backToTrips').hidden = true;
+  document.getElementById('view-trips').classList.add('is-active');
+
+  const url = new URL(location.href);
+  url.searchParams.delete('trip');
+  history.pushState({}, '', url);
+
+  // refresca las tarjetas por si cambió algo (cuenta atrás, visitados...)
+  renderTripsList('tripsGrid', ALL_TRIPS, {
+    onSelect: (trip) => selectTrip(trip),
+    onCreateHint: () => alert('Pide el viaje nuevo en el chat con Claude.')
+  });
+}
+
+function resetTripState() {
+  DATA = null;
+  TRIP = null;
+  categoryColorMap = {};
+  activeDay = null;
+  activeMapFilter = 'todas';
+  activeCatFilter = 'todas';
+  activePrioFilter = 'todas';
+  searchQuery = '';
+  const search = document.getElementById('searchInput');
+  if (search) search.value = '';
+  document.querySelectorAll('.view-btn').forEach((b, i) => b.classList.toggle('is-active', i === 0));
+  document.querySelectorAll('.view').forEach((v) => v.classList.remove('is-active'));
+  document.getElementById('view-lugares').classList.add('is-active');
+  document.getElementById('nowBanner').classList.remove('is-visible');
+}
+
+function formatTripDates(trip) {
+  if (!trip.fecha_inicio) return '';
+  const opts = { day: 'numeric', month: 'short', year: 'numeric' };
+  const s = new Date(trip.fecha_inicio + 'T00:00:00').toLocaleDateString('es-ES', opts);
+  if (!trip.fecha_fin || trip.fecha_fin === trip.fecha_inicio) return s.toUpperCase();
+  const e = new Date(trip.fecha_fin + 'T00:00:00').toLocaleDateString('es-ES', opts);
+  return `${s} — ${e}`.toUpperCase();
+}
+
+// ---------- CARGA DE DATOS DEL VIAJE SELECCIONADO ----------
+async function loadTripData(trip) {
+  const carpeta = trip.carpeta || `data/trips/${trip.id}`;
+  const res = await fetch(`${carpeta}/lugares.json`);
   DATA = await res.json();
   categoryColorMap = buildCategoryColorMap(DATA.lugares);
 
   try {
-    const tripRes = await fetch(CONFIG.tripFile);
+    const tripRes = await fetch(`${carpeta}/trip.json`);
     if (tripRes.ok) TRIP = await tripRes.json();
   } catch { /* trip.json es opcional */ }
 
@@ -86,25 +177,18 @@ function starIf(lugar) {
 // ---------- MODO "AHORA" ----------
 function setupNowBanner() {
   if (!TRIP || !TRIP.fechas || !DATA.itinerario_familiar_recomendado) return;
-
   const todayKey = resolveTodayKey(TRIP.fechas);
-  if (todayKey && DATA.itinerario_familiar_recomendado[todayKey]) {
-    selectDay(todayKey);
-  }
+  if (todayKey && DATA.itinerario_familiar_recomendado[todayKey]) selectDay(todayKey);
   updateNowBanner();
-  setInterval(updateNowBanner, 60000);
+  setInterval(() => { if (CURRENT_TRIP) updateNowBanner(); }, 60000);
 }
 
 function updateNowBanner() {
   const banner = document.getElementById('nowBanner');
   if (!banner || !TRIP || !TRIP.fechas) return;
-
   const todayKey = resolveTodayKey(TRIP.fechas);
   const dayData = todayKey && DATA.itinerario_familiar_recomendado[todayKey];
-  if (!dayData) {
-    banner.classList.remove('is-visible');
-    return;
-  }
+  if (!dayData) { banner.classList.remove('is-visible'); return; }
 
   const result = findCurrentActivity(dayData.plan);
   banner.classList.remove('state-ahora', 'state-siguiente');
@@ -128,7 +212,7 @@ function buildDayTabs() {
   days.forEach((day) => {
     const btn = document.createElement('button');
     btn.className = 'day-tab' + (day === activeDay ? ' is-active' : '');
-    btn.textContent = DAY_LABELS[day] || day;
+    btn.textContent = dayLabel(day);
     btn.dataset.day = day;
     btn.addEventListener('click', () => selectDay(day));
     el.appendChild(btn);
@@ -177,7 +261,7 @@ function renderItinerario() {
 
     if (lugar) {
       const card = document.createElement('div');
-      card.className = 'milestone-card' + (isVisited(lugar.id) ? ' is-visited' : '');
+      card.className = 'milestone-card' + (isVisited(lugar.id, CURRENT_TRIP?.id) ? ' is-visited' : '');
       card.style.setProperty('--cat-color', catVar(categoryColorMap, lugar.categoria));
       card.innerHTML = `<h3>${starIf(lugar)}${lugar.nombre}</h3><p>${rest}</p>`;
       card.addEventListener('click', () => openLugarSheet(lugar));
@@ -209,15 +293,17 @@ function buildFilterRows() {
   );
 
   const hasPriority = DATA.lugares.some((l) => l.prioridad);
+  const starBtn = document.getElementById('starToggle');
   if (hasPriority) {
-    const starBtn = document.getElementById('starToggle');
-    starBtn.addEventListener('click', () => {
+    starBtn.hidden = false;
+    starBtn.classList.remove('is-active');
+    starBtn.onclick = () => {
       activePrioFilter = activePrioFilter === 'imprescindible' ? 'todas' : 'imprescindible';
       starBtn.classList.toggle('is-active', activePrioFilter === 'imprescindible');
       renderLugares();
-    });
+    };
   } else {
-    document.getElementById('starToggle')?.remove();
+    starBtn.hidden = true;
   }
 
   setupSearchInput('searchInput', (value) => { searchQuery = value; renderLugares(); });
@@ -225,7 +311,11 @@ function buildFilterRows() {
 
 // ---------- MAPA ----------
 function renderMap() {
-  if (!document.querySelector('#map .leaflet-container')) initMap(CONFIG.mapCenter, CONFIG.mapZoom);
+  if (!document.querySelector('#map .leaflet-container')) {
+    const center = (TRIP && TRIP.mapa && TRIP.mapa.center) || [20, 0];
+    const zoom = (TRIP && TRIP.mapa && TRIP.mapa.zoom) || (TRIP && TRIP.mapa ? 13 : 2);
+    initMap(center, zoom);
+  }
   const lugares = DATA.lugares.filter((l) => activeMapFilter === 'todas' || l.categoria === activeMapFilter);
   renderMarkers(lugares, { categoryColorMap, onClick: (l) => openLugarSheet(l) });
 }
@@ -245,12 +335,12 @@ function renderLugares() {
 
   lugares.forEach((l) => {
     const card = document.createElement('div');
-    card.className = 'place-card' + (isVisited(l.id) ? ' is-visited' : '');
+    const visited = isVisited(l.id, CURRENT_TRIP?.id);
+    card.className = 'place-card' + (visited ? ' is-visited' : '');
     card.style.setProperty('--cat-color', catVar(categoryColorMap, l.categoria));
 
     const hasPhotos = (l.spots_fotografia || []).length > 0;
     const hasFood = (l.sitios_para_comer || []).length > 0;
-    const visited = isVisited(l.id);
 
     card.innerHTML = `
       <div class="place-card-header" data-action="info" ${l.imagen ? `style="background-image:url('${l.imagen}')"` : ''}>
@@ -290,7 +380,7 @@ function renderLugares() {
         } else if (action === 'info') {
           openLugarSheet(l);
         } else if (action === 'visited') {
-          const nowVisited = toggleVisited(l.id);
+          const nowVisited = toggleVisited(l.id, CURRENT_TRIP?.id);
           el.classList.toggle('is-visited', nowVisited);
           card.classList.toggle('is-visited', nowVisited);
           updateProgressBadge();
@@ -309,7 +399,7 @@ function renderLugares() {
 function updateProgressBadge() {
   const badge = document.getElementById('progressBadge');
   if (!badge) return;
-  const { done, total } = visitedCount(DATA.lugares.map((l) => l.id));
+  const { done, total } = visitedCount(DATA.lugares.map((l) => l.id), CURRENT_TRIP?.id);
   badge.textContent = total ? `${done}/${total} visitados` : '';
 }
 
@@ -324,6 +414,7 @@ function openLugarSheet(lugar, scrollToId) {
     categoryColorMap,
     catLabels: CONFIG.catLabels,
     scrollToId,
+    tripId: CURRENT_TRIP?.id,
     onVisitedChange: () => {
       renderLugares();
       renderItinerario();
@@ -332,7 +423,7 @@ function openLugarSheet(lugar, scrollToId) {
   });
 }
 
-// ---------- NAVEGACIÓN DE VISTAS ----------
+// ---------- NAVEGACIÓN DE VISTAS (dentro de un viaje) ----------
 function setupViewSwitch() {
   const buttons = document.querySelectorAll('.view-btn');
   buttons.forEach((btn) => {
@@ -353,9 +444,16 @@ document.addEventListener('DOMContentLoaded', () => {
   setupViewSwitch();
   setupSheetDismiss();
   setupInstallPrompt(CONFIG.appName);
+  document.getElementById('backToTrips').addEventListener('click', backToTrips);
+  window.addEventListener('popstate', () => {
+    const params = new URLSearchParams(location.search);
+    const tripId = params.get('trip');
+    if (!tripId && CURRENT_TRIP) backToTrips();
+  });
+
   if (window.PullToRefresh) {
     new PullToRefresh({ onRefresh: () => window.location.reload() }).init();
   }
   registerServiceWorker();
-  loadData();
+  loadTripsScreen();
 });

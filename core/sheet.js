@@ -14,7 +14,7 @@ const PRIO_LABELS = {
   opcional: 'Opcional'
 };
 
-export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen, onVisitedChange, scrollToId } = {}) {
+export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen, onVisitedChange, scrollToId, tripId } = {}) {
   if (window.speechSynthesis && speechSynthesis.speaking) speechSynthesis.cancel();
 
   const content = document.getElementById('sheetContent');
@@ -52,7 +52,7 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
     ? `<div class="action-row"><button class="action-btn primary" id="sheetAudioBtn">🔊 Escuchar audioguía</button></div>`
     : '';
 
-  const visited = isVisited(lugar.id);
+  const visited = isVisited(lugar.id, tripId);
   const visitedBtn = `<div class="action-row">
     <button class="action-btn ${visited ? 'is-visited' : ''}" id="sheetVisitedBtn">
       ${visited ? '✅ Visitado' : '☐ Marcar como visitado'}
@@ -103,7 +103,7 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
 
   const visitedBtnEl = document.getElementById('sheetVisitedBtn');
   visitedBtnEl.addEventListener('click', () => {
-    const nowVisited = toggleVisited(lugar.id);
+    const nowVisited = toggleVisited(lugar.id, tripId);
     visitedBtnEl.textContent = nowVisited ? '✅ Visitado' : '☐ Marcar como visitado';
     visitedBtnEl.classList.toggle('is-visited', nowVisited);
     if (onVisitedChange) onVisitedChange(lugar.id, nowVisited);

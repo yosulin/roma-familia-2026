@@ -82,6 +82,80 @@ button { font-family: inherit; }
 .header-inner .eyebrow { margin: 0 0 2px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); text-transform: uppercase; }
 .header-inner h1 { margin: 0; font-size: 1.7rem; font-weight: 800; letter-spacing: -0.02em; }
 .header-inner .dates { margin: 2px 0 0; font-size: 0.85rem; color: var(--ink-soft); font-weight: 500; }
+.back-to-trips {
+  display: block;
+  margin: 0 0 8px;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0;
+  cursor: pointer;
+}
+.back-to-trips[hidden] { display: none; }
+
+/* ---------- MIS VIAJES ---------- */
+.trips-view { display: none; padding: 16px 14px 32px; }
+.trips-view.is-active { display: block; }
+.trips-grid { display: grid; gap: 14px; }
+
+.trip-card {
+  position: relative;
+  min-height: 200px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--surface);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.trip-card-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.75) 100%);
+}
+.trip-card-status {
+  position: absolute; top: 12px; left: 12px;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase;
+  color: #fff;
+  background: rgba(20,20,24,0.45);
+  backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 4px 10px; border-radius: 999px;
+}
+.trip-card.status-en_curso .trip-card-status { background: rgba(18,165,148,0.55); }
+.trip-card-body { position: relative; padding: 16px; color: #fff; }
+.trip-card-body h2 { margin: 0 0 2px; font-size: 1.3rem; font-weight: 800; }
+.trip-card-body p { margin: 0; font-size: 0.85rem; color: rgba(255,255,255,0.85); }
+.trip-card-dates { margin-top: 4px !important; font-size: 0.75rem !important; opacity: 0.75; }
+
+.trip-card-create {
+  min-height: 120px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+  border: 1px dashed var(--border);
+  background: var(--bg);
+  color: var(--ink-soft);
+  padding: 20px;
+}
+.trip-card-create-icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; font-weight: 700;
+  margin: 0 auto 6px;
+}
+.trip-card-create span:not(.trip-card-create-icon) { font-weight: 700; color: var(--ink); }
+.trip-card-create small { display: block; margin-top: 4px; font-size: 0.72rem; line-height: 1.3; }
 
 /* ---------- VIEW SWITCH ---------- */
 .view-switch { display: flex; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 20; }

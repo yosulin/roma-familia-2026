@@ -6,12 +6,12 @@
 <meta name="theme-color" content="#2f5eff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#101216" media="(prefers-color-scheme: dark)">
 
-<title>Roma en Familia</title>
-<meta name="description" content="Itinerario familiar de Roma: mapa, plan dia a dia, gastronomia y audioguia">
+<title>Mis Viajes</title>
+<meta name="description" content="Mapa, itinerario, gastronomia y audioguia para nuestros viajes en familia">
 
 <!-- Open Graph / tarjeta al compartir -->
-<meta property="og:title" content="Roma en Familia">
-<meta property="og:description" content="Itinerario familiar de Roma: mapa, plan dia a dia, gastronomia y audioguia">
+<meta property="og:title" content="Mis Viajes">
+<meta property="og:description" content="Mapa, itinerario, gastronomia y audioguia para nuestros viajes en familia">
 <meta property="og:image" content="https://yosulin.github.io/roma-familia-2026/assets/og.png">
 <meta property="og:url" content="https://yosulin.github.io/roma-familia-2026">
 <meta property="og:type" content="website">
@@ -34,55 +34,62 @@
 </div>
 
 <div class="install-banner" id="installBanner">
-  <p id="installText">Instala Roma en Familia en tu móvil para acceder sin conexión.</p>
+  <p id="installText">Instala Mis Viajes en tu móvil para acceder sin conexión.</p>
   <button id="installBtn">Instalar</button>
   <button class="install-dismiss" id="installDismiss">Ahora no</button>
 </div>
 
 <header class="site-header">
   <div class="header-inner">
-    <p class="eyebrow">Familia . Itinerario</p>
-    <h1>ROMA</h1>
-    <p class="dates">9 - 12 OCT 2026</p>
+    <button class="back-to-trips" id="backToTrips" hidden>← Mis Viajes</button>
+    <p class="eyebrow" id="headerEyebrow">Familia</p>
+    <h1 id="headerTitle">MIS VIAJES</h1>
+    <p class="dates" id="headerSubtitle">Elige un destino</p>
   </div>
 </header>
 
-<nav class="view-switch" id="viewSwitch">
-  <button class="view-btn is-active" data-view="lugares">Todos</button>
-  <button class="view-btn" data-view="itinerario">Itinerario</button>
-  <button class="view-btn" data-view="mapa">Mapa</button>
-  <button class="view-btn" data-view="info">Info</button>
-</nav>
+<section id="view-trips" class="trips-view is-active">
+  <div class="trips-grid" id="tripsGrid"></div>
+</section>
 
-<div class="now-banner" id="nowBanner"></div>
+<div id="tripDetail" hidden>
+  <nav class="view-switch" id="viewSwitch">
+    <button class="view-btn is-active" data-view="lugares">Todos</button>
+    <button class="view-btn" data-view="itinerario">Itinerario</button>
+    <button class="view-btn" data-view="mapa">Mapa</button>
+    <button class="view-btn" data-view="info">Info</button>
+  </nav>
 
-<main id="app">
+  <div class="now-banner" id="nowBanner"></div>
 
-  <section id="view-lugares" class="view is-active">
-    <div class="search-row">
-      <input type="search" id="searchInput" placeholder="Buscar lugar..." autocomplete="off">
-      <button class="star-toggle" id="starToggle" title="Solo imprescindibles">★</button>
-      <span class="progress-badge" id="progressBadge"></span>
-    </div>
-    <div class="filter-row" id="lugaresFilters"></div>
-    <div class="places-grid" id="lugaresGrid"></div>
-  </section>
+  <main id="app">
 
-  <section id="view-itinerario" class="view">
-    <div class="day-tabs" id="dayTabs"></div>
-    <div class="milestone-track" id="itinerarioContent"></div>
-  </section>
+    <section id="view-lugares" class="view is-active">
+      <div class="search-row">
+        <input type="search" id="searchInput" placeholder="Buscar lugar..." autocomplete="off">
+        <button class="star-toggle" id="starToggle" title="Solo imprescindibles">★</button>
+        <span class="progress-badge" id="progressBadge"></span>
+      </div>
+      <div class="filter-row" id="lugaresFilters"></div>
+      <div class="places-grid" id="lugaresGrid"></div>
+    </section>
 
-  <section id="view-mapa" class="view">
-    <div class="filter-row" id="mapFilters"></div>
-    <div id="map"></div>
-  </section>
+    <section id="view-itinerario" class="view">
+      <div class="day-tabs" id="dayTabs"></div>
+      <div class="milestone-track" id="itinerarioContent"></div>
+    </section>
 
-  <section id="view-info" class="view">
-    <div class="info-content" id="infoContent"></div>
-  </section>
+    <section id="view-mapa" class="view">
+      <div class="filter-row" id="mapFilters"></div>
+      <div id="map"></div>
+    </section>
 
-</main>
+    <section id="view-info" class="view">
+      <div class="info-content" id="infoContent"></div>
+    </section>
+
+  </main>
+</div>
 
 <div class="sheet-backdrop" id="sheetBackdrop"></div>
 <div class="sheet" id="sheet">
