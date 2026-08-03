@@ -14,7 +14,7 @@ const PRIO_LABELS = {
   opcional: 'Opcional'
 };
 
-export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen, onVisitedChange } = {}) {
+export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen, onVisitedChange, scrollToId } = {}) {
   if (window.speechSynthesis && speechSynthesis.speaking) speechSynthesis.cancel();
 
   const content = document.getElementById('sheetContent');
@@ -79,7 +79,7 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
     ${visitedBtn}
     ${mapsRow}
 
-    <dl class="fact-grid">
+    <dl class="fact-grid" id="sheetFacts">
       <div><dt>Horario</dt><dd>${lugar.horario || '—'}</dd></div>
       <div><dt>Precio adulto</dt><dd>${lugar.precio_adulto || '—'}</dd></div>
       <div><dt>Precio niño</dt><dd>${lugar.precio_niño || '—'}</dd></div>
@@ -90,8 +90,8 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
 
     ${lugar.dato_curioso_niños ? `<div class="sheet-section"><h4>Dato curioso</h4><p>${lugar.dato_curioso_niños}</p></div>` : ''}
     ${lugar.consejo_practico ? `<div class="sheet-section"><h4>Consejo práctico</h4><p>${lugar.consejo_practico}</p></div>` : ''}
-    ${photos ? `<div class="sheet-section"><h4>Spots fotográficos</h4>${photos}</div>` : ''}
-    ${eats ? `<div class="sheet-section"><h4>Dónde comer cerca</h4>${eats}</div>` : ''}
+    ${photos ? `<div class="sheet-section" id="sheetPhotos"><h4>Spots fotográficos</h4>${photos}</div>` : ''}
+    ${eats ? `<div class="sheet-section" id="sheetEats"><h4>Dónde comer cerca</h4>${eats}</div>` : ''}
   `;
 
   const audioBtnEl = document.getElementById('sheetAudioBtn');
@@ -112,6 +112,13 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
   document.getElementById('sheet').classList.add('is-open');
   document.getElementById('sheetBackdrop').classList.add('is-open');
   if (onAfterOpen) onAfterOpen(lugar);
+
+  if (scrollToId) {
+    requestAnimationFrame(() => {
+      const target = document.getElementById(scrollToId);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 }
 
 export function closeSheet() {

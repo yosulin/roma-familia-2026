@@ -109,12 +109,70 @@ button { font-family: inherit; }
 .leaflet-popup-content p { margin: 0; font-size: 0.82rem; }
 
 /* ---------- GRID ---------- */
-.places-grid { padding: 4px 14px 24px; display: grid; gap: 10px; }
-.place-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px 16px; cursor: pointer; box-shadow: var(--shadow); }
+.places-grid { padding: 4px 14px 24px; display: grid; gap: 14px; }
+.place-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.place-card-header {
+  position: relative;
+  height: 92px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--cat-color, var(--accent)) 0%, color-mix(in srgb, var(--cat-color, var(--accent)) 65%, black) 100%);
+  cursor: pointer;
+}
+.place-card-watermark {
+  font-size: 2.6rem;
+  opacity: 0.35;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+}
+.place-card-priority {
+  position: absolute; top: 10px; left: 10px;
+  font-size: 0.68rem; font-weight: 800;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  padding: 3px 9px; border-radius: 999px;
+  backdrop-filter: blur(2px);
+}
+.place-card-visited-flag {
+  position: absolute; top: 10px; right: 10px;
+  font-size: 0.9rem;
+  background: rgba(255,255,255,0.9);
+  color: #12a594;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+}
+.place-card-body { padding: 12px 14px 8px; cursor: pointer; }
 .place-card .cat-label { font-size: 0.7rem; font-weight: 700; color: var(--cat-color, var(--ink-soft)); display: flex; align-items: center; gap: 6px; }
 .place-card .cat-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cat-color, var(--ink-soft)); display: inline-block; }
 .place-card h3 { margin: 4px 0 4px; font-size: 1.05rem; font-weight: 700; }
 .place-card p { margin: 0; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.4; }
+.place-card.is-visited .place-card-body { opacity: 0.6; }
+
+.place-card-actions {
+  display: flex;
+  border-top: 1px solid var(--border);
+  margin-top: 10px;
+}
+.place-card-actions button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px 0;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  border-right: 1px solid var(--border);
+}
+.place-card-actions button:last-child { border-right: none; }
+.place-card-actions button:active { background: var(--bg); }
+.place-card-actions button.action-audio.is-playing { color: var(--cat-color, var(--accent)); }
+.place-card-actions button.action-visited.is-visited { color: #12a594; }
 
 /* ---------- SHEET ---------- */
 .sheet-backdrop { position: fixed; inset: 0; background: rgba(15,17,23,0.45); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 40; }

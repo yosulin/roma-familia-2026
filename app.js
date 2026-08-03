@@ -7,9 +7,11 @@ import { buildChips } from './core/filters.js';
 import { setupInstallPrompt } from './core/install.js';
 import { registerServiceWorker } from './core/update.js';
 import { resolveTodayKey, findCurrentActivity } from './core/now.js';
-import { isVisited, visitedCount } from './core/visited.js';
+import { isVisited, toggleVisited, visitedCount } from './core/visited.js';
 import { filterByQuery, setupSearchInput } from './core/search.js';
 import { renderTripInfo } from './core/info.js';
+import { categoryIcon } from './core/categoryIcons.js';
+import { toggleAudioguide } from './core/audioguide.js';
 
 // ---------- CONFIG DEL PROYECTO ----------
 const CONFIG = {
@@ -243,12 +245,55 @@ function renderLugares() {
     const card = document.createElement('div');
     card.className = 'place-card' + (isVisited(l.id) ? ' is-visited' : '');
     card.style.setProperty('--cat-color', catVar(categoryColorMap, l.categoria));
+
+    const hasPhotos = (l.spots_fotografia || []).length > 0;
+    const hasFood = (l.sitios_para_comer || []).length > 0;
+    const visited = isVisited(l.id);
+
     card.innerHTML = `
-      <div class="cat-label"><span class="cat-dot"></span>${CONFIG.catLabels[l.categoria] || l.categoria}</div>
-      <h3>${starIf(l)}${l.nombre}</h3>
-      <p>${l.descripcion_breve || ''}</p>
+      <div class="place-card-header" data-action="info">
+        ${l.prioridad === 'imprescindible' ? '<span class="place-card-priority">★ Imprescindible</span>' : ''}
+        ${visited ? '<span class="place-card-visited-flag">✓</span>' : ''}
+        <span class="place-card-watermark">${categoryIcon(l.categoria)}</span>
+      </div>
+      <div class="place-card-body" data-action="info">
+        <div class="cat-label"><span class="cat-dot"></span>${CONFIG.catLabels[l.categoria] || l.categoria}</div>
+        <h3>${l.nombre}</h3>
+        <p>${l.descripcion_breve || ''}</p>
+      </div>
+      <div class="place-card-actions">
+        <button class="action-audio" data-action="audio" title="Audioguía">🔊</button>
+        <button data-action="photos" title="Fotos" ${hasPhotos ? '' : 'disabled style="opacity:.3"'}>📷</button>
+        <button data-action="food" title="Comida" ${hasFood ? '' : 'disabled style="opacity:.3"'}>🍴</button>
+        <button data-action="price" title="Precio">€</button>
+        <button data-action="info" title="Info">ℹ️</button>
+        <button class="action-visited${visited ? ' is-visited' : ''}" data-action="visited" title="Visitado">✓</button>
+      </div>
     `;
-    card.addEventListener('click', () => openLugarSheet(l));
+
+    card.querySelectorAll('[data-action]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const action = el.dataset.action;
+        if (action === 'audio') {
+          toggleAudioguide(l.audioguia || l.descripcion_breve, el);
+        } else if (action === 'photos') {
+          openLugarSheet(l, 'sheetPhotos');
+        } else if (action === 'food') {
+          openLugarSheet(l, 'sheetEats');
+        } else if (action === 'price') {
+          openLugarSheet(l, 'sheetFacts');
+        } else if (action === 'info') {
+          openLugarSheet(l);
+        } else if (action === 'visited') {
+          const nowVisited = toggleVisited(l.id);
+          el.classList.toggle('is-visited', nowVisited);
+          card.classList.toggle('is-visited', nowVisited);
+          updateProgressBadge();
+        }
+      });
+    });
+
     grid.appendChild(card);
   });
   if (!lugares.length) {
@@ -270,10 +315,11 @@ function renderInfo() {
 }
 
 // ---------- SHEET ----------
-function openLugarSheet(lugar) {
+function openLugarSheet(lugar, scrollToId) {
   openSheet(lugar, {
     categoryColorMap,
     catLabels: CONFIG.catLabels,
+    scrollToId,
     onVisitedChange: () => {
       renderLugares();
       renderItinerario();
