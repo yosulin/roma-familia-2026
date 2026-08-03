@@ -207,7 +207,13 @@
         }
       ],
       "prioridad": "imprescindible",
-      "audioguia": "Estás en Foro Romano y Palatino. El Foro Romano fue durante siglos el centro de la vida pública de Roma, con templos, basílicas, edificios políticos y espacios ceremoniales. El Palatino fue una de las colinas más importantes de la ciudad y quedó asociado a las residencias de emperadores y aristócratas. Según la tradición romana, Rómulo fundó Roma en esta zona en el 753 a.C. Un dato curioso: Según la leyenda, Rómulo y Remo fueron amamantados por una loba y Rómulo fundó Roma precisamente en la zona del Palatino. No intentéis verlo absolutamente todo: seleccionad los puntos principales y reservad energía para el resto del día."
+      "audioguia": "Estás en Foro Romano y Palatino. El Foro Romano fue durante siglos el centro de la vida pública de Roma, con templos, basílicas, edificios políticos y espacios ceremoniales. El Palatino fue una de las colinas más importantes de la ciudad y quedó asociado a las residencias de emperadores y aristócratas. Según la tradición romana, Rómulo fundó Roma en esta zona en el 753 a.C. Un dato curioso: Según la leyenda, Rómulo y Remo fueron amamantados por una loba y Rómulo fundó Roma precisamente en la zona del Palatino. No intentéis verlo absolutamente todo: seleccionad los puntos principales y reservad energía para el resto del día.",
+      "imagen": "https://images.unsplash.com/photo-1667345648998-3a5d040c0d31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8Rm9ybyUyMFJvbWFubyUyMFJvbWV8ZW58MXwwfHx8MTc4NTc4NTY3Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Giu Vicente",
+        "autor_url": "https://unsplash.com/@giuvicente?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/a-group-of-people-standing-around-a-large-stone-structure-Ru0r-NRGLQg?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "museos-vaticanos-y-capilla-sixtina",
@@ -1109,7 +1115,13 @@
       "cercania_metro": "Circo Massimo (línea B)",
       "sitios_para_comer": [],
       "prioridad": "opcional",
-      "audioguia": "Estás en Giardino degli Aranci (Parco Savello). Diseñado en 1932 por Raffaele De Vico sobre la antigua fortaleza medieval de la familia Savelli. Un dato curioso: Aunque los naranjos están repletos de frutas doradas preciosa, ¡son naranjas amargas y no se pueden comer! Perfecto para combinar a 2 minutos caminando con la Cerradura del Aventino."
+      "audioguia": "Estás en Giardino degli Aranci (Parco Savello). Diseñado en 1932 por Raffaele De Vico sobre la antigua fortaleza medieval de la familia Savelli. Un dato curioso: Aunque los naranjos están repletos de frutas doradas preciosa, ¡son naranjas amargas y no se pueden comer! Perfecto para combinar a 2 minutos caminando con la Cerradura del Aventino.",
+      "imagen": "https://images.unsplash.com/photo-1595931699436-093ca69ca6ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8R2lhcmRpbm8lMjBkZWdsaSUyMEFyYW5jaSUyMFJvbWV8ZW58MXwwfHx8MTc4NTc4NTY4M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Gabriella Clare Marino",
+        "autor_url": "https://unsplash.com/@gabiontheroad?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/people-walking-on-street-near-buildings-during-daytime-0Xo9DDnhT2w?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "cerradura-del-aventino",
@@ -1149,7 +1161,13 @@
       "cercania_metro": "Circo Massimo (línea B)",
       "sitios_para_comer": [],
       "prioridad": "opcional",
-      "audioguia": "Estás en Piazza dei Cavalieri di Malta (Cerradura del Aventino). Diseñada por Giovanni Battista Piranesi en 1765. Un dato curioso: Si miras por el ojo de la cerradura de la puerta verde de bronce, verás un pasillo de árboles perfectamente recortados que encuadran exactamente la cúpula de San Pedro a lo lejos. ¡Miras tres Estados a la vez! (Orden de Malta, Italia y el Vaticano). Suele haber una pequeña cola de 10-15 personas para mirar, armaros de un poquito de paciencia."
+      "audioguia": "Estás en Piazza dei Cavalieri di Malta (Cerradura del Aventino). Diseñada por Giovanni Battista Piranesi en 1765. Un dato curioso: Si miras por el ojo de la cerradura de la puerta verde de bronce, verás un pasillo de árboles perfectamente recortados que encuadran exactamente la cúpula de San Pedro a lo lejos. ¡Miras tres Estados a la vez! (Orden de Malta, Italia y el Vaticano). Suele haber una pequeña cola de 10-15 personas para mirar, armaros de un poquito de paciencia.",
+      "imagen": "https://images.unsplash.com/photo-1529154036614-a60975f5c760?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8UGlhenphJTIwZGVpJTIwQ2F2YWxpZXJpJTIwZGklMjBNYWx0YSUyMFJvbWV8ZW58MXwwfHx8MTc4NTc4NTY4NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Chris Czermak",
+        "autor_url": "https://unsplash.com/@chris_czermak?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/man-standing-in-front-of-statue-gZKzBhsO6KY?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "terrazza-del-gianicolo",
