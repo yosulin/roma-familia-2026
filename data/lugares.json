@@ -117,7 +117,13 @@
         }
       ],
       "prioridad": "imprescindible",
-      "audioguia": "Estás en Coliseo. Fue inaugurado en época del emperador Tito, hacia el año 80 d.C., y podía acoger decenas de miles de espectadores. Allí se celebraban combates de gladiadores, cacerías de animales y grandes espectáculos públicos. Su nombre antiguo era Anfiteatro Flavio, por la dinastía de emperadores que impulsó su construcción. A lo largo de los siglos sufrió terremotos, expolio de materiales y transformaciones. Un dato curioso: Tenía un sistema de pasillos y entradas tan organizado que miles de espectadores podían entrar y salir rápidamente, casi como en un estadio moderno. Reserva la hora obligatoria del Coliseo con antelación y utiliza calzado cómodo: el conjunto arqueológico requiere varias horas de caminata."
+      "audioguia": "Estás en Coliseo. Fue inaugurado en época del emperador Tito, hacia el año 80 d.C., y podía acoger decenas de miles de espectadores. Allí se celebraban combates de gladiadores, cacerías de animales y grandes espectáculos públicos. Su nombre antiguo era Anfiteatro Flavio, por la dinastía de emperadores que impulsó su construcción. A lo largo de los siglos sufrió terremotos, expolio de materiales y transformaciones. Un dato curioso: Tenía un sistema de pasillos y entradas tan organizado que miles de espectadores podían entrar y salir rápidamente, casi como en un estadio moderno. Reserva la hora obligatoria del Coliseo con antelación y utiliza calzado cómodo: el conjunto arqueológico requiere varias horas de caminata.",
+      "imagen": "https://images.unsplash.com/photo-1513120052856-2b18c0d4f696?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8Q29saXNlbyUyMFJvbWV8ZW58MXwwfHx8MTc4NTc4NTUxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Ruben Ramirez",
+        "autor_url": "https://unsplash.com/@pinchebesu?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/colosseum-rome-nAb-SFzL1GM?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "foro-romano-y-palatino",
@@ -437,7 +443,13 @@
         }
       ],
       "prioridad": "recomendado",
-      "audioguia": "Estás en Castel Sant'Angelo. Construido en el siglo II d.C. como mausoleo del emperador Adriano. En la Edad Media se transformó en fortaleza conectada al Vaticano por el pasadizo fortificado Passetto di Borgo. Un dato curioso: En la terraza superior hay una estatua gigante de un ángel con una espada y una campana histórica. Suele encantar a los niños por su aspecto de castillo real, rampas helicoidales secretas y cañones antiguos."
+      "audioguia": "Estás en Castel Sant'Angelo. Construido en el siglo II d.C. como mausoleo del emperador Adriano. En la Edad Media se transformó en fortaleza conectada al Vaticano por el pasadizo fortificado Passetto di Borgo. Un dato curioso: En la terraza superior hay una estatua gigante de un ángel con una espada y una campana histórica. Suele encantar a los niños por su aspecto de castillo real, rampas helicoidales secretas y cañones antiguos.",
+      "imagen": "https://images.unsplash.com/photo-1512064444180-54b51a475aa7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8Q2FzdGVsJTIwU2FudCUyN0FuZ2VsbyUyMFJvbWV8ZW58MXwwfHx8MTc4NTc4NTUyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Mauricio Artieda",
+        "autor_url": "https://unsplash.com/@macphoto?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/gray-concrete-bridge-and-brown-concrete-building-under-blue-sky-zUvZsrB94mk?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "panteon-de-agripa",
@@ -521,7 +533,13 @@
         }
       ],
       "prioridad": "imprescindible",
-      "audioguia": "Estás en Panteón de Agripa. Construido originalmente por Agripa y reconstruido en época de Adriano (siglo II d.C.). Se conservó intacto tras convertirse en iglesia en el año 609 d.C. Un dato curioso: Tiene una gran abertura circular en el techo (óculo) de 9 metros de diámetro por donde entra la luz del sol... ¡y la lluvia! El suelo tiene pequeños agujeros casi invisibles para drenar el agua. Las entradas de fin de semana deben reservarse online con antelación obligatoria."
+      "audioguia": "Estás en Panteón de Agripa. Construido originalmente por Agripa y reconstruido en época de Adriano (siglo II d.C.). Se conservó intacto tras convertirse en iglesia en el año 609 d.C. Un dato curioso: Tiene una gran abertura circular en el techo (óculo) de 9 metros de diámetro por donde entra la luz del sol... ¡y la lluvia! El suelo tiene pequeños agujeros casi invisibles para drenar el agua. Las entradas de fin de semana deben reservarse online con antelación obligatoria.",
+      "imagen": "https://images.unsplash.com/photo-1555992828-35627f3b373f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8UGFudGUlQzMlQjNuJTIwZGUlMjBBZ3JpcGElMjBSb21lfGVufDF8MHx8fDE3ODU3ODU1MjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Spencer Davis",
+        "autor_url": "https://unsplash.com/@spencerdavis?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/aerial-photo-of-concrete-buildings-and-trees-during-daytime-haLyuhP6oLE?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "piazza-navona",
@@ -578,7 +596,13 @@
         }
       ],
       "prioridad": "recomendado",
-      "audioguia": "Estás en Piazza Navona. Ocupa exactamente la pista del antiguo Estadio del emperador Domiciano (siglo I d.C.). En el siglo XVII, los papas la transformaron en joya del Barroco. Un dato curioso: En la antigüedad se inundaba a propósito tapando los desagües de las fuentes para simular batallas navales a escala para entretenimiento del pueblo. Ideal para tomar un helado en 'Frigidarium' (a 2 minutos a pie en Via del Governo Vecchio) donde sumergen el helado en chocolate fundido."
+      "audioguia": "Estás en Piazza Navona. Ocupa exactamente la pista del antiguo Estadio del emperador Domiciano (siglo I d.C.). En el siglo XVII, los papas la transformaron en joya del Barroco. Un dato curioso: En la antigüedad se inundaba a propósito tapando los desagües de las fuentes para simular batallas navales a escala para entretenimiento del pueblo. Ideal para tomar un helado en 'Frigidarium' (a 2 minutos a pie en Via del Governo Vecchio) donde sumergen el helado en chocolate fundido.",
+      "imagen": "https://images.unsplash.com/photo-1662398885856-cf2ab6e981b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8UGlhenphJTIwTmF2b25hJTIwUm9tZXxlbnwxfDB8fHwxNzg1Nzg1NTI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Fernando Mola-Davis",
+        "autor_url": "https://unsplash.com/@fmoladavis?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/a-canal-with-buildings-along-it-with-piazza-navona-in-the-background-y6nWuocbW4w?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "campo-de-fiori",
@@ -635,7 +659,13 @@
         }
       ],
       "prioridad": "recomendado",
-      "audioguia": "Estás en Campo de' Fiori. En la Edad Media era un prado con flores (de ahí su nombre). En 1600 fue ejecutado aquí el filósofo Giordano Bruno, cuya estatua preside el centro de la plaza. Un dato curioso: Es la única plaza del centro histórico de Roma que no tiene ninguna iglesia. Comprad un trozo de 'Pizza Bianca' recién hecha en el Forno Campo de' Fiori (en una esquina de la plaza). A los niños les chifla."
+      "audioguia": "Estás en Campo de' Fiori. En la Edad Media era un prado con flores (de ahí su nombre). En 1600 fue ejecutado aquí el filósofo Giordano Bruno, cuya estatua preside el centro de la plaza. Un dato curioso: Es la única plaza del centro histórico de Roma que no tiene ninguna iglesia. Comprad un trozo de 'Pizza Bianca' recién hecha en el Forno Campo de' Fiori (en una esquina de la plaza). A los niños les chifla.",
+      "imagen": "https://images.unsplash.com/photo-1616362434905-02ee87df771d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8Q2FtcG8lMjBkZSUyNyUyMEZpb3JpJTIwUm9tZXxlbnwxfDB8fHwxNzg1Nzg1NTI2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Gabriella Clare Marino",
+        "autor_url": "https://unsplash.com/@gabiontheroad?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/green-van-parked-beside-green-building-during-daytime-OTWs69RkQsc?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "fontana-di-trevi",
@@ -692,7 +722,13 @@
         }
       ],
       "prioridad": "imprescindible",
-      "audioguia": "Estás en Fontana di Trevi. Alimenta sus aguas del acueducto Aqua Virgo (siglo I a.C.). La monumental fachada actual fue diseñada por Nicola Salvi en el siglo XVIII. Un dato curioso: ¡Se recogen casi 3.000 € en monedas cada día del fondo del agua! El dinero se dona íntegramente a la organización benéfica Cáritas. Enseña a la niña a lanzar la moneda: con la mano derecha sobre el hombro izquierdo."
+      "audioguia": "Estás en Fontana di Trevi. Alimenta sus aguas del acueducto Aqua Virgo (siglo I a.C.). La monumental fachada actual fue diseñada por Nicola Salvi en el siglo XVIII. Un dato curioso: ¡Se recogen casi 3.000 € en monedas cada día del fondo del agua! El dinero se dona íntegramente a la organización benéfica Cáritas. Enseña a la niña a lanzar la moneda: con la mano derecha sobre el hombro izquierdo.",
+      "imagen": "https://images.unsplash.com/photo-1529154036614-a60975f5c760?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8Rm9udGFuYSUyMGRpJTIwVHJldmklMjBSb21lfGVufDF8MHx8fDE3ODU3ODU1Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Chris Czermak",
+        "autor_url": "https://unsplash.com/@chris_czermak?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/man-standing-in-front-of-statue-gZKzBhsO6KY?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "piazza-di-spagna-y-escalinata",
@@ -749,7 +785,13 @@
         }
       ],
       "prioridad": "recomendado",
-      "audioguia": "Estás en Piazza di Spagna y Escalinata. Construida en la década de 1720 para conectar la embajada española con la iglesia francesa en la cima. Un dato curioso: La fuente de abajo (Barcaccia) representa un barco que se hunde porque el río Tíber se desbordó en 1598 y dejó una barca encallada allí mismo. Recordad que está estrictamente prohibido sentarse o comer en los escalones (multas de la policía local)."
+      "audioguia": "Estás en Piazza di Spagna y Escalinata. Construida en la década de 1720 para conectar la embajada española con la iglesia francesa en la cima. Un dato curioso: La fuente de abajo (Barcaccia) representa un barco que se hunde porque el río Tíber se desbordó en 1598 y dejó una barca encallada allí mismo. Recordad que está estrictamente prohibido sentarse o comer en los escalones (multas de la policía local).",
+      "imagen": "https://images.unsplash.com/photo-1555992828-35627f3b373f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8UGlhenphJTIwZGklMjBTcGFnbmElMjB5JTIwRXNjYWxpbmF0YSUyMFJvbWV8ZW58MXwwfHx8MTc4NTc4NTUzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Spencer Davis",
+        "autor_url": "https://unsplash.com/@spencerdavis?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/aerial-photo-of-concrete-buildings-and-trees-during-daytime-haLyuhP6oLE?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "villa-borghese",
@@ -806,7 +848,13 @@
         }
       ],
       "prioridad": "recomendado",
-      "audioguia": "Estás en Villa Borghese. Creado por el cardenal Scipione Borghese en el siglo XVII para albergar su colección de arte y jardines de recreo. Un dato curioso: Hay un pequeño estanque con barquitas de remos donde se puede navegar con un templo jónico en el centro, y un reloj accionado exclusivamente por agua (hidrocronómetro). Alquilad una bicicleta múltiple a pedales para la familia cerca de la entrada del Pincio; a los niños les encanta."
+      "audioguia": "Estás en Villa Borghese. Creado por el cardenal Scipione Borghese en el siglo XVII para albergar su colección de arte y jardines de recreo. Un dato curioso: Hay un pequeño estanque con barquitas de remos donde se puede navegar con un templo jónico en el centro, y un reloj accionado exclusivamente por agua (hidrocronómetro). Alquilad una bicicleta múltiple a pedales para la familia cerca de la entrada del Pincio; a los niños les encanta.",
+      "imagen": "https://images.unsplash.com/photo-1695591627149-666feff28d59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8VmlsbGElMjBCb3JnaGVzZSUyMFJvbWV8ZW58MXwwfHx8MTc4NTc4NTUzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Jovan Vasiljević",
+        "autor_url": "https://unsplash.com/@jovanvasiljevic?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/a-pond-with-a-gazebo-in-the-middle-of-it-emujH7WYxXo?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "trastevere",
@@ -879,7 +927,13 @@
         }
       ],
       "prioridad": "imprescindible",
-      "audioguia": "Estás en Trastevere. Históricamente era el barrio obrero y multicultural al otro lado ('trast') del río Tíber ('Tevere'). Un dato curioso: En muchas esquinas hay pequeñas capillas esculpidas en la pared llamadas 'Madonnelle' que antes iluminaban las calles oscuras por la noche. Id a cenar sobre las 19:30 o 20:00 para evitar las larguísimas colas en restaurantes populares como Tonnarello o Da Enzo."
+      "audioguia": "Estás en Trastevere. Históricamente era el barrio obrero y multicultural al otro lado ('trast') del río Tíber ('Tevere'). Un dato curioso: En muchas esquinas hay pequeñas capillas esculpidas en la pared llamadas 'Madonnelle' que antes iluminaban las calles oscuras por la noche. Id a cenar sobre las 19:30 o 20:00 para evitar las larguísimas colas en restaurantes populares como Tonnarello o Da Enzo.",
+      "imagen": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8VHJhc3RldmVyZSUyMFJvbWV8ZW58MXwwfHx8MTc4NTc4NTUzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "David Köhler",
+        "autor_url": "https://unsplash.com/@davidkhlr?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/colosseum-arena-photography-VFRTXGw1VjU?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "piazza-venezia",
@@ -936,7 +990,13 @@
         }
       ],
       "prioridad": "recomendado",
-      "audioguia": "Estás en Piazza Venezia y Vittoriano. El monumento rinde homenaje al primer rey de la Italia unificada, Vittorio Emanuele II, e incluye la Tumba del Soldado Desconocido. Un dato curioso: Los romanos le llaman cariñosamente 'la máquina de escribir' o 'la tarta de bodas' por su peculiar forma y mármol blanco deslumbrante. Subir en el ascensor panorámico de cristal (Roma dal Cielo) ofrece la mejor vista completa del Foro y del Coliseo."
+      "audioguia": "Estás en Piazza Venezia y Vittoriano. El monumento rinde homenaje al primer rey de la Italia unificada, Vittorio Emanuele II, e incluye la Tumba del Soldado Desconocido. Un dato curioso: Los romanos le llaman cariñosamente 'la máquina de escribir' o 'la tarta de bodas' por su peculiar forma y mármol blanco deslumbrante. Subir en el ascensor panorámico de cristal (Roma dal Cielo) ofrece la mejor vista completa del Foro y del Coliseo.",
+      "imagen": "https://images.unsplash.com/photo-1662398885856-cf2ab6e981b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8UGlhenphJTIwVmVuZXppYSUyMHklMjBWaXR0b3JpYW5vJTIwUm9tZXxlbnwxfDB8fHwxNzg1Nzg1NTM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Fernando Mola-Davis",
+        "autor_url": "https://unsplash.com/@fmoladavis?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/a-canal-with-buildings-along-it-with-piazza-navona-in-the-background-y6nWuocbW4w?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "testaccio-mercado",
@@ -1129,7 +1189,13 @@
       "cercania_metro": "Autobús 115 o 870 desde Trastevere",
       "sitios_para_comer": [],
       "prioridad": "opcional",
-      "audioguia": "Estás en Terrazza del Gianicolo. Dedicada a la memoria de Giuseppe Garibaldi y las batallas por la unificación italiana en 1849. Un dato curioso: Cada día, exactamente a las 12:00 del mediodía, un cañón de época dispara una salva de fogueo justo debajo de la estatua para sincronizar todos los relojes de las iglesias de la ciudad. Hay un teatro de marionetas tradicional al aire libre cerca de la plaza muy simpático si bajáis caminando hacia Trastevere."
+      "audioguia": "Estás en Terrazza del Gianicolo. Dedicada a la memoria de Giuseppe Garibaldi y las batallas por la unificación italiana en 1849. Un dato curioso: Cada día, exactamente a las 12:00 del mediodía, un cañón de época dispara una salva de fogueo justo debajo de la estatua para sincronizar todos los relojes de las iglesias de la ciudad. Hay un teatro de marionetas tradicional al aire libre cerca de la plaza muy simpático si bajáis caminando hacia Trastevere.",
+      "imagen": "https://images.unsplash.com/photo-1626260113600-84c917a39f59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8VGVycmF6emElMjBkZWwlMjBHaWFuaWNvbG8lMjBSb21lfGVufDF8MHx8fDE3ODU3ODU1NDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Francesco Maria Achille",
+        "autor_url": "https://unsplash.com/@fmachille?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/brown-and-white-concrete-building-under-blue-sky-during-daytime-CuxA0IDkHhA?utm_source=pwa-template&utm_medium=referral"
+      }
     },
     {
       "id": "freetour-centro-historico",
@@ -1243,7 +1309,13 @@
         }
       ],
       "prioridad": "opcional",
-      "audioguia": "Estás en Free Tour Roma Barroca / Alrededores Vaticano. Estos recorridos surgieron para dar una alternativa asequible a las visitas guiadas tradicionales, apoyándose en el sistema de propina voluntaria. En el caso de Roma, suelen aprovechar la enorme densidad de arte barroco del centro o el atractivo del Vaticano como eje temático, sin incluir el coste de las entradas a monumentos. Un dato curioso: Bernini y Borromini, dos de los grandes artistas de esta época, eran rivales y a veces intentaban 'ganarse' el uno al otro con sus obras en la misma zona de Roma. Encaja bien como complemento a la visita de pago a los Museos Vaticanos, no como sustituto: este tour no incluye el interior de los museos ni la Capilla Sixtina. Reserva con antelación y lleva efectivo para la propina."
+      "audioguia": "Estás en Free Tour Roma Barroca / Alrededores Vaticano. Estos recorridos surgieron para dar una alternativa asequible a las visitas guiadas tradicionales, apoyándose en el sistema de propina voluntaria. En el caso de Roma, suelen aprovechar la enorme densidad de arte barroco del centro o el atractivo del Vaticano como eje temático, sin incluir el coste de las entradas a monumentos. Un dato curioso: Bernini y Borromini, dos de los grandes artistas de esta época, eran rivales y a veces intentaban 'ganarse' el uno al otro con sus obras en la misma zona de Roma. Encaja bien como complemento a la visita de pago a los Museos Vaticanos, no como sustituto: este tour no incluye el interior de los museos ni la Capilla Sixtina. Reserva con antelación y lleva efectivo para la propina.",
+      "imagen": "https://images.unsplash.com/photo-1568797732023-0212d2c045b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE2MDU5fDB8MXxzZWFyY2h8MXx8RnJlZSUyMFRvdXIlMjBSb21hJTIwQmFycm9jYSUyMCUyRiUyMEFscmVkZWRvcmVzJTIwVmF0aWNhbm8lMjBSb21lfGVufDF8MHx8fDE3ODU3ODU1NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imagen_credito": {
+        "autor": "Anna Church",
+        "autor_url": "https://unsplash.com/@annamariechurch?utm_source=pwa-template&utm_medium=referral",
+        "foto_url": "https://unsplash.com/photos/gold-and-white-cathedral-interior-1TLdxVTeO_0?utm_source=pwa-template&utm_medium=referral"
+      }
     }
   ],
   "itinerario_familiar_recomendado": {
