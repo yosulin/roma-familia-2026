@@ -1,6 +1,4 @@
-// app.js — Orquestador de la app. La parte de "itinerario" es específica
-// de proyectos tipo viaje/ruta; si tu proyecto no tiene itinerario día a día,
-// puedes quitar esa vista y dejar solo Mapa + Todos.
+// app.js — Orquestador de la app.
 
 import { buildCategoryColorMap, catVar } from './core/categoryColors.js';
 import { openSheet, setupSheetDismiss } from './core/sheet.js';
@@ -8,11 +6,15 @@ import { initMap, renderMarkers, invalidateMapSize } from './core/map.js';
 import { buildChips } from './core/filters.js';
 import { setupInstallPrompt } from './core/install.js';
 import { registerServiceWorker } from './core/update.js';
+import { resolveTodayKey, findCurrentActivity } from './core/now.js';
+import { isVisited, visitedCount } from './core/visited.js';
+import { filterByQuery, setupSearchInput } from './core/search.js';
+import { renderTripInfo } from './core/info.js';
 
 // ---------- CONFIG DEL PROYECTO ----------
-// Ajusta esto (o cárgalo desde config.json) para cada proyecto nuevo.
 const CONFIG = {
   dataFile: 'data/lugares.json',
+  tripFile: 'data/trip.json',
   mapCenter: [41.8969, 12.4784],
   mapZoom: 14,
   appName: 'Roma en Familia',
@@ -30,11 +32,13 @@ const CONFIG = {
 
 // ---------- ESTADO ----------
 let DATA = null;
+let TRIP = null;
 let categoryColorMap = {};
 let activeDay = null;
 let activeMapFilter = 'todas';
 let activeCatFilter = 'todas';
 let activePrioFilter = 'todas';
+let searchQuery = '';
 
 const DAY_LABELS = {
   viernes: 'Vie 9',
@@ -48,14 +52,17 @@ async function loadData() {
   DATA = await res.json();
   categoryColorMap = buildCategoryColorMap(DATA.lugares);
 
+  try {
+    const tripRes = await fetch(CONFIG.tripFile);
+    if (tripRes.ok) TRIP = await tripRes.json();
+  } catch { /* trip.json es opcional */ }
+
   if (DATA.itinerario_familiar_recomendado) buildDayTabs();
   buildFilterRows();
   renderItinerario();
   renderLugares();
-}
-
-function findLugar(id) {
-  return DATA.lugares.find((l) => l.id === id);
+  renderInfo();
+  setupNowBanner();
 }
 
 function matchLugarFromPlanLine(line) {
@@ -74,7 +81,43 @@ function starIf(lugar) {
   return lugar.prioridad === 'imprescindible' ? '<span class="star-badge">★</span> ' : '';
 }
 
-// ---------- ITINERARIO ----------
+// ---------- MODO "AHORA" ----------
+function setupNowBanner() {
+  if (!TRIP || !TRIP.fechas || !DATA.itinerario_familiar_recomendado) return;
+
+  const todayKey = resolveTodayKey(TRIP.fechas);
+  if (todayKey && DATA.itinerario_familiar_recomendado[todayKey]) {
+    selectDay(todayKey);
+  }
+  updateNowBanner();
+  setInterval(updateNowBanner, 60000);
+}
+
+function updateNowBanner() {
+  const banner = document.getElementById('nowBanner');
+  if (!banner || !TRIP || !TRIP.fechas) return;
+
+  const todayKey = resolveTodayKey(TRIP.fechas);
+  const dayData = todayKey && DATA.itinerario_familiar_recomendado[todayKey];
+  if (!dayData) {
+    banner.classList.remove('is-visible');
+    return;
+  }
+
+  const result = findCurrentActivity(dayData.plan);
+  banner.classList.remove('state-ahora', 'state-siguiente');
+  if (result.estado === 'ahora') {
+    banner.classList.add('is-visible', 'state-ahora');
+    banner.innerHTML = `<span class="now-tag">Ahora</span><strong>${result.linea}</strong>`;
+  } else if (result.estado === 'siguiente') {
+    banner.classList.add('is-visible', 'state-siguiente');
+    banner.innerHTML = `<span class="now-tag">Siguiente</span><strong>${result.linea}</strong>`;
+  } else {
+    banner.classList.remove('is-visible');
+  }
+}
+
+// ---------- DAY TABS + ITINERARIO ----------
 function buildDayTabs() {
   const days = Object.keys(DATA.itinerario_familiar_recomendado);
   activeDay = days[0];
@@ -85,13 +128,15 @@ function buildDayTabs() {
     btn.className = 'day-tab' + (day === activeDay ? ' is-active' : '');
     btn.textContent = DAY_LABELS[day] || day;
     btn.dataset.day = day;
-    btn.addEventListener('click', () => {
-      activeDay = day;
-      [...el.children].forEach((c) => c.classList.toggle('is-active', c.dataset.day === day));
-      renderItinerario();
-    });
+    btn.addEventListener('click', () => selectDay(day));
     el.appendChild(btn);
   });
+}
+
+function selectDay(day) {
+  activeDay = day;
+  document.querySelectorAll('.day-tab').forEach((c) => c.classList.toggle('is-active', c.dataset.day === day));
+  renderItinerario();
 }
 
 function renderItinerario() {
@@ -130,10 +175,10 @@ function renderItinerario() {
 
     if (lugar) {
       const card = document.createElement('div');
-      card.className = 'milestone-card';
+      card.className = 'milestone-card' + (isVisited(lugar.id) ? ' is-visited' : '');
       card.style.setProperty('--cat-color', catVar(categoryColorMap, lugar.categoria));
       card.innerHTML = `<h3>${starIf(lugar)}${lugar.nombre}</h3><p>${rest}</p>`;
-      card.addEventListener('click', () => openSheet(lugar, { categoryColorMap, catLabels: CONFIG.catLabels }));
+      card.addEventListener('click', () => openLugarSheet(lugar));
       li.appendChild(card);
     } else {
       const p = document.createElement('p');
@@ -170,19 +215,15 @@ function buildFilterRows() {
       { value: 'opcional', label: 'Opcional' }
     ], { onSelect: (v) => { activePrioFilter = v; renderLugares(); } });
   }
+
+  setupSearchInput('searchInput', (value) => { searchQuery = value; renderLugares(); });
 }
 
 // ---------- MAPA ----------
 function renderMap() {
-  if (!getMapInstance()) initMap(CONFIG.mapCenter, CONFIG.mapZoom);
+  if (!document.querySelector('#map .leaflet-container')) initMap(CONFIG.mapCenter, CONFIG.mapZoom);
   const lugares = DATA.lugares.filter((l) => activeMapFilter === 'todas' || l.categoria === activeMapFilter);
-  renderMarkers(lugares, {
-    categoryColorMap,
-    onClick: (l) => openSheet(l, { categoryColorMap, catLabels: CONFIG.catLabels })
-  });
-}
-function getMapInstance() {
-  return document.querySelector('#map .leaflet-container') ? true : false;
+  renderMarkers(lugares, { categoryColorMap, onClick: (l) => openLugarSheet(l) });
 }
 
 // ---------- GRID "TODOS" ----------
@@ -190,26 +231,55 @@ function renderLugares() {
   const grid = document.getElementById('lugaresGrid');
   if (!grid) return;
   grid.innerHTML = '';
-  const lugares = DATA.lugares.filter((l) => {
+
+  let lugares = DATA.lugares.filter((l) => {
     const catOk = activeCatFilter === 'todas' || l.categoria === activeCatFilter;
     const prioOk = activePrioFilter === 'todas' || l.prioridad === activePrioFilter;
     return catOk && prioOk;
   });
+  lugares = filterByQuery(lugares, searchQuery);
+
   lugares.forEach((l) => {
     const card = document.createElement('div');
-    card.className = 'place-card';
+    card.className = 'place-card' + (isVisited(l.id) ? ' is-visited' : '');
     card.style.setProperty('--cat-color', catVar(categoryColorMap, l.categoria));
     card.innerHTML = `
       <div class="cat-label"><span class="cat-dot"></span>${CONFIG.catLabels[l.categoria] || l.categoria}</div>
       <h3>${starIf(l)}${l.nombre}</h3>
       <p>${l.descripcion_breve || ''}</p>
     `;
-    card.addEventListener('click', () => openSheet(l, { categoryColorMap, catLabels: CONFIG.catLabels }));
+    card.addEventListener('click', () => openLugarSheet(l));
     grid.appendChild(card);
   });
   if (!lugares.length) {
     grid.innerHTML = '<p style="padding:12px;color:var(--ink-soft)">No hay lugares con estos filtros.</p>';
   }
+  updateProgressBadge();
+}
+
+function updateProgressBadge() {
+  const badge = document.getElementById('progressBadge');
+  if (!badge) return;
+  const { done, total } = visitedCount(DATA.lugares.map((l) => l.id));
+  badge.textContent = total ? `${done}/${total} visitados` : '';
+}
+
+// ---------- INFO ----------
+function renderInfo() {
+  renderTripInfo('infoContent', TRIP);
+}
+
+// ---------- SHEET ----------
+function openLugarSheet(lugar) {
+  openSheet(lugar, {
+    categoryColorMap,
+    catLabels: CONFIG.catLabels,
+    onVisitedChange: () => {
+      renderLugares();
+      renderItinerario();
+      if (document.getElementById('view-mapa').classList.contains('is-active')) renderMap();
+    }
+  });
 }
 
 // ---------- NAVEGACIÓN DE VISTAS ----------

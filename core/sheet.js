@@ -6,6 +6,7 @@
 import { catVar } from './categoryColors.js';
 import { mapsUrl, directionsUrl } from './maps.js';
 import { toggleAudioguide } from './audioguide.js';
+import { isVisited, toggleVisited } from './visited.js';
 
 const PRIO_LABELS = {
   imprescindible: 'Imprescindible',
@@ -13,7 +14,7 @@ const PRIO_LABELS = {
   opcional: 'Opcional'
 };
 
-export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen } = {}) {
+export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen, onVisitedChange } = {}) {
   if (window.speechSynthesis && speechSynthesis.speaking) speechSynthesis.cancel();
 
   const content = document.getElementById('sheetContent');
@@ -43,6 +44,13 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
     ? `<div class="action-row"><button class="action-btn primary" id="sheetAudioBtn">🔊 Escuchar audioguía</button></div>`
     : '';
 
+  const visited = isVisited(lugar.id);
+  const visitedBtn = `<div class="action-row">
+    <button class="action-btn ${visited ? 'is-visited' : ''}" id="sheetVisitedBtn">
+      ${visited ? '✅ Visitado' : '☐ Marcar como visitado'}
+    </button>
+  </div>`;
+
   const mapsRow = lugar.coordenadas
     ? `<div class="action-row">
          <a class="action-btn" href="${mapsUrl(lugar)}" target="_blank" rel="noopener">📍 Ver en Maps</a>
@@ -60,6 +68,7 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
     <p>${lugar.descripcion_breve || ''}</p>
 
     ${audioBtn}
+    ${visitedBtn}
     ${mapsRow}
 
     <dl class="fact-grid">
@@ -83,6 +92,14 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
       toggleAudioguide(lugar.audioguia || lugar.descripcion_breve, e.currentTarget);
     });
   }
+
+  const visitedBtnEl = document.getElementById('sheetVisitedBtn');
+  visitedBtnEl.addEventListener('click', () => {
+    const nowVisited = toggleVisited(lugar.id);
+    visitedBtnEl.textContent = nowVisited ? '✅ Visitado' : '☐ Marcar como visitado';
+    visitedBtnEl.classList.toggle('is-visited', nowVisited);
+    if (onVisitedChange) onVisitedChange(lugar.id, nowVisited);
+  });
 
   document.getElementById('sheet').classList.add('is-open');
   document.getElementById('sheetBackdrop').classList.add('is-open');

@@ -1,0 +1,49 @@
+{
+  "fechas": {
+    "viernes": "2026-10-09",
+    "sábado": "2026-10-10",
+    "domingo": "2026-10-11",
+    "lunes": "2026-10-12"
+  },
+  "vuelos": [
+    {
+      "ruta": "Bilbao (BIO) → Roma Fiumicino (FCO)",
+      "fecha": "Viernes 9 oct",
+      "salida": "07:40",
+      "llegada": "09:55",
+      "duracion": "02:15",
+      "aerolinea": "Volotea",
+      "numero_vuelo": "V7"
+    },
+    {
+      "ruta": "Roma Fiumicino (FCO) → Bilbao (BIO)",
+      "fecha": "Lunes 12 oct",
+      "salida": "20:05",
+      "llegada": "22:35",
+      "duracion": "02:30",
+      "aerolinea": "Volotea",
+      "numero_vuelo": "V7"
+    }
+  ],
+  "alojamiento": {
+    "nombre": "Pendiente de añadir",
+    "direccion": "",
+    "checkin": "",
+    "checkout": "",
+    "telefono": "",
+    "notas": "Rellena esto cuando reserves alojamiento"
+  },
+  "contactos_emergencia": [
+    { "nombre": "Emergencias UE", "telefono": "112" },
+    {
+      "nombre": "Consulado General de España en Roma (emergencias consulares)",
+      "telefono": "+39 335 333 438",
+      "direccion": "Via Campo Marzio, 34, 00186 Roma"
+    },
+    {
+      "nombre": "Embajada de España en Roma",
+      "telefono": "+39 06 684 04 01",
+      "direccion": "Palacio Borghese, Largo della Fontanella di Borghese 19, 00186 Roma"
+    }
+  ]
+}

@@ -21,9 +21,23 @@ documentación de `core/` y `data/SCHEMA.md`. Lo específico de este proyecto:
 - `data/lugares.json` — 19 lugares (Roma antigua, Vaticano, centro histórico,
   miradores, free tours), cada uno con audioguía, prioridad y recomendaciones
   gastronómicas
+- `data/trip.json` — fechas del viaje, vuelos, alojamiento (pendiente de
+  rellenar) y contactos de emergencia. Alimenta el modo "ahora" y la vista Info
 - `app.js` → `CONFIG` con el centro del mapa (Roma), etiquetas de categoría en
   español, y `DAY_LABELS` (Vie 9 / Sáb 10 / Dom 11 / Lun 12)
 - `assets/icon.svg` / `og.svg` — personalizados con la R y el azul del proyecto
+
+## Funciones de "app de viaje real" (sobre el template base)
+
+- **Modo ahora**: al abrir la app durante el viaje, salta directamente al día
+  de hoy y muestra un banner con la actividad actual/siguiente según la hora
+- **Mapa offline**: las teselas del mapa se cachean según las vas viendo, así
+  que las zonas ya visitadas en el mapa siguen funcionando sin conexión
+- **Checklist**: botón "Marcar como visitado" en cada ficha, con contador de
+  progreso en la vista "Todos"
+- **Info**: vuelos, alojamiento y contactos de emergencia (consulado,
+  embajada, 112) en su propia pestaña
+- **Buscador**: campo de búsqueda por nombre/zona en la vista "Todos"
 
 ## Actualizar datos
 

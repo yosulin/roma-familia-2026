@@ -51,7 +51,10 @@
   <button class="view-btn is-active" data-view="itinerario">Itinerario</button>
   <button class="view-btn" data-view="mapa">Mapa</button>
   <button class="view-btn" data-view="lugares">Todos</button>
+  <button class="view-btn" data-view="info">Info</button>
 </nav>
+
+<div class="now-banner" id="nowBanner"></div>
 
 <main id="app">
 
@@ -66,9 +69,17 @@
   </section>
 
   <section id="view-lugares" class="view">
+    <div class="search-row">
+      <input type="search" id="searchInput" placeholder="Buscar lugar..." autocomplete="off">
+      <span class="progress-badge" id="progressBadge"></span>
+    </div>
     <div class="filter-row" id="prioridadFilters"></div>
     <div class="filter-row" id="lugaresFilters"></div>
     <div class="places-grid" id="lugaresGrid"></div>
+  </section>
+
+  <section id="view-info" class="view">
+    <div class="info-content" id="infoContent"></div>
   </section>
 
 </main>
