@@ -4,7 +4,7 @@
 //
 // REGLA: cada vez que cambies cualquier archivo listado en ASSETS,
 // sube VERSION. scripts/sw-lint.py falla el commit si te olvidas.
-const VERSION = 'roma-2026.08.03-9';
+const VERSION = 'roma-2026.08.03-11';
 const CACHE_NAME = `app-cache-${VERSION}`;
 const TILE_CACHE = `map-tiles-${VERSION}`;
 const IMAGE_CACHE = `place-images-${VERSION}`;

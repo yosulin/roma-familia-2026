@@ -11,6 +11,7 @@ export function renderTripInfo(containerId, trip) {
       <div class="info-card-title">${v.ruta}</div>
       <div class="info-card-row"><span>${v.fecha}</span><strong>${v.salida} → ${v.llegada}</strong></div>
       <div class="info-card-sub">${v.aerolinea || ''} ${v.numero_vuelo || ''} · ${v.duracion || ''}</div>
+      ${v.numero_vuelo ? `<a class="info-card-track" href="https://www.flightradar24.com/data/flights/${v.numero_vuelo.toLowerCase().replace(/\s+/g, '')}" target="_blank" rel="noopener">🛫 Ver estado del vuelo en vivo</a>` : ''}
     </div>
   `).join('');
 
