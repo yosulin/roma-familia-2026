@@ -12,7 +12,6 @@ import { filterByQuery, setupSearchInput } from './core/search.js';
 import { renderTripInfo } from './core/info.js';
 import { categoryIcon } from './core/categoryIcons.js';
 import { toggleAudioguide } from './core/audioguide.js';
-import { resolvePlacePhoto } from './core/unsplash.js';
 
 // ---------- CONFIG DEL PROYECTO ----------
 const CONFIG = {
@@ -30,9 +29,7 @@ const CONFIG = {
     mirador: 'Mirador',
     parque: 'Parque',
     freetour: 'Free Tour'
-  },
-  unsplashAccessKey: '', // rellena con tu Access Key de https://unsplash.com/developers
-  unsplashQuerySuffix: 'Rome'
+  }
 };
 
 // ---------- ESTADO ----------
@@ -259,6 +256,7 @@ function renderLugares() {
         ${l.prioridad === 'imprescindible' ? '<span class="place-card-priority">★ Imprescindible</span>' : ''}
         ${visited ? '<span class="place-card-visited-flag">✓</span>' : ''}
         ${l.imagen ? '' : `<span class="place-card-watermark">${categoryIcon(l.categoria)}</span>`}
+        ${l.imagen_credito ? `<a class="place-card-credit" href="${l.imagen_credito.foto_url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">📷 ${l.imagen_credito.autor}</a>` : ''}
       </div>
       <div class="place-card-body" data-action="info">
         <div class="cat-label"><span class="cat-dot"></span>${CONFIG.catLabels[l.categoria] || l.categoria}</div>
@@ -299,29 +297,6 @@ function renderLugares() {
     });
 
     grid.appendChild(card);
-
-    if (!l.imagen && CONFIG.unsplashAccessKey) {
-      const header = card.querySelector('.place-card-header');
-      const query = `${l.nombre} ${CONFIG.unsplashQuerySuffix}`.trim();
-      resolvePlacePhoto(query, CONFIG.unsplashAccessKey).then((photo) => {
-        if (!photo || !header.isConnected) return;
-        header.style.backgroundImage = `url('${photo.url}')`;
-        header.querySelector('.place-card-watermark')?.remove();
-        if (!header.querySelector('.place-card-header-scrim')) {
-          const scrim = document.createElement('span');
-          scrim.className = 'place-card-header-scrim';
-          header.prepend(scrim);
-        }
-        const credit = document.createElement('a');
-        credit.className = 'place-card-credit';
-        credit.href = photo.photoUrl;
-        credit.target = '_blank';
-        credit.rel = 'noopener';
-        credit.textContent = `📷 ${photo.author}`;
-        credit.addEventListener('click', (e) => e.stopPropagation());
-        header.appendChild(credit);
-      });
-    }
   });
   if (!lugares.length) {
     grid.innerHTML = '<p style="padding:12px;color:var(--ink-soft)">No hay lugares con estos filtros.</p>';

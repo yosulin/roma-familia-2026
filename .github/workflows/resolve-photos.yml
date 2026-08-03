@@ -1,0 +1,42 @@
+name: Resolver fotos (Unsplash)
+
+on:
+  workflow_dispatch:
+    inputs:
+      data_file:
+        description: 'Ruta al JSON de lugares'
+        default: 'data/lugares.json'
+        required: false
+      query_suffix:
+        description: 'Sufijo de búsqueda (p.ej. "Rome")'
+        default: ''
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  resolve-photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Resolver fotos
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+        run: |
+          node scripts/resolve-unsplash-photos.mjs \
+            "${{ github.event.inputs.data_file }}" \
+            "${{ github.event.inputs.query_suffix }}"
+
+      - name: Commit si hay cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "${{ github.event.inputs.data_file }}"
+          git diff --cached --quiet || git commit -m "Fotos resueltas via Unsplash (automatico)"
+          git push
