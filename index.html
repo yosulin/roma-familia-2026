@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#8c2f1b">
+<meta name="theme-color" content="#2f5eff">
 <title>Roma en Familia · 9-12 oct 2026</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png">
@@ -19,6 +19,12 @@
     <p class="dates">9 — 12 OCT 2026</p>
   </div>
 </header>
+
+<div class="install-banner" id="installBanner">
+  <p id="installText">Instala esta app en tu móvil para acceder sin conexión.</p>
+  <button id="installBtn">Instalar</button>
+  <button class="install-dismiss" id="installDismiss">Ahora no</button>
+</div>
 
 <nav class="view-switch" id="viewSwitch">
   <button class="view-btn is-active" data-view="itinerario">Itinerario</button>
@@ -42,6 +48,7 @@
 
   <!-- TODOS LOS LUGARES -->
   <section id="view-lugares" class="view">
+    <div class="filter-row" id="prioridadFilters"></div>
     <div class="filter-row" id="lugaresFilters"></div>
     <div class="places-grid" id="lugaresGrid"></div>
   </section>

@@ -25,19 +25,99 @@
       "motivo_horario": "La primera franja reduce normalmente el calor, la congestión y el tiempo de espera. Para fotografía exterior, la primera hora de la mañana ofrece una luz más suave.",
       "mejor_spot_familiar": "Piazza del Colosseo, frente al Coliseo",
       "spots_fotografia": [
-        { "nombre": "Piazza del Colosseo, vista frontal", "coordenadas": { "lat": 41.8902, "lng": 12.4922 }, "tipo_foto": "familiar y monumento completo", "mejor_hora": "08:00-09:00", "por_que": "Permite una fotografía familiar clásica con el Coliseo completo y suele estar menos concurrida a primera hora.", "duracion_recomendada": "10-15 minutos" },
-        { "nombre": "Via Nicola Salvi, perspectiva lateral", "coordenadas": { "lat": 41.8915, "lng": 12.4915 }, "tipo_foto": "perspectiva arquitectónica", "mejor_hora": "mañana", "por_que": "Ofrece un ángulo más dinámico y permite apreciar la profundidad de los arcos.", "duracion_recomendada": "10 minutos" },
-        { "nombre": "Terrazza dei Musei Capitolini, vista hacia los Foros", "coordenadas": { "lat": 41.8939, "lng": 12.4828 }, "tipo_foto": "panorámica", "mejor_hora": "atardecer", "por_que": "Una perspectiva elevada muy distinta de la fotografía frontal tradicional.", "duracion_recomendada": "20 minutos" }
+        {
+          "nombre": "Piazza del Colosseo, vista frontal",
+          "coordenadas": {
+            "lat": 41.8902,
+            "lng": 12.4922
+          },
+          "tipo_foto": "familiar y monumento completo",
+          "mejor_hora": "08:00-09:00",
+          "por_que": "Permite una fotografía familiar clásica con el Coliseo completo y suele estar menos concurrida a primera hora.",
+          "duracion_recomendada": "10-15 minutos"
+        },
+        {
+          "nombre": "Via Nicola Salvi, perspectiva lateral",
+          "coordenadas": {
+            "lat": 41.8915,
+            "lng": 12.4915
+          },
+          "tipo_foto": "perspectiva arquitectónica",
+          "mejor_hora": "mañana",
+          "por_que": "Ofrece un ángulo más dinámico y permite apreciar la profundidad de los arcos.",
+          "duracion_recomendada": "10 minutos"
+        },
+        {
+          "nombre": "Terrazza dei Musei Capitolini, vista hacia los Foros",
+          "coordenadas": {
+            "lat": 41.8939,
+            "lng": 12.4828
+          },
+          "tipo_foto": "panorámica",
+          "mejor_hora": "atardecer",
+          "por_que": "Una perspectiva elevada muy distinta de la fotografía frontal tradicional.",
+          "duracion_recomendada": "20 minutos"
+        }
       ],
       "consejo_practico": "Reserva la hora obligatoria del Coliseo con antelación y utiliza calzado cómodo: el conjunto arqueológico requiere varias horas de caminata.",
-      "coordenadas": { "lat": 41.8902, "lng": 12.4922 },
+      "coordenadas": {
+        "lat": 41.8902,
+        "lng": 12.4922
+      },
       "zona": "Celio / Centro Histórico",
       "cercania_metro": "Colosseo (línea B)",
       "sitios_para_comer": [
-        { "nombre": "Ristoro Della Salute", "tipo": "restaurante", "distancia_aprox": "1-3 minutos a pie", "puntuacion": "aprox. 4,8/5", "plataforma_puntuacion": "Tripadvisor", "numero_resenas_aprox": 29000, "precio_aprox_persona": "20-35 €", "ideal_para": "comida familiar", "especialidad": "cocina italiana y romana", "apto_nina_9_anos": true, "necesita_reserva": "recomendable", "nivel_turistico": "alto", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Excelente proximidad al Coliseo y enorme volumen de reseñas." },
-        { "nombre": "Pasqualino al Colosseo", "tipo": "trattoria", "distancia_aprox": "3-5 minutos a pie", "puntuacion": "aprox. 4,7/5", "plataforma_puntuacion": "Tripadvisor", "numero_resenas_aprox": 11000, "precio_aprox_persona": "20-35 €", "ideal_para": "comida romana familiar", "especialidad": "pasta, pizza y cocina romana", "apto_nina_9_anos": true, "necesita_reserva": "recomendable", "nivel_turistico": "alto", "mi_recomendacion": "recomendado", "motivo_seleccion": "Buena opción práctica después de la visita arqueológica." },
-        { "nombre": "La Prezzemolina", "tipo": "street_food", "distancia_aprox": "5-10 minutos a pie", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps", "numero_resenas_aprox": "variable", "precio_aprox_persona": "5-15 €", "ideal_para": "comida rápida familiar", "especialidad": "pizza al taglio y comida italiana informal", "apto_nina_9_anos": true, "necesita_reserva": false, "nivel_turistico": "medio", "mi_recomendacion": "alternativa", "motivo_seleccion": "Interesante si queréis comer rápido y evitar una comida larga después de varias horas caminando." }
-      ]
+        {
+          "nombre": "Ristoro Della Salute",
+          "tipo": "restaurante",
+          "distancia_aprox": "1-3 minutos a pie",
+          "puntuacion": "aprox. 4,8/5",
+          "plataforma_puntuacion": "Tripadvisor",
+          "numero_resenas_aprox": 29000,
+          "precio_aprox_persona": "20-35 €",
+          "ideal_para": "comida familiar",
+          "especialidad": "cocina italiana y romana",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": "recomendable",
+          "nivel_turistico": "alto",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Excelente proximidad al Coliseo y enorme volumen de reseñas."
+        },
+        {
+          "nombre": "Pasqualino al Colosseo",
+          "tipo": "trattoria",
+          "distancia_aprox": "3-5 minutos a pie",
+          "puntuacion": "aprox. 4,7/5",
+          "plataforma_puntuacion": "Tripadvisor",
+          "numero_resenas_aprox": 11000,
+          "precio_aprox_persona": "20-35 €",
+          "ideal_para": "comida romana familiar",
+          "especialidad": "pasta, pizza y cocina romana",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": "recomendable",
+          "nivel_turistico": "alto",
+          "mi_recomendacion": "recomendado",
+          "motivo_seleccion": "Buena opción práctica después de la visita arqueológica."
+        },
+        {
+          "nombre": "La Prezzemolina",
+          "tipo": "street_food",
+          "distancia_aprox": "5-10 minutos a pie",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps",
+          "numero_resenas_aprox": "variable",
+          "precio_aprox_persona": "5-15 €",
+          "ideal_para": "comida rápida familiar",
+          "especialidad": "pizza al taglio y comida italiana informal",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": false,
+          "nivel_turistico": "medio",
+          "mi_recomendacion": "alternativa",
+          "motivo_seleccion": "Interesante si queréis comer rápido y evitar una comida larga después de varias horas caminando."
+        }
+      ],
+      "prioridad": "imprescindible",
+      "audioguia": "Estás en Coliseo. Fue inaugurado en época del emperador Tito, hacia el año 80 d.C., y podía acoger decenas de miles de espectadores. Allí se celebraban combates de gladiadores, cacerías de animales y grandes espectáculos públicos. Su nombre antiguo era Anfiteatro Flavio, por la dinastía de emperadores que impulsó su construcción. A lo largo de los siglos sufrió terremotos, expolio de materiales y transformaciones. Un dato curioso: Tenía un sistema de pasillos y entradas tan organizado que miles de espectadores podían entrar y salir rápidamente, casi como en un estadio moderno. Reserva la hora obligatoria del Coliseo con antelación y utiliza calzado cómodo: el conjunto arqueológico requiere varias horas de caminata."
     },
     {
       "id": "foro-romano-y-palatino",
@@ -56,17 +136,72 @@
       "motivo_horario": "La mañana evita el calor más intenso y permite aprovechar la entrada combinada sin regresar posteriormente a esta zona.",
       "mejor_spot_familiar": "Miradores del Palatino con vistas hacia el Coliseo y el Foro",
       "spots_fotografia": [
-        { "nombre": "Mirador del Palatino hacia el Coliseo", "coordenadas": { "lat": 41.8896, "lng": 12.4884 }, "tipo_foto": "familiar y panorámica", "mejor_hora": "09:30-11:00", "por_que": "Permite relacionar en una sola imagen la familia y el Coliseo desde una perspectiva elevada.", "duracion_recomendada": "10-15 minutos" },
-        { "nombre": "Vista del Foro desde el Palatino", "coordenadas": { "lat": 41.8920, "lng": 12.4860 }, "tipo_foto": "panorámica histórica", "mejor_hora": "mañana", "por_que": "Ayuda a comprender visualmente la extensión del antiguo centro de Roma.", "duracion_recomendada": "10 minutos" }
+        {
+          "nombre": "Mirador del Palatino hacia el Coliseo",
+          "coordenadas": {
+            "lat": 41.8896,
+            "lng": 12.4884
+          },
+          "tipo_foto": "familiar y panorámica",
+          "mejor_hora": "09:30-11:00",
+          "por_que": "Permite relacionar en una sola imagen la familia y el Coliseo desde una perspectiva elevada.",
+          "duracion_recomendada": "10-15 minutos"
+        },
+        {
+          "nombre": "Vista del Foro desde el Palatino",
+          "coordenadas": {
+            "lat": 41.892,
+            "lng": 12.486
+          },
+          "tipo_foto": "panorámica histórica",
+          "mejor_hora": "mañana",
+          "por_que": "Ayuda a comprender visualmente la extensión del antiguo centro de Roma.",
+          "duracion_recomendada": "10 minutos"
+        }
       ],
       "consejo_practico": "No intentéis verlo absolutamente todo: seleccionad los puntos principales y reservad energía para el resto del día.",
-      "coordenadas": { "lat": 41.8925, "lng": 12.4853 },
+      "coordenadas": {
+        "lat": 41.8925,
+        "lng": 12.4853
+      },
       "zona": "Foro Romano / Palatino",
       "cercania_metro": "Colosseo (línea B)",
       "sitios_para_comer": [
-        { "nombre": "La Taverna dei Fori Imperiali", "tipo": "trattoria", "distancia_aprox": "10-15 minutos a pie", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps / Tripadvisor", "numero_resenas_aprox": "miles", "precio_aprox_persona": "25-40 €", "ideal_para": "comida romana", "especialidad": "pasta romana y cocina tradicional", "apto_nina_9_anos": true, "necesita_reserva": "recomendable", "nivel_turistico": "medio-alto", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Permite alejarse un poco del entorno inmediato del Coliseo y comer con un ambiente de trattoria auténtico." },
-        { "nombre": "Alle Carrette", "tipo": "pizzería", "distancia_aprox": "10-15 minutos a pie", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps / Tripadvisor", "numero_resenas_aprox": "miles", "precio_aprox_persona": "15-25 €", "ideal_para": "pizza familiar", "especialidad": "pizza romana", "apto_nina_9_anos": true, "necesita_reserva": "recomendable en horas punta", "nivel_turistico": "medio", "mi_recomendacion": "recomendado", "motivo_seleccion": "Alternativa sencilla para una niña después de una mañana intensa de arqueología." }
-      ]
+        {
+          "nombre": "La Taverna dei Fori Imperiali",
+          "tipo": "trattoria",
+          "distancia_aprox": "10-15 minutos a pie",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps / Tripadvisor",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "25-40 €",
+          "ideal_para": "comida romana",
+          "especialidad": "pasta romana y cocina tradicional",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": "recomendable",
+          "nivel_turistico": "medio-alto",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Permite alejarse un poco del entorno inmediato del Coliseo y comer con un ambiente de trattoria auténtico."
+        },
+        {
+          "nombre": "Alle Carrette",
+          "tipo": "pizzería",
+          "distancia_aprox": "10-15 minutos a pie",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps / Tripadvisor",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "15-25 €",
+          "ideal_para": "pizza familiar",
+          "especialidad": "pizza romana",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": "recomendable en horas punta",
+          "nivel_turistico": "medio",
+          "mi_recomendacion": "recomendado",
+          "motivo_seleccion": "Alternativa sencilla para una niña después de una mañana intensa de arqueología."
+        }
+      ],
+      "prioridad": "imprescindible",
+      "audioguia": "Estás en Foro Romano y Palatino. El Foro Romano fue durante siglos el centro de la vida pública de Roma, con templos, basílicas, edificios políticos y espacios ceremoniales. El Palatino fue una de las colinas más importantes de la ciudad y quedó asociado a las residencias de emperadores y aristócratas. Según la tradición romana, Rómulo fundó Roma en esta zona en el 753 a.C. Un dato curioso: Según la leyenda, Rómulo y Remo fueron amamantados por una loba y Rómulo fundó Roma precisamente en la zona del Palatino. No intentéis verlo absolutamente todo: seleccionad los puntos principales y reservad energía para el resto del día."
     },
     {
       "id": "museos-vaticanos-y-capilla-sixtina",
@@ -85,18 +220,88 @@
       "motivo_horario": "Entrar en la primera franja permite recorrer la Galería de los Mapas y la Capilla Sixtina con menor densidad de público.",
       "mejor_spot_familiar": "Escalinata de helicoidal de Giuseppe Momo (salida) o Patio del Belvedere",
       "spots_fotografia": [
-        { "nombre": "Viale Vaticano, exterior de los Museos", "coordenadas": { "lat": 41.9067, "lng": 12.4536 }, "tipo_foto": "familiar", "mejor_hora": "07:45-08:15", "por_que": "Antes de entrar permite una fotografía familiar identificando claramente el destino.", "duracion_recomendada": "5-10 minutos" },
-        { "nombre": "Patio de la Piña (Cortile della Pigna)", "coordenadas": { "lat": 41.9054, "lng": 12.4548 }, "tipo_foto": "escultura y arquitectura", "mejor_hora": "mañana", "por_que": "Espacio al aire libre ideal para fotografiar la gran piña de bronce y la esfera de Pomodoro.", "duracion_recomendada": "15 minutos" }
+        {
+          "nombre": "Viale Vaticano, exterior de los Museos",
+          "coordenadas": {
+            "lat": 41.9067,
+            "lng": 12.4536
+          },
+          "tipo_foto": "familiar",
+          "mejor_hora": "07:45-08:15",
+          "por_que": "Antes de entrar permite una fotografía familiar identificando claramente el destino.",
+          "duracion_recomendada": "5-10 minutos"
+        },
+        {
+          "nombre": "Patio de la Piña (Cortile della Pigna)",
+          "coordenadas": {
+            "lat": 41.9054,
+            "lng": 12.4548
+          },
+          "tipo_foto": "escultura y arquitectura",
+          "mejor_hora": "mañana",
+          "por_que": "Espacio al aire libre ideal para fotografiar la gran piña de bronce y la esfera de Pomodoro.",
+          "duracion_recomendada": "15 minutos"
+        }
       ],
       "consejo_practico": "Diseñad un 'juego de pistas' para la niña proponiéndole buscar animales en los tapices, mapas antiguos o la Piña gigante de bronce.",
-      "coordenadas": { "lat": 41.9065, "lng": 12.4536 },
+      "coordenadas": {
+        "lat": 41.9065,
+        "lng": 12.4536
+      },
       "zona": "Vaticano / Prati",
       "cercania_metro": "Ottaviano (línea A)",
       "sitios_para_comer": [
-        { "nombre": "Il Segreto - Italian Restaurant by the Vatican", "tipo": "restaurante", "distancia_aprox": "5-10 minutos a pie", "puntuacion": "aprox. 4,8/5", "plataforma_puntuacion": "Tripadvisor", "numero_resenas_aprox": 2400, "precio_aprox_persona": "20-35 €", "ideal_para": "comida familiar", "especialidad": "cocina italiana", "apto_nina_9_anos": true, "necesita_reserva": "recomendable", "nivel_turistico": "medio-alto", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Muy buena puntuación y ubicación práctica después de los Museos Vaticanos." },
-        { "nombre": "200 Gradi", "tipo": "street_food", "distancia_aprox": "10-15 minutos a pie", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps / Tripadvisor", "numero_resenas_aprox": "miles", "precio_aprox_persona": "8-15 €", "ideal_para": "comida rápida", "especialidad": "panini gourmet", "apto_nina_9_anos": true, "necesita_reserva": false, "nivel_turistico": "medio", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Excelente formato para una familia que quiera comer rápido después de varias horas de museo." },
-        { "nombre": "Pizzarium Bonci", "tipo": "pizzería al taglio", "distancia_aprox": "15-20 minutos a pie o breve trayecto en metro", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps / Tripadvisor", "numero_resenas_aprox": "miles", "precio_aprox_persona": "10-20 €", "ideal_para": "comida informal", "especialidad": "pizza al taglio de alta calidad", "apto_nina_9_anos": true, "necesita_reserva": false, "nivel_turistico": "medio", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Una de las experiencias gastronómicas informales más icónicas de Roma." }
-      ]
+        {
+          "nombre": "Il Segreto - Italian Restaurant by the Vatican",
+          "tipo": "restaurante",
+          "distancia_aprox": "5-10 minutos a pie",
+          "puntuacion": "aprox. 4,8/5",
+          "plataforma_puntuacion": "Tripadvisor",
+          "numero_resenas_aprox": 2400,
+          "precio_aprox_persona": "20-35 €",
+          "ideal_para": "comida familiar",
+          "especialidad": "cocina italiana",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": "recomendable",
+          "nivel_turistico": "medio-alto",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Muy buena puntuación y ubicación práctica después de los Museos Vaticanos."
+        },
+        {
+          "nombre": "200 Gradi",
+          "tipo": "street_food",
+          "distancia_aprox": "10-15 minutos a pie",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps / Tripadvisor",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "8-15 €",
+          "ideal_para": "comida rápida",
+          "especialidad": "panini gourmet",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": false,
+          "nivel_turistico": "medio",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Excelente formato para una familia que quiera comer rápido después de varias horas de museo."
+        },
+        {
+          "nombre": "Pizzarium Bonci",
+          "tipo": "pizzería al taglio",
+          "distancia_aprox": "15-20 minutos a pie o breve trayecto en metro",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps / Tripadvisor",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "10-20 €",
+          "ideal_para": "comida informal",
+          "especialidad": "pizza al taglio de alta calidad",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": false,
+          "nivel_turistico": "medio",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Una de las experiencias gastronómicas informales más icónicas de Roma."
+        }
+      ],
+      "prioridad": "imprescindible",
+      "audioguia": "Estás en Museos Vaticanos y Capilla Sixtina. Los Museos Vaticanos comenzaron a formarse a principios del siglo XVI a partir de colecciones papales. La Capilla Sixtina fue construida en el siglo XV y decorada por grandes artistas. Miguel Ángel pintó su bóveda entre 1508 y 1512 y regresó décadas después para crear el monumental Juicio Final. Un dato curioso: Miguel Ángel pintó gran parte de la bóveda de pie con la cabeza inclinada hacia arriba durante años, no tumbado boca arriba como dice la leyenda. Diseñad un 'juego de pistas' para la niña proponiéndole buscar animales en los tapices, mapas antiguos o la Piña gigante de bronce."
     },
     {
       "id": "basilica-de-san-pedro",
@@ -115,16 +320,56 @@
       "motivo_horario": "Permite realizar la zona del Vaticano en un solo bloque continuo sin duplicar colas de seguridad.",
       "mejor_spot_familiar": "Centro de Piazza San Pietro",
       "spots_fotografia": [
-        { "nombre": "Centro de Piazza San Pietro", "coordenadas": { "lat": 41.9022, "lng": 12.4539 }, "tipo_foto": "familiar y monumental", "mejor_hora": "mañana o atardecer", "por_que": "Permite encuadrar la columnata de Bernini y la fachada con la cúpula.", "duracion_recomendada": "10-15 minutos" },
-        { "nombre": "Via della Conciliazione", "coordenadas": { "lat": 41.9009, "lng": 12.4564 }, "tipo_foto": "perspectiva", "mejor_hora": "mañana o hora azul", "por_que": "La gran avenida crea un marco de fuga perfecto hacia la basílica.", "duracion_recomendada": "10 minutos" }
+        {
+          "nombre": "Centro de Piazza San Pietro",
+          "coordenadas": {
+            "lat": 41.9022,
+            "lng": 12.4539
+          },
+          "tipo_foto": "familiar y monumental",
+          "mejor_hora": "mañana o atardecer",
+          "por_que": "Permite encuadrar la columnata de Bernini y la fachada con la cúpula.",
+          "duracion_recomendada": "10-15 minutos"
+        },
+        {
+          "nombre": "Via della Conciliazione",
+          "coordenadas": {
+            "lat": 41.9009,
+            "lng": 12.4564
+          },
+          "tipo_foto": "perspectiva",
+          "mejor_hora": "mañana o hora azul",
+          "por_que": "La gran avenida crea un marco de fuga perfecto hacia la basílica.",
+          "duracion_recomendada": "10 minutos"
+        }
       ],
       "consejo_practico": "Código de vestimenta estricto (hombros y rodillas cubiertas). Si queréis subir a la cúpula, hay un ascensor parcial que ahorra 230 escalones (quedan 320 a pie).",
-      "coordenadas": { "lat": 41.9022, "lng": 12.4539 },
+      "coordenadas": {
+        "lat": 41.9022,
+        "lng": 12.4539
+      },
       "zona": "Ciudad del Vaticano",
       "cercania_metro": "Ottaviano (línea A)",
       "sitios_para_comer": [
-        { "nombre": "Il Segreto - Italian Restaurant by the Vatican", "tipo": "restaurante", "distancia_aprox": "10-15 minutos a pie", "puntuacion": "aprox. 4,8/5", "plataforma_puntuacion": "Tripadvisor", "numero_resenas_aprox": 2400, "precio_aprox_persona": "20-35 €", "ideal_para": "comida familiar", "especialidad": "cocina italiana", "apto_nina_9_anos": true, "necesita_reserva": "recomendable", "nivel_turistico": "medio-alto", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Buena combinación de proximidad y calidad." }
-      ]
+        {
+          "nombre": "Il Segreto - Italian Restaurant by the Vatican",
+          "tipo": "restaurante",
+          "distancia_aprox": "10-15 minutos a pie",
+          "puntuacion": "aprox. 4,8/5",
+          "plataforma_puntuacion": "Tripadvisor",
+          "numero_resenas_aprox": 2400,
+          "precio_aprox_persona": "20-35 €",
+          "ideal_para": "comida familiar",
+          "especialidad": "cocina italiana",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": "recomendable",
+          "nivel_turistico": "medio-alto",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Buena combinación de proximidad y calidad."
+        }
+      ],
+      "prioridad": "imprescindible",
+      "audioguia": "Estás en Basílica de San Pedro. La basílica actual se construyó entre los siglos XVI y XVII sobre la antigua iglesia paleocristiana levantada sobre la tumba del apóstol Pedro. En su diseño intervinieron Bramante, Miguel Ángel y Bernini. Un dato curioso: Las letras de la inscripción dorada que rodea el interior de la cúpula parecen pequeñas desde abajo, ¡pero miden unos 2 metros de altura cada una! Código de vestimenta estricto (hombros y rodillas cubiertas). Si queréis subir a la cúpula, hay un ascensor parcial que ahorra 230 escalones (quedan 320 a pie)."
     },
     {
       "id": "castel-sant-angelo",
@@ -143,16 +388,56 @@
       "motivo_horario": "Permite recorrer las rampas romanas e interiores frescos y disfrutar de las vistas de la terraza con la luz dorada del atardecer.",
       "mejor_spot_familiar": "Ponte Sant'Angelo",
       "spots_fotografia": [
-        { "nombre": "Ponte Sant'Angelo", "coordenadas": { "lat": 41.9029, "lng": 12.4663 }, "tipo_foto": "familiar y monumental", "mejor_hora": "atardecer", "por_que": "El puente barroco con estatuas de ángeles enmarca la fortaleza circular al fondo.", "duracion_recomendada": "15 minutos" },
-        { "nombre": "Terrazza dell'Angelo", "coordenadas": { "lat": 41.9031, "lng": 12.4663 }, "tipo_foto": "panorámica", "mejor_hora": "18:00-18:30", "por_que": "Vistas espectaculares de 360 grados sobre el río Tíber y la cúpula de San Pedro.", "duracion_recomendada": "20 minutos" }
+        {
+          "nombre": "Ponte Sant'Angelo",
+          "coordenadas": {
+            "lat": 41.9029,
+            "lng": 12.4663
+          },
+          "tipo_foto": "familiar y monumental",
+          "mejor_hora": "atardecer",
+          "por_que": "El puente barroco con estatuas de ángeles enmarca la fortaleza circular al fondo.",
+          "duracion_recomendada": "15 minutos"
+        },
+        {
+          "nombre": "Terrazza dell'Angelo",
+          "coordenadas": {
+            "lat": 41.9031,
+            "lng": 12.4663
+          },
+          "tipo_foto": "panorámica",
+          "mejor_hora": "18:00-18:30",
+          "por_que": "Vistas espectaculares de 360 grados sobre el río Tíber y la cúpula de San Pedro.",
+          "duracion_recomendada": "20 minutos"
+        }
       ],
       "consejo_practico": "Suele encantar a los niños por su aspecto de castillo real, rampas helicoidales secretas y cañones antiguos.",
-      "coordenadas": { "lat": 41.9031, "lng": 12.4663 },
+      "coordenadas": {
+        "lat": 41.9031,
+        "lng": 12.4663
+      },
       "zona": "Borgo / Prati",
       "cercania_metro": "Lepanto (línea A)",
       "sitios_para_comer": [
-        { "nombre": "La Fraschetta di Castel Sant'Angelo", "tipo": "trattoria", "distancia_aprox": "5-10 minutos a pie", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps / Tripadvisor", "numero_resenas_aprox": "miles", "precio_aprox_persona": "20-35 €", "ideal_para": "cena romana", "especialidad": "cocina romana", "apto_nina_9_anos": true, "necesita_reserva": "recomendable", "nivel_turistico": "medio", "mi_recomendacion": "recomendado", "motivo_seleccion": "Buena combinación para cenar cerca del castillo al terminar la visita." }
-      ]
+        {
+          "nombre": "La Fraschetta di Castel Sant'Angelo",
+          "tipo": "trattoria",
+          "distancia_aprox": "5-10 minutos a pie",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps / Tripadvisor",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "20-35 €",
+          "ideal_para": "cena romana",
+          "especialidad": "cocina romana",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": "recomendable",
+          "nivel_turistico": "medio",
+          "mi_recomendacion": "recomendado",
+          "motivo_seleccion": "Buena combinación para cenar cerca del castillo al terminar la visita."
+        }
+      ],
+      "prioridad": "recomendado",
+      "audioguia": "Estás en Castel Sant'Angelo. Construido en el siglo II d.C. como mausoleo del emperador Adriano. En la Edad Media se transformó en fortaleza conectada al Vaticano por el pasadizo fortificado Passetto di Borgo. Un dato curioso: En la terraza superior hay una estatua gigante de un ángel con una espada y una campana histórica. Suele encantar a los niños por su aspecto de castillo real, rampas helicoidales secretas y cañones antiguos."
     },
     {
       "id": "panteon-de-agripa",
@@ -171,17 +456,72 @@
       "motivo_horario": "Evita las colas de acceso en la plaza que se forman a partir de las 11:00.",
       "mejor_spot_familiar": "Piazza della Rotonda, frente a la fuente",
       "spots_fotografia": [
-        { "nombre": "Fuente de Piazza della Rotonda", "coordenadas": { "lat": 41.8986, "lng": 12.4769 }, "tipo_foto": "familiar y fachada", "mejor_hora": "09:00-10:00", "por_que": "Encuadra el obelisco de la fuente con las majestuosas columnas de granito del pórtico.", "duracion_recomendada": "10 minutos" },
-        { "nombre": "Interior bajo el óculo", "coordenadas": { "lat": 41.8980, "lng": 12.4769 }, "tipo_foto": "arquitectura interior", "mejor_hora": "11:30-13:00 (cuando entra el haz de luz solar)", "por_que": "El rayo de luz que entra por el techo crea un efecto óptico casi mágico.", "duracion_recomendada": "10 minutos" }
+        {
+          "nombre": "Fuente de Piazza della Rotonda",
+          "coordenadas": {
+            "lat": 41.8986,
+            "lng": 12.4769
+          },
+          "tipo_foto": "familiar y fachada",
+          "mejor_hora": "09:00-10:00",
+          "por_que": "Encuadra el obelisco de la fuente con las majestuosas columnas de granito del pórtico.",
+          "duracion_recomendada": "10 minutos"
+        },
+        {
+          "nombre": "Interior bajo el óculo",
+          "coordenadas": {
+            "lat": 41.898,
+            "lng": 12.4769
+          },
+          "tipo_foto": "arquitectura interior",
+          "mejor_hora": "11:30-13:00 (cuando entra el haz de luz solar)",
+          "por_que": "El rayo de luz que entra por el techo crea un efecto óptico casi mágico.",
+          "duracion_recomendada": "10 minutos"
+        }
       ],
       "consejo_practico": "Las entradas de fin de semana deben reservarse online con antelación obligatoria.",
-      "coordenadas": { "lat": 41.8986, "lng": 12.4769 },
+      "coordenadas": {
+        "lat": 41.8986,
+        "lng": 12.4769
+      },
       "zona": "Centro Histórico / Pigna",
       "cercania_metro": "Barberini (línea A)",
       "sitios_para_comer": [
-        { "nombre": "Armando al Pantheon", "tipo": "trattoria romana", "distancia_aprox": "2 minutos a pie", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps / Tripadvisor", "numero_resenas_aprox": "miles", "precio_aprox_persona": "30-50 €", "ideal_para": "comida romana especial", "especialidad": "cocina romana tradicional de alta calidad", "apto_nina_9_anos": true, "necesita_reserva": true, "nivel_turistico": "medio", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Una institución gastronómica al lado del Panteón. Imprescindible reservar meses antes." },
-        { "nombre": "Pane e Salame", "tipo": "paninoteca", "distancia_aprox": "5 minutos a pie", "puntuacion": "aprox. 4,8/5", "plataforma_puntuacion": "Tripadvisor", "numero_resenas_aprox": 8000, "precio_aprox_persona": "8-18 €", "ideal_para": "comida rápida familiar", "especialidad": "tabla de embutidos y panini", "apto_nina_9_anos": true, "necesita_reserva": false, "nivel_turistico": "alto", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Rápido, riquísimo y perfecto para familias." }
-      ]
+        {
+          "nombre": "Armando al Pantheon",
+          "tipo": "trattoria romana",
+          "distancia_aprox": "2 minutos a pie",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps / Tripadvisor",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "30-50 €",
+          "ideal_para": "comida romana especial",
+          "especialidad": "cocina romana tradicional de alta calidad",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": true,
+          "nivel_turistico": "medio",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Una institución gastronómica al lado del Panteón. Imprescindible reservar meses antes."
+        },
+        {
+          "nombre": "Pane e Salame",
+          "tipo": "paninoteca",
+          "distancia_aprox": "5 minutos a pie",
+          "puntuacion": "aprox. 4,8/5",
+          "plataforma_puntuacion": "Tripadvisor",
+          "numero_resenas_aprox": 8000,
+          "precio_aprox_persona": "8-18 €",
+          "ideal_para": "comida rápida familiar",
+          "especialidad": "tabla de embutidos y panini",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": false,
+          "nivel_turistico": "alto",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Rápido, riquísimo y perfecto para familias."
+        }
+      ],
+      "prioridad": "imprescindible",
+      "audioguia": "Estás en Panteón de Agripa. Construido originalmente por Agripa y reconstruido en época de Adriano (siglo II d.C.). Se conservó intacto tras convertirse en iglesia en el año 609 d.C. Un dato curioso: Tiene una gran abertura circular en el techo (óculo) de 9 metros de diámetro por donde entra la luz del sol... ¡y la lluvia! El suelo tiene pequeños agujeros casi invisibles para drenar el agua. Las entradas de fin de semana deben reservarse online con antelación obligatoria."
     },
     {
       "id": "piazza-navona",
@@ -200,15 +540,45 @@
       "motivo_horario": "Hay artistas callejeros, músicos y pintores que entretienen mucho a los niños a esa hora.",
       "mejor_spot_familiar": "Fuente de los Cuatro Ríos",
       "spots_fotografia": [
-        { "nombre": "Fuente de los Cuatro Ríos (Bernini)", "coordenadas": { "lat": 41.8992, "lng": 12.4731 }, "tipo_foto": "familiar y barroca", "mejor_hora": "tarde", "por_que": "Permite fotografiar a la familia con los gigantes esculpidos que representan los ríos Nilo, Danubio, Ganges y de la Plata.", "duracion_recomendada": "10 minutos" }
+        {
+          "nombre": "Fuente de los Cuatro Ríos (Bernini)",
+          "coordenadas": {
+            "lat": 41.8992,
+            "lng": 12.4731
+          },
+          "tipo_foto": "familiar y barroca",
+          "mejor_hora": "tarde",
+          "por_que": "Permite fotografiar a la familia con los gigantes esculpidos que representan los ríos Nilo, Danubio, Ganges y de la Plata.",
+          "duracion_recomendada": "10 minutos"
+        }
       ],
       "consejo_practico": "Ideal para tomar un helado en 'Frigidarium' (a 2 minutos a pie en Via del Governo Vecchio) donde sumergen el helado en chocolate fundido.",
-      "coordenadas": { "lat": 41.8992, "lng": 12.4731 },
+      "coordenadas": {
+        "lat": 41.8992,
+        "lng": 12.4731
+      },
       "zona": "Centro Histórico / Parione",
       "cercania_metro": "Barberini (línea A)",
       "sitios_para_comer": [
-        { "nombre": "Camillo a Piazza Navona", "tipo": "restaurante romano", "distancia_aprox": "1-3 minutos a pie", "puntuacion": "aprox. 4,8/5", "plataforma_puntuacion": "Tripadvisor", "numero_resenas_aprox": 12000, "precio_aprox_persona": "25-45 €", "ideal_para": "comida familiar", "especialidad": "cocina romana moderna y clásica", "apto_nina_9_anos": true, "necesita_reserva": "muy recomendable", "nivel_turistico": "medio-alto", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Ubicación excepcional y cocina excelente." }
-      ]
+        {
+          "nombre": "Camillo a Piazza Navona",
+          "tipo": "restaurante romano",
+          "distancia_aprox": "1-3 minutos a pie",
+          "puntuacion": "aprox. 4,8/5",
+          "plataforma_puntuacion": "Tripadvisor",
+          "numero_resenas_aprox": 12000,
+          "precio_aprox_persona": "25-45 €",
+          "ideal_para": "comida familiar",
+          "especialidad": "cocina romana moderna y clásica",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": "muy recomendable",
+          "nivel_turistico": "medio-alto",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Ubicación excepcional y cocina excelente."
+        }
+      ],
+      "prioridad": "recomendado",
+      "audioguia": "Estás en Piazza Navona. Ocupa exactamente la pista del antiguo Estadio del emperador Domiciano (siglo I d.C.). En el siglo XVII, los papas la transformaron en joya del Barroco. Un dato curioso: En la antigüedad se inundaba a propósito tapando los desagües de las fuentes para simular batallas navales a escala para entretenimiento del pueblo. Ideal para tomar un helado en 'Frigidarium' (a 2 minutos a pie en Via del Governo Vecchio) donde sumergen el helado en chocolate fundido."
     },
     {
       "id": "campo-de-fiori",
@@ -227,15 +597,45 @@
       "motivo_horario": "Disfrutar del mercado tradicional de frutas, especias y flores.",
       "mejor_spot_familiar": "Junto al puesto de flores o frente al Forno Campo de' Fiori",
       "spots_fotografia": [
-        { "nombre": "Estatua de Giordano Bruno y puestos de flores", "coordenadas": { "lat": 41.8956, "lng": 12.4723 }, "tipo_foto": "vida cotidiana y mercado", "mejor_hora": "mañana", "por_que": "Aporta color y ambiente cotidiano a las fotos familiares.", "duracion_recomendada": "15 minutos" }
+        {
+          "nombre": "Estatua de Giordano Bruno y puestos de flores",
+          "coordenadas": {
+            "lat": 41.8956,
+            "lng": 12.4723
+          },
+          "tipo_foto": "vida cotidiana y mercado",
+          "mejor_hora": "mañana",
+          "por_que": "Aporta color y ambiente cotidiano a las fotos familiares.",
+          "duracion_recomendada": "15 minutos"
+        }
       ],
       "consejo_practico": "Comprad un trozo de 'Pizza Bianca' recién hecha en el Forno Campo de' Fiori (en una esquina de la plaza). A los niños les chifla.",
-      "coordenadas": { "lat": 41.8956, "lng": 12.4723 },
+      "coordenadas": {
+        "lat": 41.8956,
+        "lng": 12.4723
+      },
       "zona": "Centro Histórico / Parione",
       "cercania_metro": "Largo di Torre Argentina (Tranvía 8)",
       "sitios_para_comer": [
-        { "nombre": "Forno Campo de' Fiori", "tipo": "panadería / pizzería al taglio", "distancia_aprox": "1 minuto a pie", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps", "numero_resenas_aprox": "miles", "precio_aprox_persona": "3-8 €", "ideal_para": "tentempié / comida rápida", "especialidad": "pizza bianca y mortadella", "apto_nina_9_anos": true, "necesita_reserva": false, "nivel_turistico": "alto", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Parada mítica para un snack rústico e inigualable." }
-      ]
+        {
+          "nombre": "Forno Campo de' Fiori",
+          "tipo": "panadería / pizzería al taglio",
+          "distancia_aprox": "1 minuto a pie",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "3-8 €",
+          "ideal_para": "tentempié / comida rápida",
+          "especialidad": "pizza bianca y mortadella",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": false,
+          "nivel_turistico": "alto",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Parada mítica para un snack rústico e inigualable."
+        }
+      ],
+      "prioridad": "recomendado",
+      "audioguia": "Estás en Campo de' Fiori. En la Edad Media era un prado con flores (de ahí su nombre). En 1600 fue ejecutado aquí el filósofo Giordano Bruno, cuya estatua preside el centro de la plaza. Un dato curioso: Es la única plaza del centro histórico de Roma que no tiene ninguna iglesia. Comprad un trozo de 'Pizza Bianca' recién hecha en el Forno Campo de' Fiori (en una esquina de la plaza). A los niños les chifla."
     },
     {
       "id": "fontana-di-trevi",
@@ -254,15 +654,45 @@
       "motivo_horario": "Es la única forma real de verla sin miles de personas tapando la vista.",
       "mejor_spot_familiar": "Punto central frente a la estatua de Océano",
       "spots_fotografia": [
-        { "nombre": "Vista frontal de la Fontana di Trevi", "coordenadas": { "lat": 41.9009, "lng": 12.4833 }, "tipo_foto": "familiar y monumental", "mejor_hora": "06:30-07:30", "por_que": "Fotografías despejadas con la luz dorada del amanecer reflejada en el mármol.", "duracion_recomendada": "15 minutos" }
+        {
+          "nombre": "Vista frontal de la Fontana di Trevi",
+          "coordenadas": {
+            "lat": 41.9009,
+            "lng": 12.4833
+          },
+          "tipo_foto": "familiar y monumental",
+          "mejor_hora": "06:30-07:30",
+          "por_que": "Fotografías despejadas con la luz dorada del amanecer reflejada en el mármol.",
+          "duracion_recomendada": "15 minutos"
+        }
       ],
       "consejo_practico": "Enseña a la niña a lanzar la moneda: con la mano derecha sobre el hombro izquierdo.",
-      "coordenadas": { "lat": 41.9009, "lng": 12.4833 },
+      "coordenadas": {
+        "lat": 41.9009,
+        "lng": 12.4833
+      },
       "zona": "Trevi",
       "cercania_metro": "Barberini (línea A)",
       "sitios_para_comer": [
-        { "nombre": "Piccolo Buco", "tipo": "pizzería", "distancia_aprox": "3 minutos a pie", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps / Tripadvisor", "numero_resenas_aprox": "miles", "precio_aprox_persona": "15-30 €", "ideal_para": "pizza de bordes altos", "especialidad": "pizza napolitana contemporánea", "apto_nina_9_anos": true, "necesita_reserva": "no acepta reserva fácil, ir temprano", "nivel_turistico": "alto", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Inolvidables pizzas artesanales muy cerquita de la fuente." }
-      ]
+        {
+          "nombre": "Piccolo Buco",
+          "tipo": "pizzería",
+          "distancia_aprox": "3 minutos a pie",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps / Tripadvisor",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "15-30 €",
+          "ideal_para": "pizza de bordes altos",
+          "especialidad": "pizza napolitana contemporánea",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": "no acepta reserva fácil, ir temprano",
+          "nivel_turistico": "alto",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Inolvidables pizzas artesanales muy cerquita de la fuente."
+        }
+      ],
+      "prioridad": "imprescindible",
+      "audioguia": "Estás en Fontana di Trevi. Alimenta sus aguas del acueducto Aqua Virgo (siglo I a.C.). La monumental fachada actual fue diseñada por Nicola Salvi en el siglo XVIII. Un dato curioso: ¡Se recogen casi 3.000 € en monedas cada día del fondo del agua! El dinero se dona íntegramente a la organización benéfica Cáritas. Enseña a la niña a lanzar la moneda: con la mano derecha sobre el hombro izquierdo."
     },
     {
       "id": "piazza-di-spagna-y-escalinata",
@@ -281,15 +711,45 @@
       "motivo_horario": "Escalinata vacía ideal para hacer fotografías familiares antes de que la policía turística controle los accesos.",
       "mejor_spot_familiar": "Junto a la Fontana della Barcaccia mirando hacia arriba",
       "spots_fotografia": [
-        { "nombre": "Fontana della Barcaccia", "coordenadas": { "lat": 41.9059, "lng": 12.4828 }, "tipo_foto": "familiar monumental", "mejor_hora": "07:30-08:30", "por_que": "Permite captar la fuente, la familia y toda la perspectiva de la gran escalinata vacía.", "duracion_recomendada": "15 minutos" }
+        {
+          "nombre": "Fontana della Barcaccia",
+          "coordenadas": {
+            "lat": 41.9059,
+            "lng": 12.4828
+          },
+          "tipo_foto": "familiar monumental",
+          "mejor_hora": "07:30-08:30",
+          "por_que": "Permite captar la fuente, la familia y toda la perspectiva de la gran escalinata vacía.",
+          "duracion_recomendada": "15 minutos"
+        }
       ],
       "consejo_practico": "Recordad que está estrictamente prohibido sentarse o comer en los escalones (multas de la policía local).",
-      "coordenadas": { "lat": 41.9059, "lng": 12.4828 },
+      "coordenadas": {
+        "lat": 41.9059,
+        "lng": 12.4828
+      },
       "zona": "Campo Marzio",
       "cercania_metro": "Spagna (línea A)",
       "sitios_para_comer": [
-        { "nombre": "Pastificio Guerra", "tipo": "pasta informal", "distancia_aprox": "2 minutos a pie", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps / Tripadvisor", "numero_resenas_aprox": "miles", "precio_aprox_persona": "5-10 €", "ideal_para": "pasta express", "especialidad": "pasta del día recién hecha", "apto_nina_9_anos": true, "necesita_reserva": false, "nivel_turistico": "medio-alto", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Sirven cajitas de pasta recién hecha deliciosa por un precio irrisorio en una zona muy cara." }
-      ]
+        {
+          "nombre": "Pastificio Guerra",
+          "tipo": "pasta informal",
+          "distancia_aprox": "2 minutos a pie",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps / Tripadvisor",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "5-10 €",
+          "ideal_para": "pasta express",
+          "especialidad": "pasta del día recién hecha",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": false,
+          "nivel_turistico": "medio-alto",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Sirven cajitas de pasta recién hecha deliciosa por un precio irrisorio en una zona muy cara."
+        }
+      ],
+      "prioridad": "recomendado",
+      "audioguia": "Estás en Piazza di Spagna y Escalinata. Construida en la década de 1720 para conectar la embajada española con la iglesia francesa en la cima. Un dato curioso: La fuente de abajo (Barcaccia) representa un barco que se hunde porque el río Tíber se desbordó en 1598 y dejó una barca encallada allí mismo. Recordad que está estrictamente prohibido sentarse o comer en los escalones (multas de la policía local)."
     },
     {
       "id": "villa-borghese",
@@ -308,15 +768,45 @@
       "motivo_horario": "Momento ideal para despejar la mente, alquilar un kart familiar a pedales y terminar viendo el atardecer desde el Pincio.",
       "mejor_spot_familiar": "Terrazza del Pincio",
       "spots_fotografia": [
-        { "nombre": "Terrazza del Pincio", "coordenadas": { "lat": 41.9129, "lng": 12.4768 }, "tipo_foto": "panorámica familiar", "mejor_hora": "atardecer", "por_que": "Una de las estampas más célebres de Roma con la Piazza del Popolo abajo y la cúpula de San Pedro al fondo.", "duracion_recomendada": "20 minutos" }
+        {
+          "nombre": "Terrazza del Pincio",
+          "coordenadas": {
+            "lat": 41.9129,
+            "lng": 12.4768
+          },
+          "tipo_foto": "panorámica familiar",
+          "mejor_hora": "atardecer",
+          "por_que": "Una de las estampas más célebres de Roma con la Piazza del Popolo abajo y la cúpula de San Pedro al fondo.",
+          "duracion_recomendada": "20 minutos"
+        }
       ],
       "consejo_practico": "Alquilad una bicicleta múltiple a pedales para la familia cerca de la entrada del Pincio; a los niños les encanta.",
-      "coordenadas": { "lat": 41.9142, "lng": 12.4922 },
+      "coordenadas": {
+        "lat": 41.9142,
+        "lng": 12.4922
+      },
       "zona": "Pinciano / Villa Borghese",
       "cercania_metro": "Spagna o Flaminio (línea A)",
       "sitios_para_comer": [
-        { "nombre": "Terrazza Pincio Café", "tipo": "cafetería", "distancia_aprox": "en la terraza", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps", "numero_resenas_aprox": "variable", "precio_aprox_persona": "10-20 €", "ideal_para": "merienda / refresco", "especialidad": "bebidas y snacks", "apto_nina_9_anos": true, "necesita_reserva": false, "nivel_turistico": "alto", "mi_recomendacion": "alternativa", "motivo_seleccion": "Muy práctico para descansar sin salir del entorno del parque." }
-      ]
+        {
+          "nombre": "Terrazza Pincio Café",
+          "tipo": "cafetería",
+          "distancia_aprox": "en la terraza",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps",
+          "numero_resenas_aprox": "variable",
+          "precio_aprox_persona": "10-20 €",
+          "ideal_para": "merienda / refresco",
+          "especialidad": "bebidas y snacks",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": false,
+          "nivel_turistico": "alto",
+          "mi_recomendacion": "alternativa",
+          "motivo_seleccion": "Muy práctico para descansar sin salir del entorno del parque."
+        }
+      ],
+      "prioridad": "recomendado",
+      "audioguia": "Estás en Villa Borghese. Creado por el cardenal Scipione Borghese en el siglo XVII para albergar su colección de arte y jardines de recreo. Un dato curioso: Hay un pequeño estanque con barquitas de remos donde se puede navegar con un templo jónico en el centro, y un reloj accionado exclusivamente por agua (hidrocronómetro). Alquilad una bicicleta múltiple a pedales para la familia cerca de la entrada del Pincio; a los niños les encanta."
     },
     {
       "id": "trastevere",
@@ -335,16 +825,61 @@
       "motivo_horario": "Disfrutar de la iluminación cálida, las fachadas de terracota y la cena tradicional.",
       "mejor_spot_familiar": "Piazza di Santa Maria in Trastevere",
       "spots_fotografia": [
-        { "nombre": "Piazza di Santa Maria in Trastevere", "coordenadas": { "lat": 41.8897, "lng": 12.4697 }, "tipo_foto": "familiar y plaza", "mejor_hora": "hora dorada", "por_que": "La fachada de la basílica con sus mosaicos dorados brilla de forma mágica al atardecer.", "duracion_recomendada": "15 minutos" }
+        {
+          "nombre": "Piazza di Santa Maria in Trastevere",
+          "coordenadas": {
+            "lat": 41.8897,
+            "lng": 12.4697
+          },
+          "tipo_foto": "familiar y plaza",
+          "mejor_hora": "hora dorada",
+          "por_que": "La fachada de la basílica con sus mosaicos dorados brilla de forma mágica al atardecer.",
+          "duracion_recomendada": "15 minutos"
+        }
       ],
       "consejo_practico": "Id a cenar sobre las 19:30 o 20:00 para evitar las larguísimas colas en restaurantes populares como Tonnarello o Da Enzo.",
-      "coordenadas": { "lat": 41.8897, "lng": 12.4697 },
+      "coordenadas": {
+        "lat": 41.8897,
+        "lng": 12.4697
+      },
       "zona": "Trastevere",
       "cercania_metro": "Tranvía 8 / Autobús H desde Termini",
       "sitios_para_comer": [
-        { "nombre": "Tonnarello", "tipo": "trattoria", "distancia_aprox": "5 minutos a pie", "puntuacion": "aprox. 4,7/5", "plataforma_puntuacion": "Tripadvisor", "numero_resenas_aprox": 100000, "precio_aprox_persona": "20-35 €", "ideal_para": "cocina romana tradicional", "especialidad": "tonnarelli carbonara y cacio e pepe en sartén de hierro", "apto_nina_9_anos": true, "necesita_reserva": "ir pronto o esperar cola", "nivel_turistico": "muy alto", "mi_recomendacion": "recomendado", "motivo_seleccion": "Famosísimo. La pasta servida directamente en sartén triunfa siempre entre los niños." },
-        { "nombre": "Da Enzo al 29", "tipo": "trattoria romana tradicional", "distancia_aprox": "10 minutos a pie", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps", "numero_resenas_aprox": "miles", "precio_aprox_persona": "25-40 €", "ideal_para": "comida romana auténtica", "especialidad": "carciofi alla giudia y rigatoni con pajata o amatriciana", "apto_nina_9_anos": true, "necesita_reserva": "imprescindible llegar antes de abrir", "nivel_turistico": "alto", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Uno de los referentes de cocina romana más auténticos del barrio." }
-      ]
+        {
+          "nombre": "Tonnarello",
+          "tipo": "trattoria",
+          "distancia_aprox": "5 minutos a pie",
+          "puntuacion": "aprox. 4,7/5",
+          "plataforma_puntuacion": "Tripadvisor",
+          "numero_resenas_aprox": 100000,
+          "precio_aprox_persona": "20-35 €",
+          "ideal_para": "cocina romana tradicional",
+          "especialidad": "tonnarelli carbonara y cacio e pepe en sartén de hierro",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": "ir pronto o esperar cola",
+          "nivel_turistico": "muy alto",
+          "mi_recomendacion": "recomendado",
+          "motivo_seleccion": "Famosísimo. La pasta servida directamente en sartén triunfa siempre entre los niños."
+        },
+        {
+          "nombre": "Da Enzo al 29",
+          "tipo": "trattoria romana tradicional",
+          "distancia_aprox": "10 minutos a pie",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "25-40 €",
+          "ideal_para": "comida romana auténtica",
+          "especialidad": "carciofi alla giudia y rigatoni con pajata o amatriciana",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": "imprescindible llegar antes de abrir",
+          "nivel_turistico": "alto",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Uno de los referentes de cocina romana más auténticos del barrio."
+        }
+      ],
+      "prioridad": "imprescindible",
+      "audioguia": "Estás en Trastevere. Históricamente era el barrio obrero y multicultural al otro lado ('trast') del río Tíber ('Tevere'). Un dato curioso: En muchas esquinas hay pequeñas capillas esculpidas en la pared llamadas 'Madonnelle' que antes iluminaban las calles oscuras por la noche. Id a cenar sobre las 19:30 o 20:00 para evitar las larguísimas colas en restaurantes populares como Tonnarello o Da Enzo."
     },
     {
       "id": "piazza-venezia",
@@ -363,15 +898,45 @@
       "motivo_horario": "Excelente conector visual caminando entre el Foro Romano y el Centro Histórico.",
       "mejor_spot_familiar": "Escalinata del Vittoriano",
       "spots_fotografia": [
-        { "nombre": "Frente al Vittoriano", "coordenadas": { "lat": 41.8956, "lng": 12.4823 }, "tipo_foto": "monumento completo", "mejor_hora": "tarde", "por_que": "Captura la colosal escala del monumento y la estatua ecuestre de bronce.", "duracion_recomendada": "10 minutos" }
+        {
+          "nombre": "Frente al Vittoriano",
+          "coordenadas": {
+            "lat": 41.8956,
+            "lng": 12.4823
+          },
+          "tipo_foto": "monumento completo",
+          "mejor_hora": "tarde",
+          "por_que": "Captura la colosal escala del monumento y la estatua ecuestre de bronce.",
+          "duracion_recomendada": "10 minutos"
+        }
       ],
       "consejo_practico": "Subir en el ascensor panorámico de cristal (Roma dal Cielo) ofrece la mejor vista completa del Foro y del Coliseo.",
-      "coordenadas": { "lat": 41.8956, "lng": 12.4823 },
+      "coordenadas": {
+        "lat": 41.8956,
+        "lng": 12.4823
+      },
       "zona": "Centro Histórico / Campidoglio",
       "cercania_metro": "Colosseo (línea B)",
       "sitios_para_comer": [
-        { "nombre": "Pane e Salame", "tipo": "paninoteca", "distancia_aprox": "10 minutos a pie", "puntuacion": "aprox. 4,8/5", "plataforma_puntuacion": "Tripadvisor", "numero_resenas_aprox": 8000, "precio_aprox_persona": "8-18 €", "ideal_para": "comida rápida", "especialidad": "panini y embutidos", "apto_nina_9_anos": true, "necesita_reserva": false, "nivel_turistico": "alto", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Opción ágil y sabrosa para no perder tiempo de recorrido." }
-      ]
+        {
+          "nombre": "Pane e Salame",
+          "tipo": "paninoteca",
+          "distancia_aprox": "10 minutos a pie",
+          "puntuacion": "aprox. 4,8/5",
+          "plataforma_puntuacion": "Tripadvisor",
+          "numero_resenas_aprox": 8000,
+          "precio_aprox_persona": "8-18 €",
+          "ideal_para": "comida rápida",
+          "especialidad": "panini y embutidos",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": false,
+          "nivel_turistico": "alto",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Opción ágil y sabrosa para no perder tiempo de recorrido."
+        }
+      ],
+      "prioridad": "recomendado",
+      "audioguia": "Estás en Piazza Venezia y Vittoriano. El monumento rinde homenaje al primer rey de la Italia unificada, Vittorio Emanuele II, e incluye la Tumba del Soldado Desconocido. Un dato curioso: Los romanos le llaman cariñosamente 'la máquina de escribir' o 'la tarta de bodas' por su peculiar forma y mármol blanco deslumbrante. Subir en el ascensor panorámico de cristal (Roma dal Cielo) ofrece la mejor vista completa del Foro y del Coliseo."
     },
     {
       "id": "testaccio-mercado",
@@ -390,16 +955,61 @@
       "motivo_horario": "Hora punta donde todos los puestos de comida elaborada están funcionando al 100%.",
       "mejor_spot_familiar": "Puesto Mordi e Vai o patio central del mercado",
       "spots_fotografia": [
-        { "nombre": "Interior del Mercado de Testaccio", "coordenadas": { "lat": 41.8762, "lng": 12.4766 }, "tipo_foto": "gastronómica y color", "mejor_hora": "12:00", "por_que": "Ambiente local muy animado con puestos de fruta, pasta fresca y comida callejera.", "duracion_recomendada": "15 minutos" }
+        {
+          "nombre": "Interior del Mercado de Testaccio",
+          "coordenadas": {
+            "lat": 41.8762,
+            "lng": 12.4766
+          },
+          "tipo_foto": "gastronómica y color",
+          "mejor_hora": "12:00",
+          "por_que": "Ambiente local muy animado con puestos de fruta, pasta fresca y comida callejera.",
+          "duracion_recomendada": "15 minutos"
+        }
       ],
       "consejo_practico": "Probad los bocadillos de guiso tradicional en el puesto 'Mordi e Vai' (bocadillo de 'scottona' o 'polpette al sugo') y los 'trapizzini' en el local cercano.",
-      "coordenadas": { "lat": 41.8762, "lng": 12.4766 },
+      "coordenadas": {
+        "lat": 41.8762,
+        "lng": 12.4766
+      },
       "zona": "Testaccio",
       "cercania_metro": "Piramide (línea B)",
       "sitios_para_comer": [
-        { "nombre": "Mordi e Vai (Puesto 15)", "tipo": "street food", "distancia_aprox": "Dentro del mercado", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps", "numero_resenas_aprox": "miles", "precio_aprox_persona": "5-10 €", "ideal_para": "bocadillo romano auténtico", "especialidad": "panino con guisos tradicionales romanos", "apto_nina_9_anos": true, "necesita_reserva": false, "nivel_turistico": "medio", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Comida de mercado auténtica e inolvidable." },
-        { "nombre": "Trapizzino Testaccio", "tipo": "street food", "distancia_aprox": "10 minutos a pie", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps", "numero_resenas_aprox": "miles", "precio_aprox_persona": "5-12 €", "ideal_para": "comida rápida divertida", "especialidad": "triángulos de pizza frita rellenos de guisos romanos", "apto_nina_9_anos": true, "necesita_reserva": false, "nivel_turistico": "medio", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Formato cómodo, crujiente y genial para niños." }
-      ]
+        {
+          "nombre": "Mordi e Vai (Puesto 15)",
+          "tipo": "street food",
+          "distancia_aprox": "Dentro del mercado",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "5-10 €",
+          "ideal_para": "bocadillo romano auténtico",
+          "especialidad": "panino con guisos tradicionales romanos",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": false,
+          "nivel_turistico": "medio",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Comida de mercado auténtica e inolvidable."
+        },
+        {
+          "nombre": "Trapizzino Testaccio",
+          "tipo": "street food",
+          "distancia_aprox": "10 minutos a pie",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "5-12 €",
+          "ideal_para": "comida rápida divertida",
+          "especialidad": "triángulos de pizza frita rellenos de guisos romanos",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": false,
+          "nivel_turistico": "medio",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Formato cómodo, crujiente y genial para niños."
+        }
+      ],
+      "prioridad": "recomendado",
+      "audioguia": "Estás en Mercado de Testaccio. Testaccio es el histórico barrio obrero y cárnico de Roma, famoso por inventar los platos clásicos de la casquería y la cocina romana de origen. Un dato curioso: Detrás del barrio hay una colina llamada Monte Testaccio hecha totalmente con trozos de más de 53 millones de vasijas y ánforas romanas de aceite de oliva recicladas. Probad los bocadillos de guiso tradicional en el puesto 'Mordi e Vai' (bocadillo de 'scottona' o 'polpette al sugo') y los 'trapizzini' en el local cercano."
     },
     {
       "id": "giardino-degli-aranci",
@@ -418,13 +1028,28 @@
       "motivo_horario": "El sol cae directamente tras la cúpula de San Pedro creando una iluminación increíble.",
       "mejor_spot_familiar": "Mirador del balcón sobre el río Tíber",
       "spots_fotografia": [
-        { "nombre": "Balcón del Giardino degli Aranci", "coordenadas": { "lat": 41.8830, "lng": 12.4794 }, "tipo_foto": "panorámica y familiar", "mejor_hora": "atardecer", "por_que": "Ofrece una de las postales más limpias del perfil de la cúpula de San Pedro y el río Tíber.", "duracion_recomendada": "15 minutos" }
+        {
+          "nombre": "Balcón del Giardino degli Aranci",
+          "coordenadas": {
+            "lat": 41.883,
+            "lng": 12.4794
+          },
+          "tipo_foto": "panorámica y familiar",
+          "mejor_hora": "atardecer",
+          "por_que": "Ofrece una de las postales más limpias del perfil de la cúpula de San Pedro y el río Tíber.",
+          "duracion_recomendada": "15 minutos"
+        }
       ],
       "consejo_practico": "Perfecto para combinar a 2 minutos caminando con la Cerradura del Aventino.",
-      "coordenadas": { "lat": 41.8830, "lng": 12.4794 },
+      "coordenadas": {
+        "lat": 41.883,
+        "lng": 12.4794
+      },
       "zona": "Aventino",
       "cercania_metro": "Circo Massimo (línea B)",
-      "sitios_para_comer": []
+      "sitios_para_comer": [],
+      "prioridad": "opcional",
+      "audioguia": "Estás en Giardino degli Aranci (Parco Savello). Diseñado en 1932 por Raffaele De Vico sobre la antigua fortaleza medieval de la familia Savelli. Un dato curioso: Aunque los naranjos están repletos de frutas doradas preciosa, ¡son naranjas amargas y no se pueden comer! Perfecto para combinar a 2 minutos caminando con la Cerradura del Aventino."
     },
     {
       "id": "cerradura-del-aventino",
@@ -443,13 +1068,28 @@
       "motivo_horario": "Buena luz para enfocar la cámara del teléfono en el interior de la cerradura.",
       "mejor_spot_familiar": "Frente a la puerta principal",
       "spots_fotografia": [
-        { "nombre": "Cerradura del Priorato de Malta", "coordenadas": { "lat": 41.8839, "lng": 12.4785 }, "tipo_foto": "efecto óptico / detalle", "mejor_hora": "tarde", "por_que": "Una de las fotos más curiosas y divertidas de capturar alineando la lente con el ojo de la cerradura.", "duracion_recomendada": "10 minutos" }
+        {
+          "nombre": "Cerradura del Priorato de Malta",
+          "coordenadas": {
+            "lat": 41.8839,
+            "lng": 12.4785
+          },
+          "tipo_foto": "efecto óptico / detalle",
+          "mejor_hora": "tarde",
+          "por_que": "Una de las fotos más curiosas y divertidas de capturar alineando la lente con el ojo de la cerradura.",
+          "duracion_recomendada": "10 minutos"
+        }
       ],
       "consejo_practico": "Suele haber una pequeña cola de 10-15 personas para mirar, armaros de un poquito de paciencia.",
-      "coordenadas": { "lat": 41.8839, "lng": 12.4785 },
+      "coordenadas": {
+        "lat": 41.8839,
+        "lng": 12.4785
+      },
       "zona": "Aventino",
       "cercania_metro": "Circo Massimo (línea B)",
-      "sitios_para_comer": []
+      "sitios_para_comer": [],
+      "prioridad": "opcional",
+      "audioguia": "Estás en Piazza dei Cavalieri di Malta (Cerradura del Aventino). Diseñada por Giovanni Battista Piranesi en 1765. Un dato curioso: Si miras por el ojo de la cerradura de la puerta verde de bronce, verás un pasillo de árboles perfectamente recortados que encuadran exactamente la cúpula de San Pedro a lo lejos. ¡Miras tres Estados a la vez! (Orden de Malta, Italia y el Vaticano). Suele haber una pequeña cola de 10-15 personas para mirar, armaros de un poquito de paciencia."
     },
     {
       "id": "terrazza-del-gianicolo",
@@ -468,13 +1108,28 @@
       "motivo_horario": "Contemplar cómo la ciudad entera se viste de tonos ocre y rojizos mientras se encienden las luces monumentales.",
       "mejor_spot_familiar": "Plaza junto al monumento a Garibaldi",
       "spots_fotografia": [
-        { "nombre": "Mirador Garibaldi del Gianicolo", "coordenadas": { "lat": 41.8931, "lng": 12.4618 }, "tipo_foto": "gran panorámica", "mejor_hora": "atardecer", "por_que": "Vista ininterrumpida de todas las cúpulas, el Panteón, el Vittoriano y las colinas lejanas.", "duracion_recomendada": "20 minutos" }
+        {
+          "nombre": "Mirador Garibaldi del Gianicolo",
+          "coordenadas": {
+            "lat": 41.8931,
+            "lng": 12.4618
+          },
+          "tipo_foto": "gran panorámica",
+          "mejor_hora": "atardecer",
+          "por_que": "Vista ininterrumpida de todas las cúpulas, el Panteón, el Vittoriano y las colinas lejanas.",
+          "duracion_recomendada": "20 minutos"
+        }
       ],
       "consejo_practico": "Hay un teatro de marionetas tradicional al aire libre cerca de la plaza muy simpático si bajáis caminando hacia Trastevere.",
-      "coordenadas": { "lat": 41.8931, "lng": 12.4618 },
+      "coordenadas": {
+        "lat": 41.8931,
+        "lng": 12.4618
+      },
       "zona": "Gianicolo / Trastevere",
       "cercania_metro": "Autobús 115 o 870 desde Trastevere",
-      "sitios_para_comer": []
+      "sitios_para_comer": [],
+      "prioridad": "opcional",
+      "audioguia": "Estás en Terrazza del Gianicolo. Dedicada a la memoria de Giuseppe Garibaldi y las batallas por la unificación italiana en 1849. Un dato curioso: Cada día, exactamente a las 12:00 del mediodía, un cañón de época dispara una salva de fogueo justo debajo de la estatua para sincronizar todos los relojes de las iglesias de la ciudad. Hay un teatro de marionetas tradicional al aire libre cerca de la plaza muy simpático si bajáis caminando hacia Trastevere."
     },
     {
       "id": "freetour-centro-historico",
@@ -493,15 +1148,45 @@
       "motivo_horario": "La salida de mañana evita el calor y deja la tarde libre para volver por libre a los lugares que más hayan gustado.",
       "mejor_spot_familiar": "Punto de encuentro habitual en Campo de' Fiori o Piazza Navona, según la empresa",
       "spots_fotografia": [
-        { "nombre": "Punto de encuentro / inicio del recorrido", "coordenadas": { "lat": 41.8986, "lng": 12.4769 }, "tipo_foto": "familiar y grupo", "mejor_hora": "mañana", "por_que": "Buen momento para una foto de grupo antes de empezar el recorrido.", "duracion_recomendada": "5 minutos" }
+        {
+          "nombre": "Punto de encuentro / inicio del recorrido",
+          "coordenadas": {
+            "lat": 41.8986,
+            "lng": 12.4769
+          },
+          "tipo_foto": "familiar y grupo",
+          "mejor_hora": "mañana",
+          "por_que": "Buen momento para una foto de grupo antes de empezar el recorrido.",
+          "duracion_recomendada": "5 minutos"
+        }
       ],
       "consejo_practico": "Reserva plaza online aunque sea gratis, ya que suelen tener aforo limitado. Es una opción muy recomendable para el primer día en Roma: da contexto histórico general que luego facilita disfrutar el resto del viaje por libre. Lleva efectivo en euros para la propina.",
-      "coordenadas": { "lat": 41.8986, "lng": 12.4769 },
+      "coordenadas": {
+        "lat": 41.8986,
+        "lng": 12.4769
+      },
       "zona": "Centro Histórico",
       "cercania_metro": "Barberini (línea A) / punto de encuentro variable",
       "sitios_para_comer": [
-        { "nombre": "Forno Campo de' Fiori", "tipo": "panadería", "distancia_aprox": "en el punto de encuentro habitual", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps / Tripadvisor", "numero_resenas_aprox": "miles", "precio_aprox_persona": "5-15 €", "ideal_para": "picoteo antes o después del tour", "especialidad": "pizza bianca y productos de panadería", "apto_nina_9_anos": true, "necesita_reserva": false, "nivel_turistico": "alto", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Parada rápida y económica muy cerca del punto de encuentro habitual." }
-      ]
+        {
+          "nombre": "Forno Campo de' Fiori",
+          "tipo": "panadería",
+          "distancia_aprox": "en el punto de encuentro habitual",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps / Tripadvisor",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "5-15 €",
+          "ideal_para": "picoteo antes o después del tour",
+          "especialidad": "pizza bianca y productos de panadería",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": false,
+          "nivel_turistico": "alto",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Parada rápida y económica muy cerca del punto de encuentro habitual."
+        }
+      ],
+      "prioridad": "opcional",
+      "audioguia": "Estás en Free Tour Centro Histórico. Los free tours son un formato relativamente reciente, popularizado desde los años 2000, en el que la visita es gratuita y el guía recibe una propina voluntaria según la satisfacción del grupo. En Roma varias empresas ofrecen recorridos por el centro histórico con guías locales que combinan historia, anécdotas y curiosidad para todo tipo de público. Un dato curioso: El guía no cobra un precio fijo: al final del recorrido cada familia decide cuánto pagar según lo que le haya gustado, como una especie de 'propina justa'. Reserva plaza online aunque sea gratis, ya que suelen tener aforo limitado. Es una opción muy recomendable para el primer día en Roma: da contexto histórico general que luego facilita disfrutar el resto del viaje por libre. Lleva efectivo en euros para la propina."
     },
     {
       "id": "freetour-roma-barroca-vaticano",
@@ -520,39 +1205,130 @@
       "motivo_horario": "Encaja bien antes de la hora punta de calor y deja el resto de la mañana libre.",
       "mejor_spot_familiar": "Punto de encuentro habitual en Piazza San Pietro o Ponte Sant'Angelo, según la empresa",
       "spots_fotografia": [
-        { "nombre": "Ponte Sant'Angelo, punto de encuentro habitual", "coordenadas": { "lat": 41.9029, "lng": 12.4663 }, "tipo_foto": "familiar y grupo", "mejor_hora": "mañana", "por_que": "Buen punto de referencia y foto antes de iniciar el recorrido.", "duracion_recomendada": "5 minutos" }
+        {
+          "nombre": "Ponte Sant'Angelo, punto de encuentro habitual",
+          "coordenadas": {
+            "lat": 41.9029,
+            "lng": 12.4663
+          },
+          "tipo_foto": "familiar y grupo",
+          "mejor_hora": "mañana",
+          "por_que": "Buen punto de referencia y foto antes de iniciar el recorrido.",
+          "duracion_recomendada": "5 minutos"
+        }
       ],
       "consejo_practico": "Encaja bien como complemento a la visita de pago a los Museos Vaticanos, no como sustituto: este tour no incluye el interior de los museos ni la Capilla Sixtina. Reserva con antelación y lleva efectivo para la propina.",
-      "coordenadas": { "lat": 41.9022, "lng": 12.4539 },
+      "coordenadas": {
+        "lat": 41.9022,
+        "lng": 12.4539
+      },
       "zona": "Vaticano / Borgo",
       "cercania_metro": "Ottaviano (línea A)",
       "sitios_para_comer": [
-        { "nombre": "200 Gradi", "tipo": "street_food", "distancia_aprox": "10-15 minutos a pie", "puntuacion": "comprobar puntuación actual", "plataforma_puntuacion": "Google Maps / Tripadvisor", "numero_resenas_aprox": "miles", "precio_aprox_persona": "8-15 €", "ideal_para": "comida rápida tras el tour", "especialidad": "panini", "apto_nina_9_anos": true, "necesita_reserva": false, "nivel_turistico": "medio", "mi_recomendacion": "muy_recomendado", "motivo_seleccion": "Práctico para comer algo rápido nada más terminar el recorrido." }
-      ]
+        {
+          "nombre": "200 Gradi",
+          "tipo": "street_food",
+          "distancia_aprox": "10-15 minutos a pie",
+          "puntuacion": "comprobar puntuación actual",
+          "plataforma_puntuacion": "Google Maps / Tripadvisor",
+          "numero_resenas_aprox": "miles",
+          "precio_aprox_persona": "8-15 €",
+          "ideal_para": "comida rápida tras el tour",
+          "especialidad": "panini",
+          "apto_nina_9_anos": true,
+          "necesita_reserva": false,
+          "nivel_turistico": "medio",
+          "mi_recomendacion": "muy_recomendado",
+          "motivo_seleccion": "Práctico para comer algo rápido nada más terminar el recorrido."
+        }
+      ],
+      "prioridad": "opcional",
+      "audioguia": "Estás en Free Tour Roma Barroca / Alrededores Vaticano. Estos recorridos surgieron para dar una alternativa asequible a las visitas guiadas tradicionales, apoyándose en el sistema de propina voluntaria. En el caso de Roma, suelen aprovechar la enorme densidad de arte barroco del centro o el atractivo del Vaticano como eje temático, sin incluir el coste de las entradas a monumentos. Un dato curioso: Bernini y Borromini, dos de los grandes artistas de esta época, eran rivales y a veces intentaban 'ganarse' el uno al otro con sus obras en la misma zona de Roma. Encaja bien como complemento a la visita de pago a los Museos Vaticanos, no como sustituto: este tour no incluye el interior de los museos ni la Capilla Sixtina. Reserva con antelación y lleva efectivo para la propina."
     }
   ],
   "itinerario_familiar_recomendado": {
     "viernes": {
       "tema": "Roma Antigua y Centro Histórico",
-      "plan": ["08:00 Foto exterior del Coliseo (Piazza del Colosseo)", "08:30-09:30 Visita al Coliseo", "09:30-11:30 Foro Romano y Palatino", "12:00 Comida en zona Coliseo / Monti (ej. La Taverna dei Fori Imperiali)", "15:30 Piazza Venezia y ascenso opcional al Vittoriano", "16:30 Panteón de Agripa", "17:15 Piazza Navona y helado familiar en Frigidarium", "18:00 Campo de' Fiori y descanso", "19:30 Cena temprana en el centro histórico"]
+      "plan": [
+        "08:00 Foto exterior del Coliseo (Piazza del Colosseo)",
+        "08:30-09:30 Visita al Coliseo",
+        "09:30-11:30 Foro Romano y Palatino",
+        "12:00 Comida en zona Coliseo / Monti (ej. La Taverna dei Fori Imperiali)",
+        "15:30 Piazza Venezia y ascenso opcional al Vittoriano",
+        "16:30 Panteón de Agripa",
+        "17:15 Piazza Navona y helado familiar en Frigidarium",
+        "18:00 Campo de' Fiori y descanso",
+        "19:30 Cena temprana en el centro histórico"
+      ]
     },
     "sábado": {
       "tema": "Vaticano y Castel Sant'Angelo",
-      "plan": ["07:45 Llegada al Viale Vaticano y control de entradas", "08:00-11:30 Museos Vaticanos y Capilla Sixtina (primera franja)", "11:30-12:30 Acceso y visita a la Basílica de San Pedro y Piazza San Pietro", "13:00 Comida informal (ej. 200 Gradi o Pizzarium Bonci)", "15:00 Descanso y refresco", "16:30-18:30 Castel Sant'Angelo (vistas desde las terrazas)", "18:30 Fotografías al atardecer en Ponte Sant'Angelo", "19:30 Cena en zona Borgo / Prati"]
+      "plan": [
+        "07:45 Llegada al Viale Vaticano y control de entradas",
+        "08:00-11:30 Museos Vaticanos y Capilla Sixtina (primera franja)",
+        "11:30-12:30 Acceso y visita a la Basílica de San Pedro y Piazza San Pietro",
+        "13:00 Comida informal (ej. 200 Gradi o Pizzarium Bonci)",
+        "15:00 Descanso y refresco",
+        "16:30-18:30 Castel Sant'Angelo (vistas desde las terrazas)",
+        "18:30 Fotografías al atardecer en Ponte Sant'Angelo",
+        "19:30 Cena en zona Borgo / Prati"
+      ]
     },
     "domingo": {
       "tema": "Trevi, España, Villa Borghese y Trastevere",
-      "plan": ["06:30 Fontana di Trevi (fotografía despejada sin multitudes)", "07:30 Piazza di Spagna y Escalinata", "08:30 Desayuno italiano tradicional en cafetería céntrica", "10:00 Paseo por Villa Borghese y alquiler de kart a pedales", "11:30 Fotografías panorámicas en la Terrazza del Pincio", "13:00 Comida liviana (ej. Pastificio Guerra)", "16:30 Paseo cruzando el río hacia Trastevere", "17:30-19:30 Paseo por Trastevere, fotografías en Piazza Santa Maria", "19:30 Cena en trattoria (ej. Tonnarello o Da Enzo)"]
+      "plan": [
+        "06:30 Fontana di Trevi (fotografía despejada sin multitudes)",
+        "07:30 Piazza di Spagna y Escalinata",
+        "08:30 Desayuno italiano tradicional en cafetería céntrica",
+        "10:00 Paseo por Villa Borghese y alquiler de kart a pedales",
+        "11:30 Fotografías panorámicas en la Terrazza del Pincio",
+        "13:00 Comida liviana (ej. Pastificio Guerra)",
+        "16:30 Paseo cruzando el río hacia Trastevere",
+        "17:30-19:30 Paseo por Trastevere, fotografías en Piazza Santa Maria",
+        "19:30 Cena en trattoria (ej. Tonnarello o Da Enzo)"
+      ]
     },
     "lunes": {
       "tema": "Testaccio, Colina del Aventino y despedida",
-      "plan": ["10:30 Paseo por el barrio tradicional de Testaccio", "11:30-13:00 Mercado de Testaccio y comida de degustación en los puestos", "13:30 Vistas al Monte Testaccio", "15:30 Subida tranquila a la colina del Aventino", "16:30 Curiosidad de la Cerradura de la Orden de Malta", "17:00 Atardecer y descanso en el Giardino degli Aranci (Parco Savello)", "18:30 Tarde libre para compras o despedida"]
+      "plan": [
+        "10:30 Paseo por el barrio tradicional de Testaccio",
+        "11:30-13:00 Mercado de Testaccio y comida de degustación en los puestos",
+        "13:30 Vistas al Monte Testaccio",
+        "15:30 Subida tranquila a la colina del Aventino",
+        "16:30 Curiosidad de la Cerradura de la Orden de Malta",
+        "17:00 Atardecer y descanso en el Giardino degli Aranci (Parco Savello)",
+        "18:30 Tarde libre para compras o despedida"
+      ]
     }
   },
   "spots_extra_recomendados": [
-    { "nombre": "Giardino degli Aranci", "coordenadas": { "lat": 41.8830, "lng": 12.4794 }, "mejor_hora": "atardecer", "motivo": "Una de las mejores panorámicas románticas de Roma y de la cúpula de San Pedro." },
-    { "nombre": "Piazza dei Cavalieri di Malta, cerradura del Aventino", "coordenadas": { "lat": 41.8839, "lng": 12.4785 }, "mejor_hora": "tarde", "motivo": "Vista curiosa y divertida de la cúpula de San Pedro a través de una cerradura." },
-    { "nombre": "Terrazza del Gianicolo", "coordenadas": { "lat": 41.8931, "lng": 12.4618 }, "mejor_hora": "atardecer", "motivo": "Panorámica amplia y completa de todo el horizonte monumental de Roma." }
+    {
+      "nombre": "Giardino degli Aranci",
+      "coordenadas": {
+        "lat": 41.883,
+        "lng": 12.4794
+      },
+      "mejor_hora": "atardecer",
+      "motivo": "Una de las mejores panorámicas románticas de Roma y de la cúpula de San Pedro."
+    },
+    {
+      "nombre": "Piazza dei Cavalieri di Malta, cerradura del Aventino",
+      "coordenadas": {
+        "lat": 41.8839,
+        "lng": 12.4785
+      },
+      "mejor_hora": "tarde",
+      "motivo": "Vista curiosa y divertida de la cúpula de San Pedro a través de una cerradura."
+    },
+    {
+      "nombre": "Terrazza del Gianicolo",
+      "coordenadas": {
+        "lat": 41.8931,
+        "lng": 12.4618
+      },
+      "mejor_hora": "atardecer",
+      "motivo": "Panorámica amplia y completa de todo el horizonte monumental de Roma."
+    }
   ],
   "recomendaciones_clave": [
     "Reservar con antelación Coliseo y Museos Vaticanos en los sitios oficiales con el máximo margen posible.",
