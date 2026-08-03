@@ -48,9 +48,9 @@
 </header>
 
 <nav class="view-switch" id="viewSwitch">
-  <button class="view-btn is-active" data-view="itinerario">Itinerario</button>
+  <button class="view-btn is-active" data-view="lugares">Todos</button>
+  <button class="view-btn" data-view="itinerario">Itinerario</button>
   <button class="view-btn" data-view="mapa">Mapa</button>
-  <button class="view-btn" data-view="lugares">Todos</button>
   <button class="view-btn" data-view="info">Info</button>
 </nav>
 
@@ -58,17 +58,7 @@
 
 <main id="app">
 
-  <section id="view-itinerario" class="view is-active">
-    <div class="day-tabs" id="dayTabs"></div>
-    <div class="milestone-track" id="itinerarioContent"></div>
-  </section>
-
-  <section id="view-mapa" class="view">
-    <div class="filter-row" id="mapFilters"></div>
-    <div id="map"></div>
-  </section>
-
-  <section id="view-lugares" class="view">
+  <section id="view-lugares" class="view is-active">
     <div class="search-row">
       <input type="search" id="searchInput" placeholder="Buscar lugar..." autocomplete="off">
       <span class="progress-badge" id="progressBadge"></span>
@@ -76,6 +66,16 @@
     <div class="filter-row" id="prioridadFilters"></div>
     <div class="filter-row" id="lugaresFilters"></div>
     <div class="places-grid" id="lugaresGrid"></div>
+  </section>
+
+  <section id="view-itinerario" class="view">
+    <div class="day-tabs" id="dayTabs"></div>
+    <div class="milestone-track" id="itinerarioContent"></div>
+  </section>
+
+  <section id="view-mapa" class="view">
+    <div class="filter-row" id="mapFilters"></div>
+    <div id="map"></div>
   </section>
 
   <section id="view-info" class="view">
