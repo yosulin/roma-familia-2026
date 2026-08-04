@@ -209,8 +209,9 @@ button { font-family: inherit; }
   box-shadow: var(--shadow);
   padding: 12px;
   cursor: pointer;
+  overflow: hidden;
 }
-.place-card-row { display: flex; gap: 12px; }
+.place-card-row { display: flex; gap: 12px; min-width: 0; }
 .place-thumb {
   position: relative;
   flex: 0 0 auto;
@@ -233,16 +234,18 @@ button { font-family: inherit; }
   border: 2px solid var(--surface);
 }
 .place-card-main { min-width: 0; flex: 1; }
-.place-card-toprow { display: flex; align-items: baseline; gap: 6px; }
+.place-card-toprow { display: flex; align-items: baseline; gap: 6px; min-width: 0; }
 .place-card-toprow h3 {
   margin: 0; font-size: 0.98rem; font-weight: 700;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  min-width: 0; flex: 1 1 auto;
 }
 .place-card-meta {
   margin: 2px 0 4px;
   font-size: 0.72rem; font-weight: 600;
   color: var(--cat-color, var(--ink-soft));
   text-transform: uppercase; letter-spacing: 0.02em;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .place-card-desc {
   margin: 0;

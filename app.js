@@ -324,6 +324,13 @@ function renderMap() {
   renderMarkers(lugares, { categoryColorMap, onClick: (l) => openLugarSheet(l) });
 }
 
+function shortClause(text, maxLen = 30) {
+  if (!text) return '';
+  const firstClause = text.split(/[;,.]|(?:\s+más\s+)/i)[0].trim();
+  if (firstClause.length <= maxLen) return firstClause;
+  return firstClause.slice(0, maxLen).trim() + '…';
+}
+
 // ---------- GRID "TODOS" ----------
 function renderLugares() {
   const grid = document.getElementById('lugaresGrid');
@@ -343,7 +350,7 @@ function renderLugares() {
     card.className = 'place-card' + (visited ? ' is-visited' : '');
     card.style.setProperty('--cat-color', catVar(categoryColorMap, l.categoria));
 
-    const meta = [CONFIG.catLabels[l.categoria] || l.categoria, l.precio_adulto, l.tiempo_visita_recomendado]
+    const meta = [CONFIG.catLabels[l.categoria] || l.categoria, shortClause(l.precio_adulto), shortClause(l.tiempo_visita_recomendado, 20)]
       .filter(Boolean).join(' · ');
 
     card.innerHTML = `
