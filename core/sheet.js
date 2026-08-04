@@ -69,6 +69,11 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
 
   content.innerHTML = `
     <button class="sheet-close" id="sheetCloseBtn" aria-label="Cerrar">✕</button>
+    ${lugar.imagen ? `
+      <div class="sheet-photo" style="background-image:url('${lugar.imagen}')">
+        ${lugar.imagen_credito ? `<a class="sheet-photo-credit" href="${lugar.imagen_credito.foto_url}" target="_blank" rel="noopener">📷 ${lugar.imagen_credito.autor}</a>` : ''}
+      </div>
+    ` : ''}
     <div class="cat-label" style="--cat-color:${catColor}">
       <span class="cat-dot" style="width:8px;height:8px;border-radius:50%;background:${catColor};display:inline-block"></span>
       ${catLabels[lugar.categoria] || lugar.categoria}
@@ -76,10 +81,6 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
     <h2>${lugar.nombre}</h2>
     ${priorityTag}
     <p>${lugar.descripcion_breve || ''}</p>
-
-    ${audioBtn}
-    ${visitedBtn}
-    ${mapsRow}
 
     <dl class="fact-grid" id="sheetFacts">
       <div><dt>Horario</dt><dd>${lugar.horario || '—'}</dd></div>
@@ -89,6 +90,10 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
       <div><dt>Duración</dt><dd>${lugar.tiempo_visita_recomendado || '—'}</dd></div>
       <div><dt>Mejor hora</dt><dd>${lugar.hora_visita_recomendada || lugar.mejor_momento_dia || '—'}</dd></div>
     </dl>
+
+    ${audioBtn}
+    ${visitedBtn}
+    ${mapsRow}
 
     ${lugar.dato_curioso_niños ? `<div class="sheet-section"><h4>Dato curioso</h4><p>${lugar.dato_curioso_niños}</p></div>` : ''}
     ${lugar.consejo_practico ? `<div class="sheet-section"><h4>Consejo práctico</h4><p>${lugar.consejo_practico}</p></div>` : ''}

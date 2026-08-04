@@ -16,8 +16,8 @@ import { filterByQuery, setupSearchInput } from './core/search.js';
 import { renderTripInfo } from './core/info.js';
 import { categoryIcon } from './core/categoryIcons.js';
 import { toggleAudioguide } from './core/audioguide.js';
+import { directionsUrl } from './core/maps.js';
 import { loadTripsIndex, renderTripsList, tripStatus } from './core/trips.js';
-import { showPopover, closePopover } from './core/popover.js';
 import { vibrate, HAPTIC } from './core/haptics.js';
 
 // ---------- CONFIG DEL PROYECTO (compartida entre todos los viajes) ----------
@@ -175,30 +175,6 @@ function matchLugarFromPlanLine(line) {
 
 function starIf(lugar) {
   return lugar.prioridad === 'imprescindible' ? '<span class="star-badge">★</span> ' : '';
-}
-
-function photosPopoverHtml(l) {
-  const items = l.spots_fotografia || [];
-  if (!items.length) return `<p class="glass-popover-empty">Sin spots fotográficos registrados.</p>`;
-  return `<h4>Spots fotográficos</h4>` + items.map((p) => `
-    <div class="glass-popover-item"><strong>${p.nombre}</strong><span>${p.mejor_hora || ''} · ${p.duracion_recomendada || ''}</span></div>
-  `).join('');
-}
-
-function foodPopoverHtml(l) {
-  const items = l.sitios_para_comer || [];
-  if (!items.length) return `<p class="glass-popover-empty">Sin recomendaciones registradas.</p>`;
-  return `<h4>Dónde comer cerca</h4>` + items.map((r) => `
-    <div class="glass-popover-item"><strong>${r.nombre}</strong><span>${r.especialidad || r.tipo || ''} · ${r.precio_aprox_persona || ''}</span></div>
-  `).join('');
-}
-
-function pricePopoverHtml(l) {
-  return `<h4>${l.nombre}</h4>
-    <div class="glass-popover-item"><strong>Horario</strong><span>${l.horario || '—'}</span></div>
-    <div class="glass-popover-item"><strong>Precio adulto</strong><span>${l.precio_adulto || '—'}</span></div>
-    <div class="glass-popover-item"><strong>Precio niño</strong><span>${l.precio_niño || '—'}</span></div>
-    <div class="glass-popover-item"><strong>Duración</strong><span>${l.tiempo_visita_recomendado || '—'}</span></div>`;
 }
 
 // ---------- MODO "AHORA" ----------
@@ -367,29 +343,28 @@ function renderLugares() {
     card.className = 'place-card' + (visited ? ' is-visited' : '');
     card.style.setProperty('--cat-color', catVar(categoryColorMap, l.categoria));
 
-    const hasPhotos = (l.spots_fotografia || []).length > 0;
-    const hasFood = (l.sitios_para_comer || []).length > 0;
+    const meta = [CONFIG.catLabels[l.categoria] || l.categoria, l.precio_adulto, l.tiempo_visita_recomendado]
+      .filter(Boolean).join(' · ');
 
     card.innerHTML = `
-      <div class="place-card-header" data-action="info" ${l.imagen ? `style="background-image:url('${l.imagen}')"` : ''}>
-        ${l.imagen ? '<span class="place-card-header-scrim"></span>' : ''}
-        ${l.prioridad === 'imprescindible' ? '<span class="place-card-priority">★ Imprescindible</span>' : ''}
-        ${visited ? '<span class="place-card-visited-flag">✓</span>' : ''}
-        ${l.imagen ? '' : `<span class="place-card-watermark">${categoryIcon(l.categoria)}</span>`}
-        ${l.imagen_credito ? `<a class="place-card-credit" href="${l.imagen_credito.foto_url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">📷 ${l.imagen_credito.autor}</a>` : ''}
+      <div class="place-card-row" data-action="info">
+        <div class="place-thumb" ${l.imagen ? `style="background-image:url('${l.imagen}')"` : ''}>
+          ${l.imagen ? '' : `<span class="place-thumb-icon">${categoryIcon(l.categoria)}</span>`}
+          ${visited ? '<span class="place-thumb-check">✓</span>' : ''}
+        </div>
+        <div class="place-card-main">
+          <div class="place-card-toprow">
+            <h3>${l.nombre}</h3>
+            ${l.prioridad === 'imprescindible' ? '<span class="star-badge">★</span>' : ''}
+          </div>
+          <p class="place-card-meta">${meta}</p>
+          <p class="place-card-desc">${l.descripcion_breve || ''}</p>
+        </div>
       </div>
-      <div class="place-card-body" data-action="info">
-        <div class="cat-label"><span class="cat-dot"></span>${CONFIG.catLabels[l.categoria] || l.categoria}</div>
-        <h3>${l.nombre}</h3>
-        <p>${l.descripcion_breve || ''}</p>
-      </div>
-      <div class="place-card-actions">
-        <button class="action-audio" data-action="audio" title="Audioguía">🔊</button>
-        <button data-action="photos" title="Fotos" ${hasPhotos ? '' : 'disabled style="opacity:.3"'}>📷</button>
-        <button data-action="food" title="Comida" ${hasFood ? '' : 'disabled style="opacity:.3"'}>🍴</button>
-        <button data-action="price" title="Precio">€</button>
-        <button data-action="info" title="Info">ℹ️</button>
-        <button class="action-visited${visited ? ' is-visited' : ''}" data-action="visited" title="Visitado">✓</button>
+      <div class="place-card-pillrow">
+        <button class="pill-btn action-audio" data-action="audio">🔊 Audio</button>
+        <button class="pill-btn" data-action="directions">🧭 Llegar</button>
+        <button class="pill-btn action-visited${visited ? ' is-visited' : ''}" data-action="visited">${visited ? '✓ Visitado' : '☐ Visitado'}</button>
       </div>
     `;
 
@@ -400,25 +375,19 @@ function renderLugares() {
         if (action === 'audio') {
           vibrate(HAPTIC.tap);
           toggleAudioguide(l.audioguia || l.descripcion_breve, el);
-        } else if (action === 'photos') {
+        } else if (action === 'directions') {
           vibrate(HAPTIC.tap);
-          showPopover(el, photosPopoverHtml(l));
-        } else if (action === 'food') {
-          vibrate(HAPTIC.tap);
-          showPopover(el, foodPopoverHtml(l));
-        } else if (action === 'price') {
-          vibrate(HAPTIC.tap);
-          showPopover(el, pricePopoverHtml(l));
-        } else if (action === 'info') {
-          vibrate(HAPTIC.tap);
-          closePopover();
-          openLugarSheet(l);
+          if (l.coordenadas) window.open(directionsUrl(l), '_blank', 'noopener');
         } else if (action === 'visited') {
           const nowVisited = toggleVisited(l.id, CURRENT_TRIP?.id);
           vibrate(nowVisited ? HAPTIC.toggleOn : HAPTIC.toggleOff);
           el.classList.toggle('is-visited', nowVisited);
+          el.textContent = nowVisited ? '✓ Visitado' : '☐ Visitado';
           card.classList.toggle('is-visited', nowVisited);
           updateProgressBadge();
+        } else if (action === 'info') {
+          vibrate(HAPTIC.tap);
+          openLugarSheet(l);
         }
       });
     });
