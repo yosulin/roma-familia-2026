@@ -416,11 +416,11 @@ button { font-family: inherit; }
 }
 .search-row input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 
-/* Filtros: botón que abre un acordeón, en vez de fila fija de chips */
+/* Filtros: botón que abre un acordeón, comparte fila con el buscador */
 .filter-toggle {
+  flex: 0 0 auto;
   display: flex; align-items: center; gap: 6px;
-  margin: 10px 14px 0;
-  padding: 8px 14px;
+  padding: 9px 12px;
   border-radius: 999px;
   border: 1px solid var(--glass-border);
   background: var(--glass-bg);
@@ -429,7 +429,7 @@ button { font-family: inherit; }
   color: var(--ink-soft);
   font-size: 0.82rem; font-weight: 700;
   cursor: pointer;
-  width: fit-content;
+  white-space: nowrap;
 }
 .filter-toggle-badge {
   background: var(--accent); color: #fff;
@@ -446,15 +446,17 @@ button { font-family: inherit; }
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.25s ease;
+  margin-top: 4px;
 }
 .filter-accordion.is-open { grid-template-rows: 1fr; }
 .filter-accordion-inner { overflow: hidden; min-height: 0; }
 
 .progress-badge {
-  flex: 0 0 auto;
+  margin: 6px 14px 0;
   font-size: 0.72rem; font-weight: 700;
   color: var(--ink-soft);
   white-space: nowrap;
+  min-height: 1em;
 }
 
 /* ---------- VISITED STATE ---------- */

@@ -67,13 +67,13 @@
     <section id="view-lugares" class="view is-active">
       <div class="search-row">
         <input type="search" id="searchInput" placeholder="Buscar lugar..." autocomplete="off">
-        <span class="progress-badge" id="progressBadge"></span>
+        <button class="filter-toggle" id="filterToggle" aria-expanded="false">
+          <span>Filtros</span>
+          <span class="filter-toggle-badge" id="filterBadge" hidden>0</span>
+          <span class="filter-toggle-chevron">⌄</span>
+        </button>
       </div>
-      <button class="filter-toggle" id="filterToggle" aria-expanded="false">
-        <span>Filtros</span>
-        <span class="filter-toggle-badge" id="filterBadge" hidden>0</span>
-        <span class="filter-toggle-chevron">⌄</span>
-      </button>
+      <p class="progress-badge" id="progressBadge"></p>
       <div class="filter-accordion" id="filterAccordion">
         <div class="filter-accordion-inner">
           <div class="filter-row" id="priorityFilterRow">
