@@ -7,6 +7,7 @@ import { catVar } from './categoryColors.js';
 import { mapsUrl, directionsUrl, searchTextUrl } from './maps.js';
 import { toggleAudioguide } from './audioguide.js';
 import { isVisited, toggleVisited } from './visited.js';
+import { vibrate, HAPTIC } from './haptics.js';
 
 const PRIO_LABELS = {
   imprescindible: 'Imprescindible',
@@ -67,6 +68,7 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
     : '';
 
   content.innerHTML = `
+    <button class="sheet-close" id="sheetCloseBtn" aria-label="Cerrar">✕</button>
     <div class="cat-label" style="--cat-color:${catColor}">
       <span class="cat-dot" style="width:8px;height:8px;border-radius:50%;background:${catColor};display:inline-block"></span>
       ${catLabels[lugar.categoria] || lugar.categoria}
@@ -94,9 +96,13 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
     ${eats ? `<div class="sheet-section" id="sheetEats"><h4>Dónde comer cerca</h4>${eats}</div>` : ''}
   `;
 
+  const closeBtnEl = document.getElementById('sheetCloseBtn');
+  closeBtnEl.addEventListener('click', () => { vibrate(HAPTIC.dismiss); closeSheet(); });
+
   const audioBtnEl = document.getElementById('sheetAudioBtn');
   if (audioBtnEl) {
     audioBtnEl.addEventListener('click', (e) => {
+      vibrate(HAPTIC.tap);
       toggleAudioguide(lugar.audioguia || lugar.descripcion_breve, e.currentTarget);
     });
   }
@@ -104,10 +110,13 @@ export function openSheet(lugar, { categoryColorMap, catLabels = {}, onAfterOpen
   const visitedBtnEl = document.getElementById('sheetVisitedBtn');
   visitedBtnEl.addEventListener('click', () => {
     const nowVisited = toggleVisited(lugar.id, tripId);
+    vibrate(nowVisited ? HAPTIC.toggleOn : HAPTIC.toggleOff);
     visitedBtnEl.textContent = nowVisited ? '✅ Visitado' : '☐ Marcar como visitado';
     visitedBtnEl.classList.toggle('is-visited', nowVisited);
     if (onVisitedChange) onVisitedChange(lugar.id, nowVisited);
   });
+
+  setupSwipeToDismiss();
 
   document.getElementById('sheet').classList.add('is-open');
   document.getElementById('sheetBackdrop').classList.add('is-open');
@@ -128,5 +137,44 @@ export function closeSheet() {
 }
 
 export function setupSheetDismiss() {
-  document.getElementById('sheetBackdrop').addEventListener('click', closeSheet);
+  document.getElementById('sheetBackdrop').addEventListener('click', () => { vibrate(HAPTIC.dismiss); closeSheet(); });
+}
+
+let swipeBound = false;
+function setupSwipeToDismiss() {
+  if (swipeBound) return; // el listener es del elemento fijo #sheet, basta con engancharlo una vez
+  swipeBound = true;
+
+  const sheet = document.getElementById('sheet');
+  let startY = null;
+  let currentY = 0;
+  let dragging = false;
+
+  sheet.addEventListener('touchstart', (e) => {
+    if (sheet.scrollTop > 0) { startY = null; return; }
+    startY = e.touches[0].clientY;
+    dragging = false;
+  }, { passive: true });
+
+  sheet.addEventListener('touchmove', (e) => {
+    if (startY === null) return;
+    const delta = e.touches[0].clientY - startY;
+    if (delta <= 0) return;
+    dragging = true;
+    currentY = delta;
+    sheet.style.transition = 'none';
+    sheet.style.transform = `translateY(${delta}px)`;
+  }, { passive: true });
+
+  sheet.addEventListener('touchend', () => {
+    sheet.style.transition = '';
+    if (dragging && currentY > 90) {
+      vibrate(HAPTIC.dismiss);
+      closeSheet();
+    }
+    sheet.style.transform = '';
+    startY = null;
+    currentY = 0;
+    dragging = false;
+  });
 }

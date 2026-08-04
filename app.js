@@ -17,6 +17,8 @@ import { renderTripInfo } from './core/info.js';
 import { categoryIcon } from './core/categoryIcons.js';
 import { toggleAudioguide } from './core/audioguide.js';
 import { loadTripsIndex, renderTripsList, tripStatus } from './core/trips.js';
+import { showPopover, closePopover } from './core/popover.js';
+import { vibrate, HAPTIC } from './core/haptics.js';
 
 // ---------- CONFIG DEL PROYECTO (compartida entre todos los viajes) ----------
 const CONFIG = {
@@ -95,6 +97,7 @@ async function selectTrip(trip, { pushState = true } = {}) {
 }
 
 function backToTrips() {
+  vibrate(HAPTIC.dismiss);
   if (window.speechSynthesis) speechSynthesis.cancel();
   CURRENT_TRIP = null;
   document.getElementById('tripDetail').hidden = true;
@@ -174,6 +177,30 @@ function starIf(lugar) {
   return lugar.prioridad === 'imprescindible' ? '<span class="star-badge">★</span> ' : '';
 }
 
+function photosPopoverHtml(l) {
+  const items = l.spots_fotografia || [];
+  if (!items.length) return `<p class="glass-popover-empty">Sin spots fotográficos registrados.</p>`;
+  return `<h4>Spots fotográficos</h4>` + items.map((p) => `
+    <div class="glass-popover-item"><strong>${p.nombre}</strong><span>${p.mejor_hora || ''} · ${p.duracion_recomendada || ''}</span></div>
+  `).join('');
+}
+
+function foodPopoverHtml(l) {
+  const items = l.sitios_para_comer || [];
+  if (!items.length) return `<p class="glass-popover-empty">Sin recomendaciones registradas.</p>`;
+  return `<h4>Dónde comer cerca</h4>` + items.map((r) => `
+    <div class="glass-popover-item"><strong>${r.nombre}</strong><span>${r.especialidad || r.tipo || ''} · ${r.precio_aprox_persona || ''}</span></div>
+  `).join('');
+}
+
+function pricePopoverHtml(l) {
+  return `<h4>${l.nombre}</h4>
+    <div class="glass-popover-item"><strong>Horario</strong><span>${l.horario || '—'}</span></div>
+    <div class="glass-popover-item"><strong>Precio adulto</strong><span>${l.precio_adulto || '—'}</span></div>
+    <div class="glass-popover-item"><strong>Precio niño</strong><span>${l.precio_niño || '—'}</span></div>
+    <div class="glass-popover-item"><strong>Duración</strong><span>${l.tiempo_visita_recomendado || '—'}</span></div>`;
+}
+
 // ---------- MODO "AHORA" ----------
 function setupNowBanner() {
   if (!TRIP || !TRIP.fechas || !DATA.itinerario_familiar_recomendado) return;
@@ -214,7 +241,7 @@ function buildDayTabs() {
     btn.className = 'day-tab' + (day === activeDay ? ' is-active' : '');
     btn.textContent = dayLabel(day);
     btn.dataset.day = day;
-    btn.addEventListener('click', () => selectDay(day));
+    btn.addEventListener('click', () => { vibrate(HAPTIC.tap); selectDay(day); });
     el.appendChild(btn);
   });
 }
@@ -264,7 +291,7 @@ function renderItinerario() {
       card.className = 'milestone-card' + (isVisited(lugar.id, CURRENT_TRIP?.id) ? ' is-visited' : '');
       card.style.setProperty('--cat-color', catVar(categoryColorMap, lugar.categoria));
       card.innerHTML = `<h3>${starIf(lugar)}${lugar.nombre}</h3><p>${rest}</p>`;
-      card.addEventListener('click', () => openLugarSheet(lugar));
+      card.addEventListener('click', () => { vibrate(HAPTIC.tap); openLugarSheet(lugar); });
       li.appendChild(card);
     } else {
       const p = document.createElement('p');
@@ -298,6 +325,7 @@ function buildFilterRows() {
     starBtn.hidden = false;
     starBtn.classList.remove('is-active');
     starBtn.onclick = () => {
+      vibrate(HAPTIC.select);
       activePrioFilter = activePrioFilter === 'imprescindible' ? 'todas' : 'imprescindible';
       starBtn.classList.toggle('is-active', activePrioFilter === 'imprescindible');
       renderLugares();
@@ -370,17 +398,24 @@ function renderLugares() {
         e.stopPropagation();
         const action = el.dataset.action;
         if (action === 'audio') {
+          vibrate(HAPTIC.tap);
           toggleAudioguide(l.audioguia || l.descripcion_breve, el);
         } else if (action === 'photos') {
-          openLugarSheet(l, 'sheetPhotos');
+          vibrate(HAPTIC.tap);
+          showPopover(el, photosPopoverHtml(l));
         } else if (action === 'food') {
-          openLugarSheet(l, 'sheetEats');
+          vibrate(HAPTIC.tap);
+          showPopover(el, foodPopoverHtml(l));
         } else if (action === 'price') {
-          openLugarSheet(l, 'sheetFacts');
+          vibrate(HAPTIC.tap);
+          showPopover(el, pricePopoverHtml(l));
         } else if (action === 'info') {
+          vibrate(HAPTIC.tap);
+          closePopover();
           openLugarSheet(l);
         } else if (action === 'visited') {
           const nowVisited = toggleVisited(l.id, CURRENT_TRIP?.id);
+          vibrate(nowVisited ? HAPTIC.toggleOn : HAPTIC.toggleOff);
           el.classList.toggle('is-visited', nowVisited);
           card.classList.toggle('is-visited', nowVisited);
           updateProgressBadge();
@@ -428,6 +463,7 @@ function setupViewSwitch() {
   const buttons = document.querySelectorAll('.view-btn');
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
+      vibrate(HAPTIC.tap);
       buttons.forEach((b) => b.classList.toggle('is-active', b === btn));
       document.querySelectorAll('.view').forEach((v) => v.classList.remove('is-active'));
       document.getElementById(`view-${btn.dataset.view}`).classList.add('is-active');

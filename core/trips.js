@@ -4,6 +4,8 @@
 // y data/trips/<id>/trip.json — el resto de módulos (map/sheet/itinerario)
 // no cambian, solo apuntan a rutas distintas según el viaje activo.
 
+import { vibrate, HAPTIC } from './haptics.js';
+
 export async function loadTripsIndex(path = 'data/trips.json') {
   const res = await fetch(path);
   if (!res.ok) return [];
@@ -60,7 +62,7 @@ export function renderTripsList(containerId, trips, { onSelect, onCreateHint } =
         ${trip.fecha_inicio ? `<p class="trip-card-dates">${formatRange(trip.fecha_inicio, trip.fecha_fin)}</p>` : ''}
       </div>
     `;
-    card.addEventListener('click', () => onSelect && onSelect(trip));
+    card.addEventListener('click', () => { vibrate(HAPTIC.select); onSelect && onSelect(trip); });
     el.appendChild(card);
   });
 
@@ -71,7 +73,7 @@ export function renderTripsList(containerId, trips, { onSelect, onCreateHint } =
     <span>Nuevo viaje</span>
     <small>Pídemelo en el chat — esta app es estática, no puede crear viajes por sí sola</small>
   `;
-  createTile.addEventListener('click', () => onCreateHint && onCreateHint());
+  createTile.addEventListener('click', () => { vibrate(HAPTIC.tap); onCreateHint && onCreateHint(); });
   el.appendChild(createTile);
 }
 

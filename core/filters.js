@@ -1,4 +1,6 @@
 // core/filters.js
+import { vibrate, HAPTIC } from './haptics.js';
+
 export function buildChips(containerId, options, { onSelect, colorFn, defaultActive } = {}) {
   const el = document.getElementById(containerId);
   if (!el) return;
@@ -13,6 +15,7 @@ export function buildChips(containerId, options, { onSelect, colorFn, defaultAct
     }
     chip.dataset.value = opt.value;
     chip.addEventListener('click', () => {
+      vibrate(HAPTIC.tap);
       [...el.children].forEach((c) => c.classList.toggle('is-active', c === chip));
       onSelect(opt.value);
     });

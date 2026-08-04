@@ -27,7 +27,8 @@
   --glass-bg: rgba(255,255,255,0.55);
   --glass-bg-strong: rgba(255,255,255,0.75);
   --glass-border: rgba(15,17,23,0.08);
-  --glass-blur: blur(14px);
+  --glass-blur: blur(20px) saturate(180%);
+  --glass-shadow: 0 4px 16px -4px rgba(15,17,23,0.18), inset 0 1px 0 rgba(255,255,255,0.5);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,9 +40,10 @@
     --ink-soft: #a9adb6;
     --ink-faint: #7b7f88;
     --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 20px -8px rgba(0,0,0,0.5);
-    --glass-bg: rgba(25,27,32,0.55);
-    --glass-bg-strong: rgba(25,27,32,0.75);
-    --glass-border: rgba(255,255,255,0.10);
+    --glass-bg: rgba(35,38,45,0.45);
+    --glass-bg-strong: rgba(35,38,45,0.7);
+    --glass-border: rgba(255,255,255,0.12);
+    --glass-shadow: 0 4px 20px -4px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
   }
 }
 
@@ -125,7 +127,8 @@ button { font-family: inherit; }
   color: #fff;
   background: rgba(20,20,24,0.45);
   backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 2px 10px -2px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.25);
   padding: 4px 10px; border-radius: 999px;
 }
 .trip-card.status-en_curso .trip-card-status { background: rgba(18,165,148,0.55); }
@@ -158,7 +161,7 @@ button { font-family: inherit; }
 .trip-card-create small { display: block; margin-top: 4px; font-size: 0.72rem; line-height: 1.3; }
 
 /* ---------- VIEW SWITCH ---------- */
-.view-switch { display: flex; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 20; }
+.view-switch { display: flex; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); position: sticky; top: 0; z-index: 20; }
 .view-btn { flex: 1; padding: 13px 8px; border: none; background: transparent; color: var(--ink-faint); font-size: 0.85rem; font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent; }
 .view-btn.is-active { color: var(--accent); border-bottom-color: var(--accent); }
 
@@ -172,6 +175,7 @@ button { font-family: inherit; }
   border: 1px solid var(--glass-border);
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
   color: var(--ink-soft); font-size: 0.8rem; font-weight: 600; cursor: pointer;
 }
 .day-tab.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
@@ -291,7 +295,17 @@ button { font-family: inherit; }
 .sheet { position: fixed; left: 0; right: 0; bottom: 0; max-height: 86vh; background: var(--surface); border-radius: 20px 20px 0 0; transform: translateY(100%); transition: transform 0.25s ease; z-index: 50; overflow-y: auto; padding-bottom: 24px; }
 .sheet.is-open { transform: translateY(0); }
 .sheet-handle { width: 36px; height: 4px; background: var(--border); border-radius: 2px; margin: 10px auto 4px; }
-.sheet-content { padding: 6px 20px 10px; }
+.sheet-content { padding: 6px 20px 10px; position: relative; }
+.sheet-close {
+  position: absolute; top: -2px; right: 0;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
 .sheet-content .cat-label { font-size: 0.72rem; font-weight: 700; color: var(--cat-color, var(--accent)); display: flex; align-items: center; gap: 6px; }
 .sheet-content h2 { margin: 4px 0 4px; font-size: 1.35rem; font-weight: 800; }
 .sheet-content .priority-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; margin: 4px 0 10px; }
@@ -391,6 +405,7 @@ button { font-family: inherit; }
   border: 1px solid var(--glass-border);
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
   border-radius: 999px;
   padding: 9px 14px;
   font-size: 0.88rem;
@@ -404,6 +419,7 @@ button { font-family: inherit; }
   border: 1px solid var(--glass-border);
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
   color: var(--ink-faint);
   font-size: 1rem;
   cursor: pointer;
@@ -445,5 +461,44 @@ button { font-family: inherit; }
   color: var(--accent);
   text-decoration: none;
 }
+
+/* ---------- POPOVER (core/popover.js) ---------- */
+.glass-popover {
+  position: fixed;
+  z-index: 80;
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), 0 12px 32px -8px rgba(0,0,0,0.35);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  opacity: 0;
+  transform: translateY(6px) scale(0.97);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.glass-popover.is-open { opacity: 1; transform: translateY(0) scale(1); }
+.glass-popover-close {
+  position: absolute; top: 6px; right: 6px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  cursor: pointer;
+}
+.glass-popover-body { padding-right: 20px; font-size: 0.85rem; color: var(--ink); }
+.glass-popover-body h4 {
+  margin: 0 0 8px; font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-faint);
+}
+.glass-popover-body .fact-grid { background: transparent; padding: 0; }
+.glass-popover-item { border-left: 2px solid var(--glass-border); padding: 3px 0 3px 8px; margin-bottom: 6px; }
+.glass-popover-item strong { display: block; font-size: 0.82rem; }
+.glass-popover-item span { display: block; font-size: 0.74rem; color: var(--ink-soft); }
+.glass-popover-empty { color: var(--ink-soft); font-size: 0.82rem; }
 
 
