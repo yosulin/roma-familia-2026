@@ -126,6 +126,10 @@ function resetTripState() {
   searchQuery = '';
   const search = document.getElementById('searchInput');
   if (search) search.value = '';
+  const accordion = document.getElementById('filterAccordion');
+  if (accordion) accordion.classList.remove('is-open');
+  const filterToggle = document.getElementById('filterToggle');
+  if (filterToggle) filterToggle.setAttribute('aria-expanded', 'false');
   document.querySelectorAll('.view-btn').forEach((b, i) => b.classList.toggle('is-active', i === 0));
   document.querySelectorAll('.view').forEach((v) => v.classList.remove('is-active'));
   document.getElementById('view-lugares').classList.add('is-active');
@@ -292,25 +296,47 @@ function buildFilterRows() {
 
   buildChips('lugaresFilters',
     [{ value: 'todas', label: 'Todas' }, ...categorias.map((c) => ({ value: c, label: CONFIG.catLabels[c] || c }))],
-    { onSelect: (v) => { activeCatFilter = v; renderLugares(); }, colorFn: (v) => v !== 'todas' ? catVar(categoryColorMap, v) : null }
+    { onSelect: (v) => { activeCatFilter = v; renderLugares(); updateFilterBadge(); }, colorFn: (v) => v !== 'todas' ? catVar(categoryColorMap, v) : null }
   );
 
   const hasPriority = DATA.lugares.some((l) => l.prioridad);
+  const priorityRow = document.getElementById('priorityFilterRow');
   const starBtn = document.getElementById('starToggle');
   if (hasPriority) {
-    starBtn.hidden = false;
+    priorityRow.hidden = false;
     starBtn.classList.remove('is-active');
     starBtn.onclick = () => {
       vibrate(HAPTIC.select);
       activePrioFilter = activePrioFilter === 'imprescindible' ? 'todas' : 'imprescindible';
       starBtn.classList.toggle('is-active', activePrioFilter === 'imprescindible');
       renderLugares();
+      updateFilterBadge();
     };
   } else {
-    starBtn.hidden = true;
+    priorityRow.hidden = true;
   }
 
+  setupFilterAccordion();
+  updateFilterBadge();
   setupSearchInput('searchInput', (value) => { searchQuery = value; renderLugares(); });
+}
+
+function setupFilterAccordion() {
+  const toggle = document.getElementById('filterToggle');
+  const accordion = document.getElementById('filterAccordion');
+  toggle.onclick = () => {
+    vibrate(HAPTIC.tap);
+    const isOpen = accordion.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  };
+}
+
+function updateFilterBadge() {
+  const badge = document.getElementById('filterBadge');
+  if (!badge) return;
+  const count = (activeCatFilter !== 'todas' ? 1 : 0) + (activePrioFilter === 'imprescindible' ? 1 : 0);
+  badge.hidden = count === 0;
+  badge.textContent = String(count);
 }
 
 // ---------- MAPA ----------

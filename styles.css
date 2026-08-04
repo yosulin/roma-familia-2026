@@ -180,6 +180,7 @@ button { font-family: inherit; }
 }
 .day-tab.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
 .filter-chip.is-active { background: var(--cat-color, var(--accent)); border-color: var(--cat-color, var(--accent)); color: #fff; }
+#starToggle.is-active { background: var(--star); border-color: var(--star); color: #fff; }
 
 /* ---------- TIMELINE ---------- */
 .milestone-track { padding: 18px 16px 8px; }
@@ -414,19 +415,41 @@ button { font-family: inherit; }
   color: var(--ink);
 }
 .search-row input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-.star-toggle {
-  flex: 0 0 auto;
-  width: 36px; height: 36px;
-  border-radius: 50%;
+
+/* Filtros: botón que abre un acordeón, en vez de fila fija de chips */
+.filter-toggle {
+  display: flex; align-items: center; gap: 6px;
+  margin: 10px 14px 0;
+  padding: 8px 14px;
+  border-radius: 999px;
   border: 1px solid var(--glass-border);
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
   box-shadow: var(--glass-shadow);
-  color: var(--ink-faint);
-  font-size: 1rem;
+  color: var(--ink-soft);
+  font-size: 0.82rem; font-weight: 700;
   cursor: pointer;
+  width: fit-content;
 }
-.star-toggle.is-active { background: var(--star); border-color: var(--star); color: #fff; }
+.filter-toggle-badge {
+  background: var(--accent); color: #fff;
+  font-size: 0.68rem; font-weight: 800;
+  min-width: 17px; height: 17px; padding: 0 4px;
+  border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+}
+.filter-toggle-chevron { transition: transform 0.2s ease; font-size: 0.9rem; }
+.filter-toggle[aria-expanded="true"] .filter-toggle-chevron { transform: rotate(180deg); }
+.filter-toggle[aria-expanded="true"] { color: var(--accent); border-color: var(--accent); }
+
+.filter-accordion {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+.filter-accordion.is-open { grid-template-rows: 1fr; }
+.filter-accordion-inner { overflow: hidden; min-height: 0; }
+
 .progress-badge {
   flex: 0 0 auto;
   font-size: 0.72rem; font-weight: 700;

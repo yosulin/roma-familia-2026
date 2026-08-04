@@ -67,10 +67,21 @@
     <section id="view-lugares" class="view is-active">
       <div class="search-row">
         <input type="search" id="searchInput" placeholder="Buscar lugar..." autocomplete="off">
-        <button class="star-toggle" id="starToggle" title="Solo imprescindibles">★</button>
         <span class="progress-badge" id="progressBadge"></span>
       </div>
-      <div class="filter-row" id="lugaresFilters"></div>
+      <button class="filter-toggle" id="filterToggle" aria-expanded="false">
+        <span>Filtros</span>
+        <span class="filter-toggle-badge" id="filterBadge" hidden>0</span>
+        <span class="filter-toggle-chevron">⌄</span>
+      </button>
+      <div class="filter-accordion" id="filterAccordion">
+        <div class="filter-accordion-inner">
+          <div class="filter-row" id="priorityFilterRow">
+            <button class="filter-chip" id="starToggle">★ Imprescindibles</button>
+          </div>
+          <div class="filter-row" id="lugaresFilters"></div>
+        </div>
+      </div>
       <div class="places-grid" id="lugaresGrid"></div>
     </section>
 
