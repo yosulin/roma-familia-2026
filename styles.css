@@ -169,7 +169,8 @@ button { font-family: inherit; }
 .view.is-active { display: block; }
 
 /* ---------- CHIPS ---------- */
-.day-tabs, .filter-row { display: flex; gap: 8px; padding: 14px 14px 6px; overflow-x: auto; }
+.day-tabs { display: flex; gap: 8px; padding: 14px 14px 6px; overflow-x: auto; }
+.filter-row { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 14px 6px; }
 .day-tab, .filter-chip {
   flex: 0 0 auto; padding: 8px 14px; border-radius: 999px;
   border: 1px solid var(--glass-border);
